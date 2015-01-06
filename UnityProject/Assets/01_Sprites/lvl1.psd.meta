@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: 909eb90817e5f45c8a2123b36d0b8382
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Web
+    maxTextureSize: 2048
+    textureFormat: -1
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: lvl1_0
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 2859
+        width: 4004
+        height: 2812
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: lvl1_1
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 2722
+        width: 116
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: stein_klein_3
+      rect:
+        serializedVersion: 2
+        x: 1543
+        y: 2663
+        width: 48
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: stein_klein_4
+      rect:
+        serializedVersion: 2
+        x: 1628
+        y: 2654
+        width: 57
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: stein_klein_5
+      rect:
+        serializedVersion: 2
+        x: 1775
+        y: 2663
+        width: 69
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: stein_klein_6
+      rect:
+        serializedVersion: 2
+        x: 1915
+        y: 2646
+        width: 82
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: lvl1_6
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 2734
+        width: 59
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: steinE_klein_1
+      rect:
+        serializedVersion: 2
+        x: 2153
+        y: 2643
+        width: 238
+        height: 72
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: lvl1_8
+      rect:
+        serializedVersion: 2
+        x: 2295
+        y: 2761
+        width: 49
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: lvl1_9
+      rect:
+        serializedVersion: 2
+        x: 2301
+        y: 2437
+        width: 47
+        height: 81
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: lvl1_10
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 2581
+        width: 61
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: stein_klein_1
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 2331
+        width: 71
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: stein_klein_2
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 2339
+        width: 54
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: "stein_gro\xDF_1"
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 2315
+        width: 223
+        height: 138
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: "stein_gro\xDF_2"
+      rect:
+        serializedVersion: 2
+        x: 1895
+        y: 2311
+        width: 230
+        height: 208
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: "stein_gro\xDF_3"
+      rect:
+        serializedVersion: 2
+        x: 2532
+        y: 2271
+        width: 274
+        height: 261
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: lvl1_16
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 1954
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: lvl1_17
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1894
+        width: 266
+        height: 57
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: bauumchen_1
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 1531
+        width: 344
+        height: 366
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: bauumchen_2
+      rect:
+        serializedVersion: 2
+        x: 2323
+        y: 1471
+        width: 284
+        height: 358
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: lvl1_20
+      rect:
+        serializedVersion: 2
+        x: 3132
+        y: 1766
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: graeser_1
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 1565
+        width: 74
+        height: 133
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: graeser_2
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 1588
+        width: 74
+        height: 119
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: lvl1_23
+      rect:
+        serializedVersion: 2
+        x: 1974
+        y: 1709
+        width: 99
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: tierchen
+      rect:
+        serializedVersion: 2
+        x: 1401
+        y: 1292
+        width: 298
+        height: 83
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: busch_1
+      rect:
+        serializedVersion: 2
+        x: 1985
+        y: 1329
+        width: 250
+        height: 182
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: busch_2
+      rect:
+        serializedVersion: 2
+        x: 2323
+        y: 1222
+        width: 159
+        height: 121
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: lvl1_27
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 969
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: lvl1_28
+      rect:
+        serializedVersion: 2
+        x: 2403
+        y: 2528
+        width: 108
+        height: 89
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: lvl1_29
+      rect:
+        serializedVersion: 2
+        x: 2720
+        y: 1952
+        width: 122
+        height: 222
+      alignment: 0
+      pivot: {x: .5, y: .5}
+  spritePackingTag: 
+  userData: 

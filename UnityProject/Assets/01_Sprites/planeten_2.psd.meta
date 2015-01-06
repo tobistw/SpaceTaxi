@@ -1,0 +1,76 @@
+fileFormatVersion: 2
+guid: b5b03f58c7ba748d88dad2677c5e55bf
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: Web
+    maxTextureSize: 2048
+    textureFormat: -1
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: planet_braun
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 1758
+        width: 1246
+        height: 1356
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: planet_gruen
+      rect:
+        serializedVersion: 2
+        x: 2517
+        y: 2358
+        width: 1711
+        height: 1699
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: planet_lila
+      rect:
+        serializedVersion: 2
+        x: 2166
+        y: 53
+        width: 2043
+        height: 2141
+      alignment: 0
+      pivot: {x: .5, y: .5}
+  spritePackingTag: 
+  userData: 
