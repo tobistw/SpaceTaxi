@@ -1,6 +1,10 @@
 fileFormatVersion: 2
 guid: 612a0b82356674a039802dca4461d892
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: planet_rot
+    21300002: planet_cyan
+    21300004: planet_gelb
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +39,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
@@ -54,6 +59,7 @@ TextureImporter:
         height: 1356
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: planet_cyan
       rect:
         serializedVersion: 2
@@ -63,6 +69,7 @@ TextureImporter:
         height: 1699
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: planet_gelb
       rect:
         serializedVersion: 2
@@ -72,5 +79,6 @@ TextureImporter:
         height: 2141
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

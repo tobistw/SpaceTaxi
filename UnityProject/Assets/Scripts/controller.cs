@@ -160,12 +160,15 @@ public class controller : MonoBehaviour {
 			//stats.setSpeed(rigidbody2D.velocity.magnitude);
 		}
 
-
+		/*
+		 * DAS BRAUCHEN WIR NICHT, WIR HABEN DOCH DEN ANIMATOR :P
+		 */
 ////	TAXI KIPPEN    ////
 
 		//   ___-9|...-3|---|3....|9___
 		//Taxi, je nach Geschwindigkeit und Richtung, 
 		//nach links und rechts kippen
+		/*
 		if (rigidbody2D.velocity.x < -9) {
 			quat.Set (0.0F, 0.0f, 0.1F, 1.0f);
 			transform.rotation = quat;
@@ -182,6 +185,7 @@ public class controller : MonoBehaviour {
 			quat.Set(0.0F, 0.0f, 0.0F, 1.0f);
 			transform.rotation = quat;
 		}
+	*/
 
 
 ////	MAXIMALE GESCHWINDIGKEIT    ////

@@ -1,6 +1,22 @@
 fileFormatVersion: 2
 guid: 93481424f56bd4f099a952ccf46ee96c
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: maennchen_1_vorne
+    21300002: maennchen_1_arm
+    21300004: maennchen_1_seite
+    21300006: maennchen_1_bein1
+    21300008: maennchen_1_bein2
+    21300010: maennchen_2_seite
+    21300012: maennchen_2_vorne
+    21300014: maennchen_2_arm
+    21300016: maennchen_2_bein1
+    21300018: maennchen_2_bein2
+    21300020: maennchen_3_vorne
+    21300022: maennchen_3_arm
+    21300024: maennchen_3_seite
+    21300026: maennchen_3_fuss1
+    21300028: maennchen_3_fuss2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,6 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
   alphaIsTransparency: 1
   textureType: 8
@@ -54,6 +71,7 @@ TextureImporter:
         height: 217
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_1_arm
       rect:
         serializedVersion: 2
@@ -63,6 +81,7 @@ TextureImporter:
         height: 98
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_1_seite
       rect:
         serializedVersion: 2
@@ -72,6 +91,7 @@ TextureImporter:
         height: 163
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_1_bein1
       rect:
         serializedVersion: 2
@@ -81,6 +101,7 @@ TextureImporter:
         height: 91
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_1_bein2
       rect:
         serializedVersion: 2
@@ -90,6 +111,7 @@ TextureImporter:
         height: 91
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_2_seite
       rect:
         serializedVersion: 2
@@ -99,6 +121,7 @@ TextureImporter:
         height: 141
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_2_vorne
       rect:
         serializedVersion: 2
@@ -108,6 +131,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_2_arm
       rect:
         serializedVersion: 2
@@ -117,6 +141,7 @@ TextureImporter:
         height: 101
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_2_bein1
       rect:
         serializedVersion: 2
@@ -126,6 +151,7 @@ TextureImporter:
         height: 84
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_2_bein2
       rect:
         serializedVersion: 2
@@ -135,6 +161,7 @@ TextureImporter:
         height: 84
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_3_vorne
       rect:
         serializedVersion: 2
@@ -144,6 +171,7 @@ TextureImporter:
         height: 210
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_3_arm
       rect:
         serializedVersion: 2
@@ -153,6 +181,7 @@ TextureImporter:
         height: 158
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_3_seite
       rect:
         serializedVersion: 2
@@ -162,6 +191,7 @@ TextureImporter:
         height: 204
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_3_fuss1
       rect:
         serializedVersion: 2
@@ -171,6 +201,7 @@ TextureImporter:
         height: 28
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: maennchen_3_fuss2
       rect:
         serializedVersion: 2
@@ -180,5 +211,6 @@ TextureImporter:
         height: 29
       alignment: 0
       pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
