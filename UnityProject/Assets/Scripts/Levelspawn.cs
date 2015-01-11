@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Levelspawn : MonoBehaviour {
 
-	public Transform[] spwanPoints;
+	public Transform[] spawnPoints;
 	public Rigidbody2D passenger;
 
 	
@@ -11,12 +11,15 @@ public class Levelspawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		int randomPoint = Random.Range (0, spwanPoints.Length);
+		int randomPoint = Random.Range (0, spawnPoints.Length);
 		Debug.Log (randomPoint);
 
+		if (randomPoint <= spawnPoints.Length) {
+		
 		Rigidbody2D instancePassenger = Instantiate (passenger, 
-		                                           spwanPoints [randomPoint].position, 
-		                                           spwanPoints [randomPoint].rotation) as Rigidbody2D;
+		                                           spawnPoints [randomPoint].position, 
+		                                           spawnPoints [randomPoint].rotation) as Rigidbody2D;
+		}
 	}
 	
 	// Update is called once per frame
