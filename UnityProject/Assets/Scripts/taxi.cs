@@ -20,4 +20,14 @@ public class taxi : MonoBehaviour {
 
 
 	}
+
+	void OnTriggerEnter2D (Collider2D coll) {
+		if (coll.tag == "boden") {
+			animator.SetTrigger("Landing");
+		}
+	}
+
+	void OnTriggerExit2D (Collider2D coll) {
+		animator.SetTrigger ("Starting");
+	}
 }
