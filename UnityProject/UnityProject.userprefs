@@ -1,10 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\controller.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/lvlController.cs">
     <Files>
-      <File FileName="Assets\Scripts\taxi.cs" Line="21" Column="1" />
-      <File FileName="Assets\Scripts\stats.cs" Line="56" Column="20" />
-      <File FileName="Assets\Scripts\controller.cs" Line="170" Column="20" />
+      <File FileName="Assets/Scripts/controller.cs" Line="164" Column="1" />
+      <File FileName="Assets/Scripts/lvlController.cs" Line="155" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

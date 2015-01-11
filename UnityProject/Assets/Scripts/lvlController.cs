@@ -7,7 +7,7 @@ public class lvlController : MonoBehaviour {
 	private Quaternion quat;
 	
 	//Geschwindigkeitserhoehung
-	public float speedBoost = 15;
+	public float speedBoost = 20;
 	
 	//maximale Geschwindigkeit
 	private float maxspeed = 24.0F;
@@ -19,11 +19,17 @@ public class lvlController : MonoBehaviour {
 	bool steuerungAktiv;
 
 	//Fenster in dem sich das Taxi aufhaelt
-	float xMin = -17.2F;
-	float xMax = 17.2F;
+	float xMin = -26.84F;
+	float xMax = 26.84F;
 	float yMin = -20.0F;
-	float yMax = 20.0F;
-	
+	float yMax = 23.0F;
+
+	//
+	float insUniversum = 17.0F;
+
+	//
+	GameObject auspuff;
+
 	//
 	bool positionErfasst;
 	
@@ -34,6 +40,8 @@ public class lvlController : MonoBehaviour {
 		steuerungAktiv = false;
 		//start für timer setzen
 		timeLeft = 0.5f;
+		auspuff = GameObject.FindGameObjectWithTag("auspuff");
+		rigidbody2D.angularDrag = 0.0F;
 	}
 	
 	void Update () { 
@@ -43,31 +51,47 @@ public class lvlController : MonoBehaviour {
 		//falls Steuerung aktiv ist, kann das Taxi gesteuert werden, 
 		//falls nicht (es befindet sich dann in einer Atmosphäre, nicht
 		if (steuerungAktiv) {			
-			if (rigidbody2D.transform.position.y < 16.3F) {
+			if (rigidbody2D.transform.position.y < insUniversum) {
 				positionErfasst = false;
 				//Steuerung nach links
 				if (Input.GetKey (KeyCode.LeftArrow)) {
 					rigidbody2D.AddForce (new Vector2 (-speedBoost, 0));
 					//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 					rigidbody2D.angularVelocity = 0;
+					rigidbody2D.angularDrag = 0.0F;
+					auspuff.renderer.enabled = true;
+
 				} 
 				//Steuerung nach rechts
 				if (Input.GetKey (KeyCode.RightArrow)) {
 					rigidbody2D.AddForce (new Vector2 (speedBoost, 0));
 					//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 					rigidbody2D.angularVelocity = 0;
+					rigidbody2D.angularDrag = 0.0F;
+					auspuff.renderer.enabled = true;
 				}
 				//Steuerung nach oben
 				if (Input.GetKey (KeyCode.UpArrow)) {
 					rigidbody2D.AddForce (new Vector2 (0, speedBoost));
 					//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 					rigidbody2D.angularVelocity = 0;
+					rigidbody2D.angularDrag = 0.0F;
+					auspuff.renderer.enabled = true;
 				}
 				//Steuerung nach unten
 				if (Input.GetKey (KeyCode.DownArrow)) {
+					auspuff.renderer.enabled = true;
 					rigidbody2D.AddForce (new Vector2 (0, -speedBoost));
 					//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 					rigidbody2D.angularVelocity = 0;
+					rigidbody2D.angularDrag = 0.0F;
+				}  
+				if(Input.GetKeyUp(KeyCode.RightArrow) 
+				   || Input.GetKeyUp(KeyCode.LeftArrow)
+				   || Input.GetKeyUp(KeyCode.UpArrow) 
+				   || Input.GetKeyUp(KeyCode.DownArrow)){
+					auspuff.renderer.enabled = false;
+
 				} 
 			} else {
 				timeLeft -= Time.deltaTime;
