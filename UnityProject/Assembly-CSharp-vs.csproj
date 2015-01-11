@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AtmosphaerenScript.cs" />
      <Compile Include="Assets\Scripts\Levelspawn.cs" />
+     <Compile Include="Assets\Scripts\MapSpawn.cs" />
      <Compile Include="Assets\Scripts\SortPaticleSystem.cs" />
      <Compile Include="Assets\Scripts\camera.cs" />
      <Compile Include="Assets\Scripts\controller.cs" />
