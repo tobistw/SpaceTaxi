@@ -27,7 +27,7 @@
         <Name>PlayerController</Name>
         <Access>Public</Access>
         <Location left="534" top="157" />
-        <Size width="162" height="383" />
+        <Size width="162" height="434" />
         <Collapsed>False</Collapsed>
         <Member type="Field">float speedBoost</Member>
         <Member type="Field">float maxSpeed</Member>
@@ -39,7 +39,10 @@
         <Member type="Field">int passengerCount</Member>
         <Member type="Field">static int passengerMaxCount</Member>
         <Member type="Field">float damage</Member>
-        <Member type="Field">Boundary boundary</Member>
+        <Member type="Field">LevelStats levelStats</Member>
+        <Member type="Field">float fuel</Member>
+        <Member type="Field">static float fuelAmount = 100</Member>
+        <Member type="Field">int budget</Member>
         <Member type="Method">public void Start()</Member>
         <Member type="Method">private void initPlayerValues()</Member>
         <Member type="Method">private void setBoundary()</Member>
@@ -87,6 +90,20 @@
         <Location left="877" top="576" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>LevelStats</Name>
+        <Access>Public</Access>
+        <Location left="27" top="355" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public float minX</Member>
+        <Member type="Field">public float maxX</Member>
+        <Member type="Field">public float minY</Member>
+        <Member type="Field">public float maxY</Member>
+        <Member type="Field">public float speedBoost</Member>
+        <Member type="Field">public float maxSpeed</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>

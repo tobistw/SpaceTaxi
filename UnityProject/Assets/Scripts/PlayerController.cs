@@ -12,17 +12,15 @@ public class PlayerController : MonoBehaviour {
 
 	private float damage;
 
+	private float fuel;
+
+	private int budget;
+
 	private int passengerCount;
 	
 	public static int passengerMaxCount = 5;
 
-	public static float mapSpeedBoost = 30.0F;
-
-	public static float mapMaxSpeed = 40.0F;
-
-	public static float levelSpeedBoost = 20.0F;
-	
-	public static float levelMaxSpeed = 24.0F;
+	public static float fuelAmount = 100;
 	
 	private GameController gameController;
 
@@ -36,38 +34,79 @@ public class PlayerController : MonoBehaviour {
 	
 	private float gravityScale;
 
-	// es werden die Levelbegrenzungen verwaltet.
-	private Boundary boundary;
+	// es werden die Level Stati verwaltet.
+	private LevelStats levelStats;
 	
 
 	// Use this for initialization
 	void Start () {
 
-		// Initalisierung der Boundary im Level
+		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
 
 		if (gameControllerObject != null) {
 
-			boundary = gameControllerObject.GetComponent<Boundary> ();
+			levelStats = gameControllerObject.GetComponent<LevelStats> ();
 		} else {
 			Debug.Log("Cant find Game Controller Object");
 		}
 
-		// Standardwerte für die Map
-		if (isPlayerInMap ()) {
-			speedBoost = mapSpeedBoost;
-			maxSpeed = mapMaxSpeed;
-		} else {
-			// Standardwerte für Level
-			speedBoost = levelSpeedBoost;
-			maxSpeed = levelMaxSpeed;
-		}
+		// Standardwerte für das Taxi zur Steuerung
+		speedBoost = levelStats.speedBoost;
+		maxSpeed = levelStats.maxSpeed;
+
+		// Initialisierung der Werte für Passagiere, Fuel und Damage
+		initPlayerValues ();
+
 	}
 	
 	void FixedUpdate() {
 
-		//Die Standard Steuerung
+		// Taxi Steuerung einbinden.
+		taxiControl ();
 
+		//Die Levelbegrenzung festlegen
+		setBoundary ();
+
+	}
+	
+	/*
+	 * Werte werden von den PlayerPrefs abgefragt. Sonst die Default Werte.
+	 * */
+	void initPlayerValues() {
+		passengerCount = levelStats.PassengerCount;
+		damage = levelStats.Damage;
+		fuel = levelStats.Fuel;
+		budget = levelStats.Budget;
+		currentXPosition = levelStats.CurrentXPosition;
+		currentYPosition = levelStats.currentYPosition;
+
+		// letzte bekannte Position des Taxis laden
+		transform.position = new Vector2 (currentXPosition, currentYPosition);
+
+		// Falls fuel den Wert 0 hat. Wurde das Spiel gestartet und wir fuel wird auf Default gesetzt;
+		fuel = (fuel == 0) ? fuelAmount : fuel;
+		Debug.Log (fuel);
+	}
+
+	/*
+	 * Setzt die Levelbegrenzung
+	 * */
+	void setBoundary() {
+		rigidbody2D.position = new Vector2
+			(
+				Mathf.Clamp (rigidbody2D.position.x, levelStats.xMin, levelStats.xMax),
+				Mathf.Clamp (rigidbody2D.position.y, levelStats.yMin, levelStats.yMax)
+				
+			);
+	}
+
+	/**
+	 * Steuerung des Taxis über physikalische Kräfte.
+	 * */
+	void taxiControl() {
+		//Die Standard Steuerung
+		
 		//Steuerung nach links
 		if (Input.GetKey (KeyCode.LeftArrow)) {
 			rigidbody2D.AddForce (new Vector2 (-speedBoost, 0));
@@ -92,30 +131,12 @@ public class PlayerController : MonoBehaviour {
 			//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 			rigidbody2D.angularVelocity = 0;
 		} 
-
+		
 		////	MAXIMALE GESCHWINDIGKEIT    ////
 		
 		if (rigidbody2D.velocity.magnitude > maxSpeed) {
 			rigidbody2D.velocity = rigidbody2D.velocity.normalized * maxSpeed;
 		}
-
-		//Die Levelbegrenzung festlegen
-
-		rigidbody2D.position = new Vector2
-		(
-				Mathf.Clamp (rigidbody2D.position.x, boundary.xMin, boundary.xMax),
-				Mathf.Clamp (rigidbody2D.position.y, boundary.yMin, boundary.yMax)
-			    
-		);
-	}
-	
-	/*
-	 * Werte werden von den PlayerPrefs abgefragt. Sonst die Default Werte.
-	 * */
-	void initPlayerValues() {
-		speedBoost = PlayerPrefs.GetFloat ("SpeedBoost");
-		maxSpeed = PlayerPrefs.GetFloat ("MaxSpeed");
-
 	}
 
 	/*

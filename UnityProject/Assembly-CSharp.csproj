@@ -47,8 +47,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AtmosphaerenScript.cs" />
+     <Compile Include="Assets\Scripts\Atmosphere.cs" />
      <Compile Include="Assets\Scripts\Boundary.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\LevelStats.cs" />
      <Compile Include="Assets\Scripts\Levelspawn.cs" />
      <Compile Include="Assets\Scripts\MapSpawn.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
