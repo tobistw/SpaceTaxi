@@ -1,0 +1,95 @@
+<Project>
+  <Name>Unbenannt</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>SpaceTaxi</Name>
+    <Language>CSharp</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>GameController</Name>
+        <Access>Public</Access>
+        <Location left="228" top="157" />
+        <Size width="162" height="264" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int activeOrbs</Member>
+        <Member type="Field">boolean isControllerActive</Member>
+        <Member type="Field">boolean isPlayerInMap</Member>
+        <Member type="Method">public void Start()</Member>
+        <Member type="Method">private void spawnPlayer()</Member>
+        <Member type="Method">private void spawnTankship()</Member>
+        <Member type="Method">private void spawnSpaceObjects()</Member>
+        <Member type="Method">private void spawnPassengerOnOrbs()</Member>
+        <Member type="Method">private void initHudDisplay()</Member>
+        <Member type="Method">public void Update()</Member>
+        <Member type="Method">private void updateHudDisplay()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PlayerController</Name>
+        <Access>Public</Access>
+        <Location left="534" top="157" />
+        <Size width="162" height="383" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">float speedBoost</Member>
+        <Member type="Field">float maxSpeed</Member>
+        <Member type="Field">GameController gameController</Member>
+        <Member type="Field">float currentXPosition</Member>
+        <Member type="Field">float currentYPosition</Member>
+        <Member type="Field">float angularDrag</Member>
+        <Member type="Field">float gravityScale</Member>
+        <Member type="Field">int passengerCount</Member>
+        <Member type="Field">static int passengerMaxCount</Member>
+        <Member type="Field">float damage</Member>
+        <Member type="Field">Boundary boundary</Member>
+        <Member type="Method">public void Start()</Member>
+        <Member type="Method">private void initPlayerValues()</Member>
+        <Member type="Method">private void setBoundary()</Member>
+        <Member type="Method">public void FixedUpdate()</Member>
+        <Member type="Method">private void controllTaxi()</Member>
+        <Member type="Method">public void OnTriggerEnter()</Member>
+        <Member type="Method">private void SetPlayerPosition()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Orb</Name>
+        <Access>Public</Access>
+        <Location left="815" top="160" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public float angluarDrag</Member>
+        <Member type="Field">public float gravityScale</Member>
+        <Member type="Field">public int passengerCount</Member>
+        <Member type="Method">public void Start()</Member>
+        <Member type="Method">private void setPlayerPrefs()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PassengerStandard</Name>
+        <Access>Public</Access>
+        <Location left="205" top="584" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public int money</Member>
+        <Member type="Field">public int bonus</Member>
+        <Member type="Field">String targetOrb</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Tankship</Name>
+        <Access>Public</Access>
+        <Location left="567" top="568" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>TaxiAnimator</Name>
+        <Access>Public</Access>
+        <Location left="877" top="576" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships />
+  </ProjectItem>
+</Project>
