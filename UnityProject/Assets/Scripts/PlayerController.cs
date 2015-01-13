@@ -36,7 +36,8 @@ public class PlayerController : MonoBehaviour {
 
 	// es werden die Level Stati verwaltet.
 	private LevelStats levelStats;
-	
+
+	private static bool isEnteringMap;
 
 	// Use this for initialization
 	void Start () {
@@ -69,6 +70,13 @@ public class PlayerController : MonoBehaviour {
 		setBoundary ();
 
 	}
+
+	void OnDestroy() {
+		currentXPosition = rigidbody2D.position.x;
+		currentYPosition = rigidbody2D.position.y;
+
+		Debug.Log ("Position x: " + currentXPosition);
+	}
 	
 	/*
 	 * Werte werden von den PlayerPrefs abgefragt. Sonst die Default Werte.
@@ -80,11 +88,10 @@ public class PlayerController : MonoBehaviour {
 		budget = levelStats.Budget;
 
 		// letzte bekannte Position des Taxis laden
-		transform.position = new Vector2 (currentXPosition, currentYPosition);
+		//transform.position = new Vector2 (currentXPosition, currentYPosition);
 
 		// Falls fuel den Wert 0 hat. Wurde das Spiel gestartet und wir fuel wird auf Default gesetzt;
 		fuel = (fuel == 0) ? fuelAmount : fuel;
-		Debug.Log (fuel);
 	}
 
 	/*
@@ -103,32 +110,43 @@ public class PlayerController : MonoBehaviour {
 	 * Steuerung des Taxis über physikalische Kräfte.
 	 * */
 	void taxiControl() {
-		//Die Standard Steuerung
-		
-		//Steuerung nach links
-		if (Input.GetKey (KeyCode.LeftArrow)) {
-			rigidbody2D.AddForce (new Vector2 (-speedBoost, 0));
-			//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
-			rigidbody2D.angularVelocity = 0;
-		} 
-		//Steuerung nach rechts
-		if (Input.GetKey (KeyCode.RightArrow)) {
-			rigidbody2D.AddForce (new Vector2 (speedBoost, 0));
-			//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
-			rigidbody2D.angularVelocity = 0;
+
+		if (levelStats.ExitLevelHeight == -1 | rigidbody2D.position.y < levelStats.ExitLevelHeight) {
+				
+			//Die Standard Steuerung
+			float horizontal = Input.GetAxis ("Horizontal");
+			float vertical = Input.GetAxis("Vertical");
+
+			//Steuerung rechts
+			if (horizontal > 0) {
+				rigidbody2D.AddForce (new Vector2 (speedBoost, 0));
+				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
+				rigidbody2D.angularVelocity = 0;
+			}
+
+			//Steuerung links
+			if (horizontal < 0) {
+				rigidbody2D.AddForce (new Vector2 (-speedBoost, 0));
+				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
+				rigidbody2D.angularVelocity = 0;
+			}
+
+			//Steuerung oben
+			if (vertical > 0) {
+				rigidbody2D.AddForce (new Vector2 (0, speedBoost));
+				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
+				rigidbody2D.angularVelocity = 0;
+			}
+
+			//Steuerung unten
+			if (vertical < 0) {
+				rigidbody2D.AddForce (new Vector2 (0, -speedBoost));
+				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
+				rigidbody2D.angularVelocity = 0;
+			}
+		} else {
+			Application.LoadLevel(0);
 		}
-		//Steuerung nach oben
-		if (Input.GetKey (KeyCode.UpArrow)) {
-			rigidbody2D.AddForce (new Vector2 (0, speedBoost));
-			//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
-			rigidbody2D.angularVelocity = 0;
-		}
-		//Steuerung nach unten
-		if (Input.GetKey (KeyCode.DownArrow)) {
-			rigidbody2D.AddForce (new Vector2 (0, -speedBoost));
-			//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
-			rigidbody2D.angularVelocity = 0;
-		} 
 		
 		////	MAXIMALE GESCHWINDIGKEIT    ////
 		

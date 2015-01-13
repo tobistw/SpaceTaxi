@@ -5,7 +5,7 @@ public class GameController : MonoBehaviour {
 
 	private int activeOrbs;
 
-	public GameObject[] atmosphereObjects;
+	public static GameObject[] atmosphereObjects;
 
 	private CircleCollider2D atmosphereCollider;
 
@@ -19,11 +19,25 @@ public class GameController : MonoBehaviour {
 
 	private bool isPlayerInMap;
 
+	private static ArrayList orbInactiveList;
+
+	private static ArrayList orbActiveList;
+
+	private GameObject atmo;
+
+	private Atmosphere atmoScript;
+
 	// es werden die Level Stati verwaltet.
 	private LevelStats levelStats;
 
+	private static bool isGameRunning;
+
+	void Awake() {
+		DontDestroyOnLoad (atmo);
+	}
 
 	void Start() {
+
 
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
@@ -37,7 +51,8 @@ public class GameController : MonoBehaviour {
 
 		initActivePlanets ();
 
-		initAtmospheres ();
+		firstGameRunning ();
+
 	}
 
 	/**
@@ -58,42 +73,69 @@ public class GameController : MonoBehaviour {
 	 * Die Atmosphären der aktiven Planeten werden aktiviert.
 	 * */
 	void initAtmospheres () {
-		// Array mit Atmosphären der Planeten
-		//atmosphereObjects = GameObject.FindGameObjectsWithTag ("atmosphere");
 
-		if (atmosphereObjects != null) {
 			// Wähle - einmalig -  zufällig einen Planeten aus der Map aus.
-			/*
+
 			for(int i = 0; i < activeOrbs; i++) {
 
-				int randomIndex = Random.Range(0, levelStats.atmosphereObjects.Length);
+				int randomIndex = Random.Range(0, atmosphereObjects.Length - 1);
 
-				// Prüfe die Hashmap: Wurde der Planet noch nicht aktiviert?
-				int value = levelStats.activeOrbTable.Values;
-				if (value == 0) {
-					// Aktiviere die Atmosphäre...
-					levelStats.atmosphereObjects[randomIndex].renderer.enabled = true;
-					atmosphereCollider = levelStats.atmosphereObjects[randomIndex].GetComponent<CircleCollider2D>();
-					atmosphereCollider.renderer.enabled = true;
-					atmosphereCollider.isTrigger = true;
-					atmosphereCollider.enabled = true;
-					//...und schreibe es in die Hashtable
-					levelStats.activeOrbTable.Add(randomIndex, 1);
-					Debug.Log("Hashtable Size:" + levelStats.activeOrbTable.Count);
-				} 
-					//....
+				orbActiveList.Add(orbInactiveList[randomIndex]);
+				orbInactiveList.Remove(orbInactiveList[randomIndex]);
+
 			}
-			*/
 
-			levelStats.atmosphereObjects[0].renderer.enabled = true;
-			atmosphereCollider = levelStats.atmosphereObjects[0].GetComponent<CircleCollider2D>();
-			atmosphereCollider.renderer.enabled = true;
-			atmosphereCollider.isTrigger = true;
-			atmosphereCollider.enabled = true;
+		renderAtmospheres ();
 
-		} else {
-			Debug.Log("Cant find Game Atmosphere Object");
+	}
+
+	// Methode zum Rendern der aktiven Atmosphären.
+	void renderAtmospheres() {
+		Debug.Log (orbActiveList.Count);
+		for (int i = 0; i < orbActiveList.Count; i++) {
+			Debug.Log((GameObject) orbActiveList[i]);
+			atmo = (GameObject) orbActiveList[i];
+			atmoScript = atmo.GetComponent<Atmosphere>();
+			atmoScript.LevelIndex = i + 1;
+			atmo.renderer.enabled = true;
+			CircleCollider2D atmoCollider = atmo.GetComponent<CircleCollider2D>();
+			atmo.renderer.enabled = true;
+			atmoCollider.isTrigger = true;
+			atmoCollider.enabled = true;
 		}
+	}
 
+	// Wird nur einmal nach dem Start des Spiels ausgeführt.
+	void firstGameRunning () {
+		if (!isGameRunning) {
+			
+
+			orbInactiveList = new ArrayList ();
+			orbActiveList = new ArrayList();
+
+			atmosphereObjects = GameObject.FindGameObjectsWithTag ("atmosphere");
+
+			// Inaktive Planeten werden vorinitialisiert...
+			if (atmosphereObjects != null) {
+				
+				for(int i = 0; i < atmosphereObjects.Length; i++) {
+					orbInactiveList.Add(atmosphereObjects[i]);
+				}
+
+			// Die aktiven Atmosphären werden nach erstem Start des Spiels aktiviert.
+
+			initAtmospheres ();
+
+			} else {
+				
+				Debug.Log("Cant find Game Atmosphere Object");
+				
+			}
+			isGameRunning = true;
+		
+		} else {
+
+			renderAtmospheres ();
+		}
 	}
 }

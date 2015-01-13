@@ -18,23 +18,12 @@ public class LevelStats : MonoBehaviour {
 	/*
 	 * Leveleigenschaften
 	 * */
-	public int levelLoadIndex;
-
-	public GameObject[] atmosphereObjects;
-
-	public int activeOrbArraySize;
-
-	public Hashtable activeOrbTable;
-
-
-	void Awake () {
-		activeOrbTable = new Hashtable ();
-	}
+	public float exitLevelHeight;
+	
 
 	void Start() {
 
 		initPlayerPreferences ();
-		initActiveOrbTable ();
 	}
 
 
@@ -47,31 +36,12 @@ public class LevelStats : MonoBehaviour {
 		fuel = PlayerPrefs.GetFloat ("Fuel");
 		budget = PlayerPrefs.GetInt ("Budget");
 	}
-
-	/**
-	 * Erezugt eine Schlüssel Werte Tabelle mit den aktiven Planeten
-	 * */
-	void initActiveOrbTable() {
-
-		for (int i = 0; i < atmosphereObjects.Length; i++) {
-				int booleanNumber = PlayerPrefs.GetInt ("Orb" + i.ToString ());
-				activeOrbTable.Add (0, booleanNumber);
-		}
-	}
+	
 
 	/**
 	 * Getter und Setter
 	 * */
-
-	public int LevelLoadIndex {
-		get {
-			return levelLoadIndex;
-		}
-		
-		set {
-			levelLoadIndex = value;
-		}
-	}
+	
 
 	public int PassengerCount {
 		get {
@@ -112,5 +82,14 @@ public class LevelStats : MonoBehaviour {
 			fuel = value;
 		}
 	}
-	
+
+	public float ExitLevelHeight {
+		get {
+			return exitLevelHeight;
+		}
+		
+		set {
+			exitLevelHeight = value;
+		}
+	}
 }

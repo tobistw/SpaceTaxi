@@ -23,8 +23,6 @@ public class Atmosphere : MonoBehaviour {
 			Debug.Log("Cant find Game Controller Object");
 		}
 
-		atmosphereCollider = this.GetComponent<CircleCollider2D> ();
-		atmosphereCollider.isTrigger = false;
 	}
 	
 	// Update is called once per frame
@@ -35,9 +33,18 @@ public class Atmosphere : MonoBehaviour {
 	//wenn das Taxi die Atmospäre betritt, 
 	//wird die steuerung des taxis deaktiviert
 	void OnTriggerEnter2D (Collider2D other) {
-		if (atmosphereCollider.isTrigger == true) {
 			//stats.setSteuerungAktiv (false);
-			levelStats.LevelLoadIndex = levelIndex;
+			Application.LoadLevel(levelIndex);
+
+	}
+
+	public int LevelIndex {
+		get {
+			return levelIndex;
+		}
+
+		set {
+			levelIndex = value;
 		}
 	}
 }
