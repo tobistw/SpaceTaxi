@@ -7,7 +7,7 @@
       <Entity type="Class">
         <Name>GameController</Name>
         <Access>Public</Access>
-        <Location left="228" top="157" />
+        <Location left="267" top="160" />
         <Size width="162" height="264" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int activeOrbs</Member>
@@ -26,8 +26,8 @@
       <Entity type="Class">
         <Name>PlayerController</Name>
         <Access>Public</Access>
-        <Location left="534" top="157" />
-        <Size width="162" height="434" />
+        <Location left="506" top="160" />
+        <Size width="162" height="445" />
         <Collapsed>False</Collapsed>
         <Member type="Field">float speedBoost</Member>
         <Member type="Field">float maxSpeed</Member>
@@ -68,8 +68,8 @@
       <Entity type="Class">
         <Name>PassengerStandard</Name>
         <Access>Public</Access>
-        <Location left="205" top="584" />
-        <Size width="162" height="216" />
+        <Location left="75" top="590" />
+        <Size width="162" height="157" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public int money</Member>
         <Member type="Field">public int bonus</Member>
@@ -79,7 +79,7 @@
       <Entity type="Class">
         <Name>Tankship</Name>
         <Access>Public</Access>
-        <Location left="567" top="568" />
+        <Location left="593" top="671" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -87,7 +87,7 @@
       <Entity type="Class">
         <Name>TaxiAnimator</Name>
         <Access>Public</Access>
-        <Location left="877" top="576" />
+        <Location left="948" top="649" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -95,8 +95,8 @@
       <Entity type="Class">
         <Name>LevelStats</Name>
         <Access>Public</Access>
-        <Location left="27" top="355" />
-        <Size width="162" height="216" />
+        <Location left="43" top="160" />
+        <Size width="162" height="247" />
         <Collapsed>False</Collapsed>
         <Member type="Field">public float minX</Member>
         <Member type="Field">public float maxX</Member>
@@ -104,6 +104,10 @@
         <Member type="Field">public float maxY</Member>
         <Member type="Field">public float speedBoost</Member>
         <Member type="Field">public float maxSpeed</Member>
+        <Member type="Field">public int passengerCount</Member>
+        <Member type="Field">public int budget</Member>
+        <Member type="Field">GameObject[] atmosphereObjects</Member>
+        <Member type="Field">public Hashtable activeOrbTable</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>

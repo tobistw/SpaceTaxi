@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\LevelStats.cs" />
      <Compile Include="Assets\Scripts\Levelspawn.cs" />
      <Compile Include="Assets\Scripts\MapSpawn.cs" />
+     <Compile Include="Assets\Scripts\Orb.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\SortPaticleSystem.cs" />
      <Compile Include="Assets\Scripts\TaxiAnimator.cs" />

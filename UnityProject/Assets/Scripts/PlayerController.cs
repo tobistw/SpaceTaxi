@@ -37,10 +37,14 @@ public class PlayerController : MonoBehaviour {
 	// es werden die Level Stati verwaltet.
 	private LevelStats levelStats;
 
-	private static bool isEnteringMap;
+	// fuer die Prüfung, ob sich der Spieler in der Map befindet
+	private static bool isPlayerInMap;
 
 	// Use this for initialization
 	void Start () {
+
+		// Abfrage wo sich der Spieler befindet.
+		isPlayerInMap = (Application.loadedLevel == 0) ? true : false;
 
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
@@ -72,10 +76,10 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnDestroy() {
-		currentXPosition = rigidbody2D.position.x;
-		currentYPosition = rigidbody2D.position.y;
-
-		Debug.Log ("Position x: " + currentXPosition);
+		if (isPlayerInMap) {
+			currentXPosition = rigidbody2D.position.x;
+			currentYPosition = rigidbody2D.position.y;
+		}
 	}
 	
 	/*
@@ -88,7 +92,9 @@ public class PlayerController : MonoBehaviour {
 		budget = levelStats.Budget;
 
 		// letzte bekannte Position des Taxis laden
-		//transform.position = new Vector2 (currentXPosition, currentYPosition);
+		if (isPlayerInMap) {
+			setPlayerPosition();
+		}
 
 		// Falls fuel den Wert 0 hat. Wurde das Spiel gestartet und wir fuel wird auf Default gesetzt;
 		fuel = (fuel == 0) ? fuelAmount : fuel;
@@ -101,8 +107,7 @@ public class PlayerController : MonoBehaviour {
 		rigidbody2D.position = new Vector2
 			(
 				Mathf.Clamp (rigidbody2D.position.x, levelStats.xMin, levelStats.xMax),
-				Mathf.Clamp (rigidbody2D.position.y, levelStats.yMin, levelStats.yMax)
-				
+				Mathf.Clamp (rigidbody2D.position.y, levelStats.yMin, levelStats.yMax)			
 			);
 	}
 
@@ -154,11 +159,11 @@ public class PlayerController : MonoBehaviour {
 			rigidbody2D.velocity = rigidbody2D.velocity.normalized * maxSpeed;
 		}
 	}
-
+	
 	/*
-	 * Es wird geprüft, ob der Spieler sich auf der Map befindet.
+	 * Die Spielerposition bei Eintritt in die Map wird gesetzt.
 	 * */
-	bool isPlayerInMap() {
-		return Application.loadedLevel == 0;
+	void setPlayerPosition() {
+		rigidbody2D.position = new Vector2 (currentXPosition, currentYPosition);
 	}
 }
