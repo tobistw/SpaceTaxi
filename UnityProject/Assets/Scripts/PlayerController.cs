@@ -25,9 +25,9 @@ public class PlayerController : MonoBehaviour {
 	private GameController gameController;
 
 	// die Position müssen berücksichtigt werden, wenn das Taxi in die Map zurückkehrt.
-	private float currentXPosition;
+	private static float currentXPosition;
 	
-	private float currentYPosition;
+	private static float currentYPosition;
 	
 	// hier müssen die Eigenschaften, abhängig vom Level geändert werden.
 	private float angularDrag;
@@ -78,8 +78,6 @@ public class PlayerController : MonoBehaviour {
 		damage = levelStats.Damage;
 		fuel = levelStats.Fuel;
 		budget = levelStats.Budget;
-		currentXPosition = levelStats.CurrentXPosition;
-		currentYPosition = levelStats.currentYPosition;
 
 		// letzte bekannte Position des Taxis laden
 		transform.position = new Vector2 (currentXPosition, currentYPosition);

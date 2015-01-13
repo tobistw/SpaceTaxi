@@ -11,15 +11,30 @@ public class LevelStats : MonoBehaviour {
 	/*
 	 * Eigenschaften für das Space Taxi
 	 * */
-	public float speedBoost, maxSpeed, fuel, damage, currentXPosition, currentYPosition;
+	public float speedBoost, maxSpeed, fuel, damage;
 
 	public int passengerCount, budget;
 
+	/*
+	 * Leveleigenschaften
+	 * */
 	public int levelLoadIndex;
+
+	public GameObject[] atmosphereObjects;
+
+	public int activeOrbArraySize;
+
+	public Hashtable activeOrbTable;
+
+
+	void Awake () {
+		activeOrbTable = new Hashtable ();
+	}
 
 	void Start() {
 
 		initPlayerPreferences ();
+		initActiveOrbTable ();
 	}
 
 
@@ -31,8 +46,17 @@ public class LevelStats : MonoBehaviour {
 		damage = PlayerPrefs.GetFloat ("Damage");
 		fuel = PlayerPrefs.GetFloat ("Fuel");
 		budget = PlayerPrefs.GetInt ("Budget");
-		currentXPosition = PlayerPrefs.GetFloat ("PositionX");
-		currentYPosition = PlayerPrefs.GetFloat ("PositionY");
+	}
+
+	/**
+	 * Erezugt eine Schlüssel Werte Tabelle mit den aktiven Planeten
+	 * */
+	void initActiveOrbTable() {
+
+		for (int i = 0; i < atmosphereObjects.Length; i++) {
+				int booleanNumber = PlayerPrefs.GetInt ("Orb" + i.ToString ());
+				activeOrbTable.Add (0, booleanNumber);
+		}
 	}
 
 	/**
@@ -88,24 +112,5 @@ public class LevelStats : MonoBehaviour {
 			fuel = value;
 		}
 	}
-
-	public float CurrentXPosition {
-		get {
-			return currentXPosition;
-		}
-		
-		set {
-			currentXPosition = value;
-		}
-	}
-
-	public float CurrentYPosition {
-		get {
-			return currentYPosition;
-		}
-		
-		set {
-			currentYPosition = value;
-		}
-	}
+	
 }

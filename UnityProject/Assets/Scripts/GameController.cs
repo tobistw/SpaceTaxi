@@ -5,9 +5,9 @@ public class GameController : MonoBehaviour {
 
 	private int activeOrbs;
 
-	public static GameObject[] atmosphereObjects;
+	public GameObject[] atmosphereObjects;
 
-	public static CircleCollider2D[] atmosphereCollider;
+	private CircleCollider2D atmosphereCollider;
 
 	public static Atmosphere[] atmospheres;
 
@@ -45,9 +45,8 @@ public class GameController : MonoBehaviour {
 	 * */
 	void initActivePlanets() {
 
-		// Wurde bereits das Budget für ein neues Level erreicht.
 		int currentBudget = levelStats.Budget;
-
+		// Wurde bereits das Budget für ein neues Level erreicht.
 		if (currentBudget > nextLevelBudget) {
 						// neue Level hinzufügen
 		} else {
@@ -59,27 +58,38 @@ public class GameController : MonoBehaviour {
 	 * Die Atmosphären der aktiven Planeten werden aktiviert.
 	 * */
 	void initAtmospheres () {
-		atmosphereObjects = GameObject.FindGameObjectsWithTag ("atmosphere");
+		// Array mit Atmosphären der Planeten
+		//atmosphereObjects = GameObject.FindGameObjectsWithTag ("atmosphere");
 
 		if (atmosphereObjects != null) {
-			atmosphereCollider = new CircleCollider2D[atmosphereObjects.Length];
-			atmospheres = new Atmosphere[atmosphereObjects.Length];
+			// Wähle - einmalig -  zufällig einen Planeten aus der Map aus.
+			/*
+			for(int i = 0; i < activeOrbs; i++) {
 
-			for (int i = 0; i < atmosphereObjects.Length; i++) {
-				atmosphereObjects[i].renderer.enabled = false;
-				atmosphereCollider[i] = atmosphereObjects[i].GetComponent<CircleCollider2D>();
-				atmosphereCollider[i].enabled = false;
+				int randomIndex = Random.Range(0, levelStats.atmosphereObjects.Length);
 
-				atmospheres[i] = atmosphereObjects[i].GetComponent<Atmosphere>();
+				// Prüfe die Hashmap: Wurde der Planet noch nicht aktiviert?
+				int value = levelStats.activeOrbTable.Values;
+				if (value == 0) {
+					// Aktiviere die Atmosphäre...
+					levelStats.atmosphereObjects[randomIndex].renderer.enabled = true;
+					atmosphereCollider = levelStats.atmosphereObjects[randomIndex].GetComponent<CircleCollider2D>();
+					atmosphereCollider.renderer.enabled = true;
+					atmosphereCollider.isTrigger = true;
+					atmosphereCollider.enabled = true;
+					//...und schreibe es in die Hashtable
+					levelStats.activeOrbTable.Add(randomIndex, 1);
+					Debug.Log("Hashtable Size:" + levelStats.activeOrbTable.Count);
+				} 
+					//....
 			}
+			*/
 
-			for (int i = 0; i < activeOrbs; i++) {
-				atmosphereObjects[i].renderer.enabled = true;
-				atmosphereCollider[i].renderer.enabled = true;
-				atmosphereCollider[i].isTrigger = true;
-				atmosphereCollider[i].enabled = true;
-			}
-
+			levelStats.atmosphereObjects[0].renderer.enabled = true;
+			atmosphereCollider = levelStats.atmosphereObjects[0].GetComponent<CircleCollider2D>();
+			atmosphereCollider.renderer.enabled = true;
+			atmosphereCollider.isTrigger = true;
+			atmosphereCollider.enabled = true;
 
 		} else {
 			Debug.Log("Cant find Game Atmosphere Object");
