@@ -76,9 +76,12 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnDestroy() {
+		// Falls der Spieler in ein neues Level fliegt, soll die letzte Position gespeichert werden.
 		if (isPlayerInMap) {
 			currentXPosition = rigidbody2D.position.x;
 			currentYPosition = rigidbody2D.position.y;
+			Debug.Log("currentX: " + currentXPosition);
+			Debug.Log("currentY: " + currentYPosition);
 		}
 	}
 	
@@ -93,10 +96,11 @@ public class PlayerController : MonoBehaviour {
 
 		// letzte bekannte Position des Taxis laden
 		if (isPlayerInMap) {
+
 			setPlayerPosition();
 		}
 
-		// Falls fuel den Wert 0 hat. Wurde das Spiel gestartet und wir fuel wird auf Default gesetzt;
+		// Falls fuel den Wert 0 hat, wurde das Spiel gestartet und fuel wird auf Default gesetzt.
 		fuel = (fuel == 0) ? fuelAmount : fuel;
 	}
 
@@ -116,6 +120,8 @@ public class PlayerController : MonoBehaviour {
 	 * */
 	void taxiControl() {
 
+		// Falls der Spieler in einem Level ist, wird geprüft ab welcher Höhe dieser in die Map
+		// zurückkehrt. Bei dem Wert -1 handelt es sich um die Map.
 		if (levelStats.ExitLevelHeight == -1 | rigidbody2D.position.y < levelStats.ExitLevelHeight) {
 				
 			//Die Standard Steuerung
@@ -150,6 +156,7 @@ public class PlayerController : MonoBehaviour {
 				rigidbody2D.angularVelocity = 0;
 			}
 		} else {
+			// Zurück in die Map.
 			Application.LoadLevel(0);
 		}
 		

@@ -19,11 +19,20 @@ public class LevelStats : MonoBehaviour {
 	 * Leveleigenschaften
 	 * */
 	public float exitLevelHeight;
-	
+
+	private string activeOrbName;
+
+
 
 	void Start() {
 
 		initPlayerPreferences ();
+	}
+
+	void OnApplicationQuit() {
+		// Falls das Spiel beendet wird, müssen (vorerst) alle PlayerPrefs gelöscht werden, sonst
+		// werden weitere Planeten aktiviert.
+		PlayerPrefs.DeleteAll ();
 	}
 
 
@@ -39,9 +48,36 @@ public class LevelStats : MonoBehaviour {
 	
 
 	/**
+	 * Getter und Setter für die Planetenaktivierung und Level Index Verwaltung.
+	 * Wird alles in den Player Prefs verwaltet und über die GameObject Namen zugänglich gemacht.
+	 * */
+	public string activeOrbInPrefs(string name) {
+		return PlayerPrefs.GetString (name);
+	}
+
+	public void setLevelIndexInPrefs(string name, int level) {
+		PlayerPrefs.SetInt (name, level);
+	}
+
+	public int getLevelIndexInPrefs(string name) {
+		return PlayerPrefs.GetInt (name);
+	}
+
+	/**
 	 * Getter und Setter
 	 * */
 	
+
+	public string ActiveOrbName {
+		get {
+			return activeOrbName;
+		}
+		
+		set {
+			activeOrbName = value;
+			PlayerPrefs.SetString(activeOrbName, activeOrbName);
+		}
+	}
 
 	public int PassengerCount {
 		get {
@@ -92,4 +128,5 @@ public class LevelStats : MonoBehaviour {
 			exitLevelHeight = value;
 		}
 	}
+
 }

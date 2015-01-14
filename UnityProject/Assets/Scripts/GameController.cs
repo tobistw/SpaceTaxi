@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 
-	private int activeOrbs;
+	private int numberOfActiveOrbs;
 
 	public static GameObject[] atmosphereObjects;
 
@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
 
 	public static Atmosphere[] atmospheres;
 
-	public static int defaultActiveOrbs = 2;
+	public static int defaultNumberOfActiveOrbs = 2;
 
 	public static int nextLevelBudget = 100;
 
@@ -33,10 +33,7 @@ public class GameController : MonoBehaviour {
 	private LevelStats levelStats;
 
 	private static bool isGameRunning;
-
-	void Awake() {
-		DontDestroyOnLoad (atmo);
-	}
+	
 
 	void Start() {
 
@@ -56,6 +53,7 @@ public class GameController : MonoBehaviour {
 		firstGameRunning ();
 
 	}
+	
 
 	/**
 	 * Es wird die Anzahl aktiver Planeten ermittelt.
@@ -67,7 +65,7 @@ public class GameController : MonoBehaviour {
 		if (currentBudget > nextLevelBudget) {
 						// neue Level hinzufügen
 		} else {
-			activeOrbs = defaultActiveOrbs;
+			numberOfActiveOrbs = defaultNumberOfActiveOrbs;
 		}
 	}
 
@@ -78,16 +76,18 @@ public class GameController : MonoBehaviour {
 
 			// Wähle - einmalig -  zufällig Planeten aus der Map aus.
 
-		for(int i = 0; i < activeOrbs; i++) {
+		for(int i = 0; i < numberOfActiveOrbs; i++) {
 
 			int randomIndex = Random.Range(0, orbObjects.Length - 1);
 
 			GameObject gameObjectOrb = (GameObject) orbInactiveList[randomIndex];
-			Debug.Log(gameObjectOrb.name);
-			Orb orb = gameObjectOrb.GetComponent<Orb>();
-			orb.IsActive = true;
+			// Der aktive Planet wird gesetzt.
+			gameObjectOrb.GetComponent<Orb>().IsActive = true;
+			// Das Level wird zugewiesen.
+			levelStats.setLevelIndexInPrefs(gameObjectOrb.GetComponentInChildren<Atmosphere>().name, i + 1);
 			orbActiveList.Add(gameObjectOrb);
 
+			// Aktive Planeten werden aus der Inaktiv Liste rausgeschmissen.
 			orbInactiveList.Remove(orbInactiveList[randomIndex]);
 
 			}
@@ -122,6 +122,11 @@ public class GameController : MonoBehaviour {
 			}
 			isGameRunning = true;
 		
-		}
+		} 
+
 	}
+
+
+
+
 }

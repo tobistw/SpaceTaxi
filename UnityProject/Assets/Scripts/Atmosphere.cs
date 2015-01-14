@@ -5,7 +5,7 @@ public class Atmosphere : MonoBehaviour {
 
 	private CircleCollider2D atmosphereCollider;
 
-	// bestimmt das Level.
+	// bestimmt das Level. Jede Atmosphäre kennt seinen Level.
 	public int levelIndex;
 
 	// es werden die Level Stati verwaltet.
@@ -30,11 +30,12 @@ public class Atmosphere : MonoBehaviour {
 	
 	}
 
-	//wenn das Taxi die Atmospäre betritt, 
-	//wird die steuerung des taxis deaktiviert
+
 	void OnTriggerEnter2D (Collider2D other) {
-			//stats.setSteuerungAktiv (false);
-			Application.LoadLevel(levelIndex);
+			//Hole Level Index aus der Klasse Level Stats. Vergleich mit Namen.
+		levelIndex = levelStats.getLevelIndexInPrefs (this.name);
+		// Das Level wird geladen.
+		Application.LoadLevel(levelIndex);
 
 	}
 
