@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour {
 			Debug.Log("Cant find Game Controller Object");
 		}
 
-		initActivePlanets ();
+		initActiveOrbs ();
 
 		firstGameRunning ();
 
@@ -58,14 +58,14 @@ public class GameController : MonoBehaviour {
 	/**
 	 * Es wird die Anzahl aktiver Planeten ermittelt.
 	 * */
-	void initActivePlanets() {
+	void initActiveOrbs() {
 
 		int currentBudget = levelStats.Budget;
 		// Wurde bereits das Budget für ein neues Level erreicht.
 		if (currentBudget > nextLevelBudget) {
 						// neue Level hinzufügen
 		} else {
-			numberOfActiveOrbs = defaultNumberOfActiveOrbs;
+
 		}
 	}
 
@@ -94,6 +94,13 @@ public class GameController : MonoBehaviour {
 
 	}
 
+	/**
+	 * legt die Anzahl der Passagiere auf den aktiven Planeten fest.
+	 * */
+	void initPassengersOnOrbs() {
+		
+	}
+
 	// Wird nur einmal nach dem Start des Spiels ausgeführt.
 	void firstGameRunning () {
 		if (!isGameRunning) {
@@ -101,6 +108,8 @@ public class GameController : MonoBehaviour {
 
 			orbInactiveList = new ArrayList ();
 			orbActiveList = new ArrayList();
+
+			numberOfActiveOrbs = defaultNumberOfActiveOrbs;
 
 			orbObjects = GameObject.FindGameObjectsWithTag("Orb");
 
