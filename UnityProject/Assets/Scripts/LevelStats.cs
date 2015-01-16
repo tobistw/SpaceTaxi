@@ -22,7 +22,7 @@ public class LevelStats : MonoBehaviour {
 
 	private string activeOrbName;
 
-
+	private static Vector2 currentTaxiPosition;
 
 	void Start() {
 
@@ -126,6 +126,16 @@ public class LevelStats : MonoBehaviour {
 		
 		set {
 			exitLevelHeight = value;
+		}
+	}
+
+	public Vector2 CurrentPosition {
+		get {
+			return currentTaxiPosition;
+		}
+		
+		set {
+			currentTaxiPosition = value;
 		}
 	}
 

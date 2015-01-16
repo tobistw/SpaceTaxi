@@ -116,6 +116,7 @@ public class controller : MonoBehaviour {
 				} else if (yVelo < 0){
 					yVelo = -5;
 				} 
+
 				aktuelleXPosition = rigidbody2D.transform.position.x - xVelo;
 				aktuelleYPosition = rigidbody2D.transform.position.y - yVelo;
 			}

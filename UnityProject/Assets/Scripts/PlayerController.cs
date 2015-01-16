@@ -25,9 +25,8 @@ public class PlayerController : MonoBehaviour {
 	private GameController gameController;
 
 	// die Position müssen berücksichtigt werden, wenn das Taxi in die Map zurückkehrt.
-	private static float currentXPosition;
-	
-	private static float currentYPosition;
+	private Vector2 currentPosition;
+
 	
 	// hier müssen die Eigenschaften, abhängig vom Level geändert werden.
 	private float angularDrag;
@@ -74,17 +73,8 @@ public class PlayerController : MonoBehaviour {
 		setBoundary ();
 
 	}
-
-	void OnDestroy() {
-		// Falls der Spieler in ein neues Level fliegt, soll die letzte Position gespeichert werden.
-		if (isPlayerInMap) {
-			currentXPosition = rigidbody2D.position.x;
-			currentYPosition = rigidbody2D.position.y;
-			Debug.Log("currentX: " + currentXPosition);
-			Debug.Log("currentY: " + currentYPosition);
-		}
-	}
 	
+
 	/*
 	 * Werte werden von den PlayerPrefs abgefragt. Sonst die Default Werte.
 	 * */
@@ -171,6 +161,12 @@ public class PlayerController : MonoBehaviour {
 	 * Die Spielerposition bei Eintritt in die Map wird gesetzt.
 	 * */
 	void setPlayerPosition() {
-		rigidbody2D.position = new Vector2 (currentXPosition, currentYPosition);
+
+		currentPosition = levelStats.CurrentPosition;
+		if (currentPosition.x == 0 && currentPosition.y == 0) {
+			rigidbody2D.position = new Vector2 (186.0F, 112.0F);		
+		} else {
+			rigidbody2D.position = currentPosition;
+		}
 	}
 }
