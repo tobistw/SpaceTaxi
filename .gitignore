@@ -41,3 +41,10 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+
+# Unity Projektordner
+UnityProject/UntityProject.userprefs
+UnityProject/UnityProject.sln
+UnityProject/UnityProject-csharp.sln
+UnityProject/Libary/metadata/
