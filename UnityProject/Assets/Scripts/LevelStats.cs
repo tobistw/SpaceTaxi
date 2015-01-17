@@ -13,7 +13,10 @@ public class LevelStats : MonoBehaviour {
 	 * */
 	public float speedBoost, maxSpeed, fuel, damage;
 
-	public int passengerCount, budget;
+	public int passengerCount, budget, achievement;
+
+	private float stability;
+	private float fuelVolume;
 
 	/*
 	 * Leveleigenschaften
@@ -24,11 +27,22 @@ public class LevelStats : MonoBehaviour {
 
 	private static Vector2 currentTaxiPosition;
 
-	void Start() {
+	public bool isMothershipActive;
 
+	void Start() {
+		stability = 1000.0F;
+		fuelVolume = 60.0F;
 		initPlayerPreferences ();
 	}
 
+
+	void Update(){
+		if (Input.GetKeyDown (KeyCode.A)) {
+			PlayerPrefs.SetInt ("Budget", 100);
+
+		}
+	
+	}
 	void OnApplicationQuit() {
 		// Falls das Spiel beendet wird, müssen (vorerst) alle PlayerPrefs gelöscht werden, sonst
 		// werden weitere Planeten aktiviert.
@@ -44,6 +58,20 @@ public class LevelStats : MonoBehaviour {
 		damage = PlayerPrefs.GetFloat ("Damage");
 		fuel = PlayerPrefs.GetFloat ("Fuel");
 		budget = PlayerPrefs.GetInt ("Budget");
+		achievement = PlayerPrefs.GetInt ("Achievement");
+
+		if (damage == 0) {
+			PlayerPrefs.SetFloat("Damage", stability);		
+		}
+		if (fuel == 0) {
+			PlayerPrefs.SetFloat("Fuel", fuelVolume);	
+		}
+		//nur für aktuellen test
+		Debug.Log (achievement);
+		if (achievement == 0) {
+			PlayerPrefs.SetInt("Achievement", 140);	
+		}
+
 	}
 	
 
@@ -136,6 +164,36 @@ public class LevelStats : MonoBehaviour {
 		
 		set {
 			currentTaxiPosition = value;
+		}
+	}
+
+	public bool IsMothershipActive {
+		get {
+			return isMothershipActive;
+		}
+		
+		set {
+			isMothershipActive = value;
+		}
+	}
+
+	public float Stability {
+		get {
+			return stability;
+		}
+		
+		set {
+			stability = value;
+		}
+	}
+
+	public float FuelVolume {
+		get {
+			return fuelVolume;
+		}
+		
+		set {
+			fuelVolume = value;
 		}
 	}
 

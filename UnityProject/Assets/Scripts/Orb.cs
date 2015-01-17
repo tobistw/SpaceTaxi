@@ -122,5 +122,17 @@ public class Orb : MonoBehaviour {
 			isActive = value;
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D collision) {
+		if (collision.relativeVelocity.magnitude > 5) {
+			PlayerPrefs.SetFloat ("Damage", (PlayerPrefs.GetFloat ("Damage") - collision.relativeVelocity.magnitude));
+		}
+
+		//Debug.Log (PlayerPrefs.GetFloat ("Damage"));
+		//Debug.Log (collision.relativeVelocity.magnitude);
+		//if (collision.relativeVelocity.magnitude > 2)
+		//	audio.Play();
+		
+	}
 	
 }
