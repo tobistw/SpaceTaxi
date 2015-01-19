@@ -11,9 +11,11 @@ public class LevelStats : MonoBehaviour {
 	/*
 	 * Eigenschaften für das Space Taxi
 	 * */
-	public float speedBoost, maxSpeed, fuel, damage;
+	private float fuel, damage;
 
-	public int passengerCount, budget, achievement;
+	public float speedBoost, maxSpeed;
+
+	private int passengerCount, budget, achievement;
 
 	private float stability;
 	private float fuelVolume;
@@ -109,41 +111,60 @@ public class LevelStats : MonoBehaviour {
 
 	public int PassengerCount {
 		get {
+			passengerCount = PlayerPrefs.GetInt ("Passengers");
 			return passengerCount;
 		}
 		
 		set {
 			passengerCount = value;
+			PlayerPrefs.SetInt ("Passengers", passengerCount);
 		}
 	}
 
 	public int Budget {
 		get {
+			budget = PlayerPrefs.GetInt ("Budget");
 			return budget;
 		}
 		
 		set {
 			budget = value;
+			PlayerPrefs.SetInt ("Budget", budget);
 		}
 	}
 
 	public float Damage {
 		get {
+			damage = PlayerPrefs.GetFloat ("Damage");
 			return damage;
 		}
 		
 		set {
 			damage = value;
+			PlayerPrefs.SetFloat ("Damage", damage);
 		}
 	}
 
 	public float Fuel {
 		get {
+			fuel = PlayerPrefs.GetFloat ("Fuel");
 			return fuel;
 		}
 		
 		set {
 			fuel = value;
+			PlayerPrefs.SetFloat ("Fuel", fuel);
+		}
+	}
+
+	public int Achievement{
+		get {
+			achievement = PlayerPrefs.GetInt ("Achievement");
+			return achievement;
+		}
+		set {
+			achievement = value;
+			PlayerPrefs.SetInt("Achievement", achievement);
 		}
 	}
 

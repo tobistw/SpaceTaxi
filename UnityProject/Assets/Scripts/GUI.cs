@@ -49,7 +49,7 @@ public class GUI : MonoBehaviour {
 	void Update () {
 
 		//Damage
-		currentDmgProzent = Mathf.Round (PlayerPrefs.GetFloat ("Damage") / (levelStats.Stability / 100));
+			currentDmgProzent = Mathf.Round (levelStats.Damage / (levelStats.Stability / 100));
 			//text
 		textDmg.text =  (currentDmgProzent) + " %";
 		textDmgShadow.text = (currentDmgProzent) + " %";
@@ -58,7 +58,7 @@ public class GUI : MonoBehaviour {
 
 
 		//Tank
-		currentFuel = Mathf.Round(PlayerPrefs.GetFloat ("Fuel"));
+		currentFuel = Mathf.Round(levelStats.Fuel);
 			//text
 		textFuel.text = (currentFuel) + " / " +  levelStats.FuelVolume +  " l";
 		textFuelShadow.text = (currentFuel) + " / " +  levelStats.FuelVolume +  " l";
@@ -66,8 +66,8 @@ public class GUI : MonoBehaviour {
 		fuelFuellung.transform.localScale = new Vector3(fuelGrafikFull/levelStats.FuelVolume * currentFuel, fuelFuellung.transform.localScale.y);
 
 		//Budget
-		textBudget.text = PlayerPrefs.GetInt ("Budget") + " / " + PlayerPrefs.GetInt ("Achievement") + " $";
-		textBudgetShadow.text = PlayerPrefs.GetInt ("Budget") + " / " + PlayerPrefs.GetInt ("Achievement") + " $";
+		textBudget.text = levelStats.Budget + " / " + levelStats.Achievement + " $";
+		textBudgetShadow.text = levelStats.Budget + " / " + levelStats.Achievement + " $";
 
 
 	}

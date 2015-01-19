@@ -41,30 +41,30 @@ public class GUIMothership : MonoBehaviour {
 	}
 
 	public void ClickAuftanken(){
-		currentBudget = PlayerPrefs.GetInt ("Budget");
-		currentFuel = PlayerPrefs.GetFloat ("Fuel");
+		currentBudget = levelStats.Budget;
+		currentFuel = levelStats.Fuel;
 		fuelDifference = levelStats.FuelVolume - currentFuel;
 		if ((fuelDifference * fuelPrice) <= currentBudget) {
-			PlayerPrefs.SetInt ("Budget", (int) Mathf.Round (currentBudget - (fuelDifference * fuelPrice)));
-			PlayerPrefs.SetFloat ("Fuel", levelStats.FuelVolume);
+			levelStats.Budget = (int) Mathf.Round (currentBudget - (fuelDifference * fuelPrice));
+			levelStats.Fuel = levelStats.FuelVolume;
 		} else {
 			float moeglicheliter = currentBudget/fuelPrice;
-			PlayerPrefs.SetInt ("Budget", (int) Mathf.Round (currentBudget - (moeglicheliter * fuelPrice)));
-			PlayerPrefs.SetFloat ("Fuel", currentFuel + moeglicheliter);
+			levelStats.Budget = (int) Mathf.Round (currentBudget - (moeglicheliter * fuelPrice));
+			levelStats.Fuel = currentFuel + moeglicheliter;
 		}
 	}
 
 	public void ClickReparieren(){
-		currentBudget = PlayerPrefs.GetInt ("Budget");
-		currentDmg = PlayerPrefs.GetFloat ("Damage");
+		currentBudget = levelStats.Budget;
+		currentDmg = levelStats.Damage;
 		dmgDifference = levelStats.Stability - currentDmg;
 		if ((dmgDifference * dmgPrice) <= currentBudget) {
-			PlayerPrefs.SetInt ("Budget", (int) Mathf.Round (currentBudget - (dmgDifference * dmgPrice)));
-			PlayerPrefs.SetFloat ("Damage", levelStats.Stability);
+			levelStats.Budget = (int) Mathf.Round (currentBudget - (dmgDifference * dmgPrice));
+			levelStats.Damage = levelStats.Stability;
 		} else {
 			float moeglicheDMGpoints = currentBudget/dmgPrice;
-			PlayerPrefs.SetInt ("Budget", (int) Mathf.Round (currentBudget - (moeglicheDMGpoints * dmgPrice)));
-			PlayerPrefs.SetFloat ("Damage", currentDmg + moeglicheDMGpoints);
+			levelStats.Budget = (int) Mathf.Round (currentBudget - (moeglicheDMGpoints * dmgPrice));
+			levelStats.Damage = currentDmg + moeglicheDMGpoints;
 		}
 	}
 

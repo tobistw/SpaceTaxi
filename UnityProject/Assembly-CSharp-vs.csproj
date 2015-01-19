@@ -49,12 +49,9 @@
      <Compile Include="Assets\Scripts\AtmosphaerenScript.cs" />
      <Compile Include="Assets\Scripts\Atmosphere.cs" />
      <Compile Include="Assets\Scripts\Boundary.cs" />
-     <Compile Include="Assets\Scripts\ButtonScripts\NewBehaviourScript.cs" />
      <Compile Include="Assets\Scripts\GUI.cs" />
      <Compile Include="Assets\Scripts\GUIMothership.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
-     <Compile Include="Assets\Scripts\HUD_Player\Fuel.cs" />
-     <Compile Include="Assets\Scripts\HUD_Player\Money.cs" />
      <Compile Include="Assets\Scripts\LevelController.cs" />
      <Compile Include="Assets\Scripts\LevelStats.cs" />
      <Compile Include="Assets\Scripts\Levelspawn.cs" />

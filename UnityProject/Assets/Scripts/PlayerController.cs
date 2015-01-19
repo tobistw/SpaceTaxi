@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour {
 				rigidbody2D.AddForce (new Vector2 (speedBoost, 0));
 				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 				rigidbody2D.angularVelocity = 0;
-				PlayerPrefs.SetFloat ("Fuel", PlayerPrefs.GetFloat ("Fuel") - 0.02F);
+				levelStats.Fuel = levelStats.Fuel - 0.02F;
 			}
 
 			//Steuerung links
@@ -131,7 +131,8 @@ public class PlayerController : MonoBehaviour {
 				rigidbody2D.AddForce (new Vector2 (-speedBoost, 0));
 				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 				rigidbody2D.angularVelocity = 0;
-				PlayerPrefs.SetFloat ("Fuel", PlayerPrefs.GetFloat ("Fuel") - 0.02F);
+				levelStats.Fuel = levelStats.Fuel - 0.02F;
+				//PlayerPrefs.SetFloat ("Fuel", PlayerPrefs.GetFloat ("Fuel") - 0.02F);
 			}
 
 			//Steuerung oben
@@ -139,7 +140,7 @@ public class PlayerController : MonoBehaviour {
 				rigidbody2D.AddForce (new Vector2 (0, speedBoost));
 				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 				rigidbody2D.angularVelocity = 0;
-				PlayerPrefs.SetFloat ("Fuel", PlayerPrefs.GetFloat ("Fuel") - 0.02F);
+				levelStats.Fuel = levelStats.Fuel - 0.02F;
 			}
 
 			//Steuerung unten
@@ -147,7 +148,7 @@ public class PlayerController : MonoBehaviour {
 				rigidbody2D.AddForce (new Vector2 (0, -speedBoost));
 				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 				rigidbody2D.angularVelocity = 0;
-				PlayerPrefs.SetFloat ("Fuel", PlayerPrefs.GetFloat ("Fuel") - 0.02F);
+				levelStats.Fuel = levelStats.Fuel - 0.02F;
 			}
 		} else {
 			// Zurück in die Map.
