@@ -11,9 +11,14 @@ public class LevelStats : MonoBehaviour {
 	/*
 	 * Eigenschaften für das Space Taxi
 	 * */
-	public float speedBoost, maxSpeed, fuel, damage;
+	private float fuel, damage;
 
-	public int passengerCount, budget;
+	public float speedBoost, maxSpeed;
+
+	private int passengerCount, budget, achievement;
+
+	private float stability;
+	private float fuelVolume;
 
 	/*
 	 * Leveleigenschaften
@@ -24,11 +29,22 @@ public class LevelStats : MonoBehaviour {
 
 	private static Vector2 currentTaxiPosition;
 
-	void Start() {
+	public bool isMothershipActive;
 
+	void Start() {
+		stability = 1000.0F;
+		fuelVolume = 60.0F;
 		initPlayerPreferences ();
 	}
 
+
+	void Update(){
+		if (Input.GetKeyDown (KeyCode.A)) {
+			PlayerPrefs.SetInt ("Budget", 100);
+
+		}
+	
+	}
 	void OnApplicationQuit() {
 		// Falls das Spiel beendet wird, müssen (vorerst) alle PlayerPrefs gelöscht werden, sonst
 		// werden weitere Planeten aktiviert.
@@ -44,6 +60,20 @@ public class LevelStats : MonoBehaviour {
 		damage = PlayerPrefs.GetFloat ("Damage");
 		fuel = PlayerPrefs.GetFloat ("Fuel");
 		budget = PlayerPrefs.GetInt ("Budget");
+		achievement = PlayerPrefs.GetInt ("Achievement");
+
+		if (damage == 0) {
+			PlayerPrefs.SetFloat("Damage", stability);		
+		}
+		if (fuel == 0) {
+			PlayerPrefs.SetFloat("Fuel", fuelVolume);	
+		}
+		//nur für aktuellen test
+		Debug.Log (achievement);
+		if (achievement == 0) {
+			PlayerPrefs.SetInt("Achievement", 140);	
+		}
+
 	}
 	
 
@@ -81,41 +111,60 @@ public class LevelStats : MonoBehaviour {
 
 	public int PassengerCount {
 		get {
+			passengerCount = PlayerPrefs.GetInt ("Passengers");
 			return passengerCount;
 		}
 		
 		set {
 			passengerCount = value;
+			PlayerPrefs.SetInt ("Passengers", passengerCount);
 		}
 	}
 
 	public int Budget {
 		get {
+			budget = PlayerPrefs.GetInt ("Budget");
 			return budget;
 		}
 		
 		set {
 			budget = value;
+			PlayerPrefs.SetInt ("Budget", budget);
 		}
 	}
 
 	public float Damage {
 		get {
+			damage = PlayerPrefs.GetFloat ("Damage");
 			return damage;
 		}
 		
 		set {
 			damage = value;
+			PlayerPrefs.SetFloat ("Damage", damage);
 		}
 	}
 
 	public float Fuel {
 		get {
+			fuel = PlayerPrefs.GetFloat ("Fuel");
 			return fuel;
 		}
 		
 		set {
 			fuel = value;
+			PlayerPrefs.SetFloat ("Fuel", fuel);
+		}
+	}
+
+	public int Achievement{
+		get {
+			achievement = PlayerPrefs.GetInt ("Achievement");
+			return achievement;
+		}
+		set {
+			achievement = value;
+			PlayerPrefs.SetInt("Achievement", achievement);
 		}
 	}
 
@@ -136,6 +185,36 @@ public class LevelStats : MonoBehaviour {
 		
 		set {
 			currentTaxiPosition = value;
+		}
+	}
+
+	public bool IsMothershipActive {
+		get {
+			return isMothershipActive;
+		}
+		
+		set {
+			isMothershipActive = value;
+		}
+	}
+
+	public float Stability {
+		get {
+			return stability;
+		}
+		
+		set {
+			stability = value;
+		}
+	}
+
+	public float FuelVolume {
+		get {
+			return fuelVolume;
+		}
+		
+		set {
+			fuelVolume = value;
 		}
 	}
 
