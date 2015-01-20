@@ -1,5 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameController.cs">
     <Files>
       <File FileName="Assets\Scripts\GameController.cs" Line="78" Column="3" />
@@ -8,6 +9,14 @@
       <File FileName="Assets\Scripts\PlayerController.cs" Line="37" Column="2" />
       <File FileName="Assets\Scripts\LevelController.cs" Line="96" Column="5" />
       <File FileName="Assets\Scripts\Levelspawn.cs" Line="14" Column="58" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Atmosphere.cs" Line="51" Column="14" />
+      <File FileName="Assets/Scripts/controller.cs" Line="91" Column="32" />
+      <File FileName="Assets/Scripts/LevelStats.cs" Line="87" Column="8" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="117" Column="28" />
+>>>>>>> origin/prototyp_v01
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
