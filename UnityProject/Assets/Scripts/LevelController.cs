@@ -10,7 +10,7 @@ public class LevelController : MonoBehaviour {
 	public Transform[] passengers;
 
 	// Anzahl der Passagiere. Zum Testen Public. >>>>>>!!!Wird später aus Levelstats ermittelt!!!<<<<<
-	public int passengerCount;
+	public int passengerCountOnOrb;
 
 	// Hier kommen die Passagiere rein.
 	private ArrayList passengerPrefabs;
@@ -21,8 +21,13 @@ public class LevelController : MonoBehaviour {
 	// es werden die Level Stati verwaltet.
 	private LevelStats levelStats;
 
+	// im welchem Level befindet sich der Spieler.
+	private int level;
+
 	// Use this for initialization
 	void Start () {
+
+		level = Application.loadedLevel;
 
 		passengerPrefabs = new ArrayList ();
 		spawnPointList = new ArrayList ();
@@ -49,10 +54,11 @@ public class LevelController : MonoBehaviour {
 	 */
 	void randomPassengerChoose() {
 
-		// Levelstats nach der Passagieranzahl abfragen.
+		// Levelstats nach der Passagieranzahl abfragen. Wird über den Level Index referenziert.
+		passengerCountOnOrb = levelStats.getPassengersOnOrb (level.ToString());
 
 		// solange Passagiere zufällig auswählen bis die Anzahl erreicht ist.
-		for (int i = 0; i < passengerCount; i++) {
+		for (int i = 0; i < passengerCountOnOrb; i++) {
 			passengerPrefabs.Add(passengers[Random.Range(0, passengers.Length - 1)]);
 		}
 
@@ -99,8 +105,7 @@ public class LevelController : MonoBehaviour {
 
 		spawnPoint = (Transform) spawnPointList[index];
 		Instantiate(passenger, spawnPoint.position, spawnPoint.rotation);
-
-		Debug.Log (spawnPointList.Count);
+		
 		spawnPointList.Remove(spawnPoint);
 
 

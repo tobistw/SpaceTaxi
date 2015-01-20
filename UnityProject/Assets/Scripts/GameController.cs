@@ -64,6 +64,7 @@ public class GameController : MonoBehaviour {
 		// Wurde bereits das Budget für ein neues Level erreicht.
 		if (currentBudget > nextLevelBudget) {
 						// neue Level hinzufügen
+			// Level Stats aktualisieren!!
 		} else {
 
 		}
@@ -110,6 +111,8 @@ public class GameController : MonoBehaviour {
 			orbActiveList = new ArrayList();
 
 			numberOfActiveOrbs = defaultNumberOfActiveOrbs;
+			// In die Level Stats schreiben.
+			levelStats.NumberOfActiveOrbs = numberOfActiveOrbs;
 
 			orbObjects = GameObject.FindGameObjectsWithTag("Orb");
 

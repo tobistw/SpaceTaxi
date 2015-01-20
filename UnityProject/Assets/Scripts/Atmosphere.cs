@@ -21,6 +21,8 @@ public class Atmosphere : MonoBehaviour {
 		if (gameControllerObject != null) {
 			
 			levelStats = gameControllerObject.GetComponent<LevelStats> ();
+			//Hole Level Index aus der Klasse Level Stats. Vergleich mit Namen.
+			levelIndex = levelStats.getLevelIndexInPrefs (this.name);
 		} else {
 			Debug.Log("Cant find Game Controller Object");
 		}
@@ -35,7 +37,7 @@ public class Atmosphere : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other) {
 			//Hole Level Index aus der Klasse Level Stats. Vergleich mit Namen.
-		levelIndex = levelStats.getLevelIndexInPrefs (this.name);
+		//levelIndex = levelStats.getLevelIndexInPrefs (this.name);
 		taxi = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
 
 		//brauch man, damit das Taxi etwas versetzt wieder auftaucht, sonst lädt sich das lvl wieder

@@ -80,7 +80,6 @@ public class Orb : MonoBehaviour {
 		if (atmoScript != null) {
 		
 			int levelIndex = atmoScript.LevelIndex;
-			Debug.Log(levelIndex);
 			switch(levelIndex) {
 			case 1:
 				passengers = randomPassengerGenerator(1, levelIndex + 1);
@@ -99,8 +98,9 @@ public class Orb : MonoBehaviour {
 				break;
 			}
 
-			Debug.Log("Anzahl Passagiere: " + passengers);
-			//Schreibe Passagiere in die LevelStats.
+			// Die Passagieranzahl wird in den gesetzt und über den Level Index referenziert.
+			Debug.Log("Planet: " + atmoScript.name + " Anzahl Passagiere: " + passengers);
+			levelStats.setPassengersOnOrb(atmoScript.LevelIndex.ToString(), passengers);
 		}
 	}
 	/**

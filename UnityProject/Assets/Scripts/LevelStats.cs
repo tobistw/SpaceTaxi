@@ -31,6 +31,10 @@ public class LevelStats : MonoBehaviour {
 
 	public bool isMothershipActive;
 
+	private int numberOfActiveOrbs;
+
+
+
 	void Start() {
 		stability = 1000.0F;
 		fuelVolume = 60.0F;
@@ -93,10 +97,29 @@ public class LevelStats : MonoBehaviour {
 		return PlayerPrefs.GetInt (name);
 	}
 
+	public void setPassengersOnOrb(string levelIndexString, int passengers) {
+		PlayerPrefs.SetInt (levelIndexString, passengers);
+	}
+
+	public int getPassengersOnOrb(string levelIndexString) {
+		return PlayerPrefs.GetInt (levelIndexString);
+	}
+
 	/**
 	 * Getter und Setter
 	 * */
-	
+
+
+	public int NumberOfActiveOrbs {
+		get {
+			return numberOfActiveOrbs;
+		}
+		
+		set {
+			numberOfActiveOrbs = value;
+			PlayerPrefs.SetInt("ActiveOrbs", numberOfActiveOrbs);
+		}
+	}
 
 	public string ActiveOrbName {
 		get {
