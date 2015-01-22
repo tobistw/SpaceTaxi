@@ -20,6 +20,9 @@ public class Orb : MonoBehaviour {
 	// es werden die Level Stati verwaltet.
 	private LevelStats levelStats;
 
+	// Der Orb Manager
+	public OrbManager orbManager;
+
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +33,7 @@ public class Orb : MonoBehaviour {
 		if (gameControllerObject != null) {
 			
 			levelStats = gameControllerObject.GetComponent<LevelStats> ();
+			orbManager = gameControllerObject.GetComponent<OrbManager>();
 		} else {
 			Debug.Log("Cant find Game Controller Object");
 		}
@@ -58,6 +62,8 @@ public class Orb : MonoBehaviour {
 
 			// Hier wird der aktive Planet in den LevelStats (PlayerPrefs) gespeichert.
 			levelStats.ActiveOrbName = this.name;
+
+			orbManager.addActiveOrb(this);
 
 			atmosphereObject = transform.GetChild(0).gameObject;
 			atmosphereCollider = atmosphereObject.GetComponent<CircleCollider2D>();
