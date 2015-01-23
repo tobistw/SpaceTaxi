@@ -23,11 +23,16 @@ public class OrbManager : MonoBehaviour
 	// Holds the active Orbs.
 	private ArrayList activeOrbs;
 
+	private int numberOfActiveOrbs;
+
+	//Level Indexe werden zu den zugehörigen Planeten verwaltet.
+	private Hashtable levelIndexTable;
 
 	void Awake() {
 
 		if (_instance == null) {
 			activeOrbs = new ArrayList();
+			levelIndexTable = new Hashtable();
 			//If I am the first instance, make me the Singleton
 			_instance = this;
 			DontDestroyOnLoad(this);
@@ -39,8 +44,48 @@ public class OrbManager : MonoBehaviour
 		}
 	}
 
-	public void addActiveOrb(Orb orb) {
-		activeOrbs.Add (orb);
+	/**
+	 * Zuständig für die Verwaltung aktiver Planetennamen.
+	 */
+	public void addActiveOrb(string orbName) {
+		activeOrbs.Add (orbName);
+	}
+
+	public ArrayList getActiveOrbs() {
+		return activeOrbs;
+	}
+
+	/**
+	 * Durchsucht die aktive Planetennamenssammlung nach Treffern.
+	 */
+	public bool isInActiveOrbs(string name) {
+		return activeOrbs.Contains (name);
+	}
+
+	public int NumberOfActiveOrbs {
+		get {
+			numberOfActiveOrbs = activeOrbs.Count;
+			return numberOfActiveOrbs;
+		}
+		
+		set {
+			numberOfActiveOrbs = value;
+		}
+	}
+
+	/**
+	 * Zu dem Atmosphärennamen wird der Levelindex eingetragen.
+	 */
+	public void setLevelIndex(string name, int level) {
+		levelIndexTable.Add (name, level);
+	}
+
+	public int getLevelIndex(string name) {
+		int level = 0;
+		if (levelIndexTable.ContainsKey(name)) {
+			level = (int)(levelIndexTable[name]);
+		}
+		return level;
 	}
 }
 

@@ -30,8 +30,7 @@ public class LevelStats : MonoBehaviour {
 	private static Vector2 currentTaxiPosition;
 
 	public bool isMothershipActive;
-
-	private int numberOfActiveOrbs;
+	
 
 
 
@@ -73,7 +72,6 @@ public class LevelStats : MonoBehaviour {
 			PlayerPrefs.SetFloat("Fuel", fuelVolume);	
 		}
 		//nur für aktuellen test
-		Debug.Log (achievement);
 		if (achievement == 0) {
 			PlayerPrefs.SetInt("Achievement", 140);	
 		}
@@ -82,12 +80,9 @@ public class LevelStats : MonoBehaviour {
 	
 
 	/**
-	 * Getter und Setter für die Planetenaktivierung und Level Index Verwaltung.
+	 * Getter und Setter für die  Level Index Verwaltung.
 	 * Wird alles in den Player Prefs verwaltet und über die GameObject Namen zugänglich gemacht.
 	 * */
-	public string activeOrbInPrefs(string name) {
-		return PlayerPrefs.GetString (name);
-	}
 
 	public void setLevelIndexInPrefs(string name, int level) {
 		PlayerPrefs.SetInt (name, level);
@@ -108,18 +103,7 @@ public class LevelStats : MonoBehaviour {
 	/**
 	 * Getter und Setter
 	 * */
-
-
-	public int NumberOfActiveOrbs {
-		get {
-			return numberOfActiveOrbs;
-		}
-		
-		set {
-			numberOfActiveOrbs = value;
-			PlayerPrefs.SetInt("ActiveOrbs", numberOfActiveOrbs);
-		}
-	}
+	
 
 	public string ActiveOrbName {
 		get {

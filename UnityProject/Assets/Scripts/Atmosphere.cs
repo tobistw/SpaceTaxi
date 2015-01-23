@@ -11,18 +11,24 @@ public class Atmosphere : MonoBehaviour {
 	// es werden die Level Stati verwaltet.
 	private LevelStats levelStats;
 
+	// Der Orb Manager
+	public OrbManager orbManager;
+
 	private Rigidbody2D taxi;
 
 	// Use this for initialization
 	void Start () {
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+		GameObject gameOrbManagerObject = GameObject.FindGameObjectWithTag ("OrbManager");
 		
 		if (gameControllerObject != null) {
 			
 			levelStats = gameControllerObject.GetComponent<LevelStats> ();
-			//Hole Level Index aus der Klasse Level Stats. Vergleich mit Namen.
-			levelIndex = levelStats.getLevelIndexInPrefs (this.name);
+			orbManager = gameOrbManagerObject.GetComponent<OrbManager>();
+
+			levelIndex = orbManager.getLevelIndex(this.name);
+
 		} else {
 			Debug.Log("Cant find Game Controller Object");
 		}
@@ -36,8 +42,7 @@ public class Atmosphere : MonoBehaviour {
 
 
 	void OnTriggerEnter2D (Collider2D other) {
-			//Hole Level Index aus der Klasse Level Stats. Vergleich mit Namen.
-		//levelIndex = levelStats.getLevelIndexInPrefs (this.name);
+
 		taxi = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
 
 		//brauch man, damit das Taxi etwas versetzt wieder auftaucht, sonst lädt sich das lvl wieder

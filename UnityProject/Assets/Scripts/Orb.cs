@@ -29,11 +29,11 @@ public class Orb : MonoBehaviour {
 
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		
+		GameObject gameOrbManagerObject = GameObject.FindGameObjectWithTag ("OrbManager");
 		if (gameControllerObject != null) {
 			
 			levelStats = gameControllerObject.GetComponent<LevelStats> ();
-			orbManager = gameControllerObject.GetComponent<OrbManager>();
+			orbManager = gameOrbManagerObject.GetComponent<OrbManager>();
 		} else {
 			Debug.Log("Cant find Game Controller Object");
 		}
@@ -53,17 +53,15 @@ public class Orb : MonoBehaviour {
 
 		// Der aktive Planet wird über die LevelStats ermittelt. Das wird dafür benötigt, 
 		// wenn das Map Level erneut geladen wird.
-		if (levelStats.activeOrbInPrefs(this.name) == this.name){
+		if (orbManager.isInActiveOrbs(this.name)){
 			isActive = true;
 		}
 
 		// hier wird gerendert.
 		if (isActive) {
 
-			// Hier wird der aktive Planet in den LevelStats (PlayerPrefs) gespeichert.
-			levelStats.ActiveOrbName = this.name;
-
-			orbManager.addActiveOrb(this);
+			// Hier wird der aktive Planetenname im OrbManager gespeichert.
+			orbManager.addActiveOrb(this.name);
 
 			atmosphereObject = transform.GetChild(0).gameObject;
 			atmosphereCollider = atmosphereObject.GetComponent<CircleCollider2D>();

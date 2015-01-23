@@ -33,17 +33,21 @@ public class GameController : MonoBehaviour {
 	private LevelStats levelStats;
 
 	private static bool isGameRunning;
-	
+
+	// Orb Manger für Test
+	private OrbManager orbManager;
 
 	void Start() {
 
 
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+		GameObject gameOrbManagerObject = GameObject.FindGameObjectWithTag ("OrbManager");
 		
 		if (gameControllerObject != null) {
 			
 			levelStats = gameControllerObject.GetComponent<LevelStats> ();
+			orbManager = gameOrbManagerObject.GetComponent<OrbManager>();
 		} else {
 			Debug.Log("Cant find Game Controller Object");
 		}
@@ -66,6 +70,20 @@ public class GameController : MonoBehaviour {
 						// neue Level hinzufügen
 			// Level Stats aktualisieren!!
 		} else {
+//			ArrayList activeOrbs = orbManager.getActiveOrbs();
+//
+//			if (activeOrbs.Count > 0) {
+//				foreach (string orb in activeOrbs) {
+//					if (orb == null) {
+//						Debug.Log("Orb is null");
+//					} else {
+//						Debug.Log(orb);
+//					}
+//
+//				}
+//			} else {
+//				Debug.Log("No Orbs");
+//			}
 
 		}
 	}
@@ -85,7 +103,7 @@ public class GameController : MonoBehaviour {
 			// Der aktive Planet wird gesetzt.
 			gameObjectOrb.GetComponent<Orb>().IsActive = true;
 			// Das Level wird zugewiesen.
-			levelStats.setLevelIndexInPrefs(gameObjectOrb.GetComponentInChildren<Atmosphere>().name, i + 1);
+			orbManager.setLevelIndex(gameObjectOrb.GetComponentInChildren<Atmosphere>().name, i + 1);
 			orbActiveList.Add(gameObjectOrb);
 
 			// Aktive Planeten werden aus der Inaktiv Liste rausgeschmissen.
@@ -111,8 +129,8 @@ public class GameController : MonoBehaviour {
 			orbActiveList = new ArrayList();
 
 			numberOfActiveOrbs = defaultNumberOfActiveOrbs;
-			// In die Level Stats schreiben.
-			levelStats.NumberOfActiveOrbs = numberOfActiveOrbs;
+			// In den OrbManager schreiben.
+			orbManager.NumberOfActiveOrbs = numberOfActiveOrbs;
 
 			orbObjects = GameObject.FindGameObjectsWithTag("Orb");
 
