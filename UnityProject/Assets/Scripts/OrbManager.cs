@@ -24,15 +24,18 @@ public class OrbManager : MonoBehaviour
 	private ArrayList activeOrbs;
 
 	private int numberOfActiveOrbs;
+	
+	//Level Indexe mit Passagieranzahl werden für due zugehörigen Planeten verwaltet.
+	private Hashtable levelIndexPassengerTable;
 
-	//Level Indexe werden zu den zugehörigen Planeten verwaltet.
-	private Hashtable levelIndexTable;
+	private ArrayList levelList;
 
 	void Awake() {
 
 		if (_instance == null) {
 			activeOrbs = new ArrayList();
-			levelIndexTable = new Hashtable();
+			levelList = new ArrayList();
+			levelIndexPassengerTable = new Hashtable();
 			//If I am the first instance, make me the Singleton
 			_instance = this;
 			DontDestroyOnLoad(this);
@@ -76,16 +79,72 @@ public class OrbManager : MonoBehaviour
 	/**
 	 * Zu dem Atmosphärennamen wird der Levelindex eingetragen.
 	 */
-	public void setLevelIndex(string name, int level) {
-		levelIndexTable.Add (name, level);
+	public void setLevelIndex(string name, int levelIndex) {
+		levelList.Add( new Level(name, levelIndex));
 	}
 
 	public int getLevelIndex(string name) {
 		int level = 0;
-		if (levelIndexTable.ContainsKey(name)) {
-			level = (int)(levelIndexTable[name]);
+		foreach (Level levelObj in levelList) {
+			if (levelObj.LevelName.Equals(name)) {
+				level = levelObj.LevelIndex;
+			}
 		}
 		return level;
+	}
+
+	/**
+	 * Passagiere auf den Planeten merken.
+	 */
+	public void setPassengersOnOrb(int level, int passengers) {
+		if (levelIndexPassengerTable.ContainsKey (level)) {
+			levelIndexPassengerTable.Remove(level);
+			levelIndexPassengerTable.Add(level, passengers);
+		} else {
+			levelIndexPassengerTable.Add (level, passengers);
+		}
+	}
+
+	public int getPassengersOnOrb(int level) {
+		int passengers = 0;
+		if (levelIndexPassengerTable.ContainsKey(level)) {
+			passengers = (int) (levelIndexPassengerTable[level]);
+		}
+		return passengers;
+	}
+
+	/**
+	 * Innere Klasse, um die Level einfacher zu verwalten.
+	 */
+	private class Level {
+
+		private string levelName;
+
+		private int levelIndex;
+
+		public Level (string levelName, int levelIndex)
+		{
+			this.levelName = levelName;
+			this.levelIndex = levelIndex;
+		}
+
+		public string LevelName {
+			get {
+				return this.levelName;
+			}
+			set {
+				levelName = value;
+			}
+		}
+
+		public int LevelIndex {
+			get {
+				return this.levelIndex;
+			}
+			set {
+				levelIndex = value;
+			}
+		}
 	}
 }
 

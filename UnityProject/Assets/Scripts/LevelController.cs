@@ -24,6 +24,9 @@ public class LevelController : MonoBehaviour {
 	// im welchem Level befindet sich der Spieler.
 	private int level;
 
+	// Der Orb Manager
+	public OrbManager orbManager;
+
 	// Use this for initialization
 	void Start () {
 
@@ -35,10 +38,12 @@ public class LevelController : MonoBehaviour {
 		
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+		GameObject gameOrbManagerObject = GameObject.FindGameObjectWithTag ("OrbManager");
 		
 		if (gameControllerObject != null) {
 			
 			levelStats = gameControllerObject.GetComponent<LevelStats> ();
+			orbManager = gameOrbManagerObject.GetComponent<OrbManager>();
 		} else {
 			Debug.Log("Cant find Game Controller Object");
 		}
@@ -54,8 +59,8 @@ public class LevelController : MonoBehaviour {
 	 */
 	void randomPassengerChoose() {
 
-		// Levelstats nach der Passagieranzahl abfragen. Wird über den Level Index referenziert.
-		passengerCountOnOrb = levelStats.getPassengersOnOrb (level.ToString());
+		// OrbManager nach der Passagieranzahl abfragen. Wird über den Level Index referenziert.
+		passengerCountOnOrb = orbManager.getPassengersOnOrb (level);
 
 		// solange Passagiere zufällig auswählen bis die Anzahl erreicht ist.
 		for (int i = 0; i < passengerCountOnOrb; i++) {

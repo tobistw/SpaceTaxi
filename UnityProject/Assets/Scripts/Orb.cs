@@ -104,7 +104,8 @@ public class Orb : MonoBehaviour {
 
 			// Die Passagieranzahl wird in den gesetzt und über den Level Index referenziert.
 			Debug.Log("Planet: " + atmoScript.name + " Anzahl Passagiere: " + passengers);
-			levelStats.setPassengersOnOrb(atmoScript.LevelIndex.ToString(), passengers);
+
+			orbManager.setPassengersOnOrb(levelIndex, passengers);
 		}
 	}
 	/**
