@@ -7,7 +7,7 @@ public class OrbManager : MonoBehaviour
 	private static OrbManager _instance;
 
 	//This is the public reference that other classes will use
-	private static OrbManager instance {
+	public static OrbManager instance {
 		get {
 			//If _instance hasn't been set yet, we grab it from the scene!
 			//This will only happen the first time this reference is used.
@@ -20,14 +20,16 @@ public class OrbManager : MonoBehaviour
 		}
 	}
 
-	// Holds the active Orbs.
+	// Beinhaltet die aktiven Planeten im aktuellen Spiel.
 	private ArrayList activeOrbs;
 
+	// Direkter Zugriff auf die Anzahl aktiver Planeten.
 	private int numberOfActiveOrbs;
 	
-	//Level Indexe mit Passagieranzahl werden für due zugehörigen Planeten verwaltet.
+	//Level Indexe mit Passagieranzahl werden für die zugehörigen Planeten verwaltet.
 	private Hashtable levelIndexPassengerTable;
 
+	// beinhaltet Objekte der Klasse Level.
 	private ArrayList levelList;
 
 	void Awake() {
@@ -65,6 +67,9 @@ public class OrbManager : MonoBehaviour
 		return activeOrbs.Contains (name);
 	}
 
+	/**
+	 * Für Abfragen nach der Anzahl aktiver Planeten.
+	 */
 	public int NumberOfActiveOrbs {
 		get {
 			numberOfActiveOrbs = activeOrbs.Count;
@@ -77,16 +82,23 @@ public class OrbManager : MonoBehaviour
 	}
 
 	/**
-	 * Zu dem Atmosphärennamen wird der Levelindex eingetragen.
+	 * Zu einem Atmosphärennamen wird der Levelindex eingetragen.
 	 */
-	public void setLevelIndex(string name, int levelIndex) {
-		levelList.Add( new Level(name, levelIndex));
+	public void setLevelIndex(string orbName, string atmoName, int levelIndex) {
+		levelList.Add( new Level(orbName, atmoName, levelIndex));
 	}
 
+	public ArrayList getLevelList() {
+		return levelList;
+	}
+
+	/**
+	 * Vergleicht den Namen der Atmosphäre mit der in der Levelliste und gibt den Levelindex.
+	 */
 	public int getLevelIndex(string name) {
 		int level = 0;
 		foreach (Level levelObj in levelList) {
-			if (levelObj.LevelName.Equals(name)) {
+			if (levelObj.AtmoName.Equals(name)) {
 				level = levelObj.LevelIndex;
 			}
 		}
@@ -112,39 +124,6 @@ public class OrbManager : MonoBehaviour
 		}
 		return passengers;
 	}
-
-	/**
-	 * Innere Klasse, um die Level einfacher zu verwalten.
-	 */
-	private class Level {
-
-		private string levelName;
-
-		private int levelIndex;
-
-		public Level (string levelName, int levelIndex)
-		{
-			this.levelName = levelName;
-			this.levelIndex = levelIndex;
-		}
-
-		public string LevelName {
-			get {
-				return this.levelName;
-			}
-			set {
-				levelName = value;
-			}
-		}
-
-		public int LevelIndex {
-			get {
-				return this.levelIndex;
-			}
-			set {
-				levelIndex = value;
-			}
-		}
-	}
+	
 }
 

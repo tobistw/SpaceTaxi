@@ -50,12 +50,14 @@
      <Compile Include="Assets\Scripts\GUI.cs" />
      <Compile Include="Assets\Scripts\GUIMothership.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\Level.cs" />
      <Compile Include="Assets\Scripts\LevelController.cs" />
      <Compile Include="Assets\Scripts\LevelStats.cs" />
      <Compile Include="Assets\Scripts\Mothership.cs" />
      <Compile Include="Assets\Scripts\Orb.cs" />
      <Compile Include="Assets\Scripts\OrbManager.cs" />
      <Compile Include="Assets\Scripts\Passenger.cs" />
+     <Compile Include="Assets\Scripts\PassengerManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\SortPaticleSystem.cs" />
      <Compile Include="Assets\Scripts\TaxiAnimator.cs" />

@@ -29,17 +29,20 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>PassengerStandard</Name>
+        <Name>Passenger</Name>
         <Access>Public</Access>
-        <Location left="444" top="486" />
-        <Size width="162" height="90" />
-        <Collapsed>True</Collapsed>
+        <Location left="1110" top="322" />
+        <Size width="162" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public int money</Member>
+        <Member type="Field">public int bonus</Member>
+        <Member type="Field">public float timer</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Mothership</Name>
         <Access>Public</Access>
-        <Location left="1123" top="322" />
+        <Location left="705" top="664" />
         <Size width="162" height="101" />
         <Collapsed>True</Collapsed>
         <Modifier>None</Modifier>
@@ -55,15 +58,16 @@
       <Entity type="Class">
         <Name>LevelStats</Name>
         <Access>Public</Access>
-        <Location left="502" top="177" />
-        <Size width="210" height="79" />
+        <Location left="421" top="119" />
+        <Size width="210" height="94" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">public int budget</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Comment">
-        <Text>Werte werden in PlayerPrefs geschrieben.
+        <Text>Spielerwerte werden in PlayerPrefs geschrieben.
 Getter und Setter</Text>
-        <Location left="502" top="101" />
+        <Location left="421" top="43" />
         <Size width="210" height="75" />
       </Entity>
       <Entity type="Class">
@@ -93,24 +97,8 @@ Spawnt die Map und Levelobjekte
       </Entity>
       <Entity type="Comment">
         <Text>Das Mutterschiff dient als Tankstelle und Werkstatt und evtl Speicherung des Spielstands.</Text>
-        <Location left="1220" top="367" />
+        <Location left="802" top="709" />
         <Size width="160" height="75" />
-      </Entity>
-      <Entity type="Class">
-        <Name>PassengerBusiness</Name>
-        <Access>Public</Access>
-        <Location left="670" top="486" />
-        <Size width="162" height="90" />
-        <Collapsed>True</Collapsed>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Class">
-        <Name>PassengerGrany</Name>
-        <Access>Public</Access>
-        <Location left="892" top="486" />
-        <Size width="162" height="90" />
-        <Collapsed>True</Collapsed>
-        <Modifier>None</Modifier>
       </Entity>
       <Entity type="Comment">
         <Text>Animationen für das Taxi</Text>
@@ -135,17 +123,7 @@ Spawnt die Map und Levelobjekte
       </Entity>
       <Entity type="Comment">
         <Text>Passagier mit Zielplanet</Text>
-        <Location left="444" top="532" />
-        <Size width="160" height="50" />
-      </Entity>
-      <Entity type="Comment">
-        <Text>Passagier mit Zielplanet</Text>
-        <Location left="670" top="532" />
-        <Size width="160" height="50" />
-      </Entity>
-      <Entity type="Comment">
-        <Text>Passagier mit Zielplanet</Text>
-        <Location left="892" top="532" />
+        <Location left="1110" top="447" />
         <Size width="160" height="50" />
       </Entity>
       <Entity type="Comment">
@@ -156,20 +134,20 @@ Spawnt die Map und Levelobjekte
       <Entity type="Class">
         <Name>Asteroid</Name>
         <Access>Public</Access>
-        <Location left="1123" top="486" />
+        <Location left="705" top="828" />
         <Size width="162" height="77" />
         <Collapsed>True</Collapsed>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Comment">
         <Text>Weltraumschrott als Hinderniss für den Spieler</Text>
-        <Location left="1123" top="532" />
+        <Location left="705" top="874" />
         <Size width="160" height="50" />
       </Entity>
       <Entity type="Class">
         <Name>LevelController</Name>
         <Access>Public</Access>
-        <Location left="257" top="327" />
+        <Location left="257" top="352" />
         <Size width="162" height="77" />
         <Collapsed>True</Collapsed>
         <Modifier>None</Modifier>
@@ -178,112 +156,99 @@ Spawnt die Map und Levelobjekte
         <Text>Die Klasse kümmert sich um die Spiellogik im Level. 
 Spawnt die Passagiere.
 </Text>
-        <Location left="257" top="367" />
+        <Location left="257" top="396" />
         <Size width="160" height="75" />
+      </Entity>
+      <Entity type="Class">
+        <Name>OrbManager &lt;Singleton&gt;</Name>
+        <Access>Public</Access>
+        <Location left="778" top="67" />
+        <Size width="182" height="145" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private ArrayList&lt;String&gt; activeOrbs</Member>
+        <Member type="Field">private int numberOfActiveOrbs</Member>
+        <Member type="Field">private ArrayList&lt;Level&gt; levelList</Member>
+        <Member type="Field">private Hashtable levelIndexPassengerTable</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>PassengerManager&lt;Singleton&gt;</Name>
+        <Access>Public</Access>
+        <Location left="1075" top="67" />
+        <Size width="213" height="77" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
-      <Relationship type="Association" first="4" second="6">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>1204</X>
-          <Y>297</Y>
-        </BendPoint>
-        <Direction>Bidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
       <Relationship type="Association" first="1" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Bidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
-        <Direction>Bidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="2" second="6">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <Direction>Bidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="8" second="6">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>973</X>
-          <Y>297</Y>
-        </BendPoint>
         <Direction>Bidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="2" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="0" second="4">
-        <StartOrientation>Horizontal</StartOrientation>
+      <Relationship type="Association" first="2" second="22">
+        <Label>setPassengersOnOrb</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="8" second="22">
+        <Label>getLevelIndex</Label>
+        <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1197</X>
-          <Y>454</Y>
+          <X>869</X>
+          <Y>237</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="0" second="22">
-        <StartOrientation>Horizontal</StartOrientation>
+        <Label>setLevelIndex</Label>
+        <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>631</X>
-          <Y>447</Y>
-        </BendPoint>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="20" second="22">
+        <Label>getPassengersOnOrb</Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Association" first="0" second="3">
-        <StartOrientation>Horizontal</StartOrientation>
+      <Relationship type="Association" first="3" second="23">
+        <Label>setTaxiGuest</Label>
+        <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>631</X>
-          <Y>345</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>525</X>
-          <Y>454</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="0" second="13">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>633</X>
-          <Y>450</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-      </Relationship>
-      <Relationship type="Association" first="0" second="14">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>633</X>
-          <Y>452</Y>
-        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>

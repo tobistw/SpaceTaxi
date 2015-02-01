@@ -38,12 +38,10 @@ public class LevelController : MonoBehaviour {
 		
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		GameObject gameOrbManagerObject = GameObject.FindGameObjectWithTag ("OrbManager");
 		
 		if (gameControllerObject != null) {
 			
 			levelStats = gameControllerObject.GetComponent<LevelStats> ();
-			orbManager = gameOrbManagerObject.GetComponent<OrbManager>();
 		} else {
 			Debug.Log("Cant find Game Controller Object");
 		}
@@ -60,7 +58,7 @@ public class LevelController : MonoBehaviour {
 	void randomPassengerChoose() {
 
 		// OrbManager nach der Passagieranzahl abfragen. Wird über den Level Index referenziert.
-		passengerCountOnOrb = orbManager.getPassengersOnOrb (level);
+		passengerCountOnOrb = OrbManager.instance.getPassengersOnOrb (level);
 
 		// solange Passagiere zufällig auswählen bis die Anzahl erreicht ist.
 		for (int i = 0; i < passengerCountOnOrb; i++) {
@@ -85,7 +83,6 @@ public class LevelController : MonoBehaviour {
 		foreach (Transform passenger in passengerPrefabs) {
 
 			randomSpawnPointIndex = Random.Range (0, spawnPointList.Count - 1);
-			Debug.Log("Index: " + randomSpawnPointIndex);
 
 			if (spawnPointList.Count > 1 && randomSpawnPointIndex != -1) {
 

@@ -20,14 +20,12 @@ public class Atmosphere : MonoBehaviour {
 	void Start () {
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		GameObject gameOrbManagerObject = GameObject.FindGameObjectWithTag ("OrbManager");
 		
 		if (gameControllerObject != null) {
 			
 			levelStats = gameControllerObject.GetComponent<LevelStats> ();
-			orbManager = gameOrbManagerObject.GetComponent<OrbManager>();
 
-			levelIndex = orbManager.getLevelIndex(this.name);
+			levelIndex = OrbManager.instance.getLevelIndex(this.name);
 
 		} else {
 			Debug.Log("Cant find Game Controller Object");

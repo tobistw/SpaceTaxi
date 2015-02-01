@@ -4,21 +4,20 @@ using System.Collections;
 public class TaxiAnimator : MonoBehaviour {
 
 	private Animator animator;
-	
+
+
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
 		float fly = Input.GetAxis ("Horizontal");
 		
 		animator.SetFloat ("SpeedLeft", fly);
 		animator.SetFloat ("SpeedRight", fly);
-		
-		
+
 	}
 	
 	void OnTriggerEnter2D (Collider2D coll) {

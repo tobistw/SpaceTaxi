@@ -29,11 +29,9 @@ public class Orb : MonoBehaviour {
 
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		GameObject gameOrbManagerObject = GameObject.FindGameObjectWithTag ("OrbManager");
 		if (gameControllerObject != null) {
 			
 			levelStats = gameControllerObject.GetComponent<LevelStats> ();
-			orbManager = gameOrbManagerObject.GetComponent<OrbManager>();
 		} else {
 			Debug.Log("Cant find Game Controller Object");
 		}
@@ -53,7 +51,7 @@ public class Orb : MonoBehaviour {
 
 		// Der aktive Planet wird über die LevelStats ermittelt. Das wird dafür benötigt, 
 		// wenn das Map Level erneut geladen wird.
-		if (orbManager.isInActiveOrbs(this.name)){
+		if (OrbManager.instance.isInActiveOrbs(this.name)){
 			isActive = true;
 		}
 
@@ -61,7 +59,7 @@ public class Orb : MonoBehaviour {
 		if (isActive) {
 
 			// Hier wird der aktive Planetenname im OrbManager gespeichert.
-			orbManager.addActiveOrb(this.name);
+			OrbManager.instance.addActiveOrb(this.name);
 
 			atmosphereObject = transform.GetChild(0).gameObject;
 			atmosphereCollider = atmosphereObject.GetComponent<CircleCollider2D>();
@@ -105,7 +103,7 @@ public class Orb : MonoBehaviour {
 			// Die Passagieranzahl wird in den gesetzt und über den Level Index referenziert.
 			Debug.Log("Planet: " + atmoScript.name + " Anzahl Passagiere: " + passengers);
 
-			orbManager.setPassengersOnOrb(levelIndex, passengers);
+			OrbManager.instance.setPassengersOnOrb(levelIndex, passengers);
 		}
 	}
 	/**
