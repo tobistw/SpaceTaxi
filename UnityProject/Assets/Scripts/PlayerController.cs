@@ -55,10 +55,6 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log("Cant find Game Controller Object");
 		}
 
-		// Standardwerte für das Taxi zur Steuerung
-		speedBoost = levelStats.speedBoost;
-		maxSpeed = levelStats.maxSpeed;
-
 		// Initialisierung der Werte für Passagiere, Fuel und Damage
 		initPlayerValues ();
 
@@ -79,10 +75,15 @@ public class PlayerController : MonoBehaviour {
 	 * Werte werden von den PlayerPrefs abgefragt. Sonst die Default Werte.
 	 * */
 	void initPlayerValues() {
-		passengerCount = levelStats.PassengerCount;
-		damage = levelStats.Damage;
-		fuel = levelStats.Fuel;
-		budget = levelStats.Budget;
+		// Standardwerte für das Taxi zur Steuerung
+		speedBoost = TaxiManager.instance.speedBoost;
+		maxSpeed = TaxiManager.instance.maxSpeed;
+		passengerCount = TaxiManager.instance.PassengerCount;
+		damage = TaxiManager.instance.Damage;
+		fuel = TaxiManager.instance.Fuel;
+		budget = TaxiManager.instance.Budget;
+		gravityScale = TaxiManager.instance.gravity;
+		gameObject.rigidbody2D.gravityScale = gravityScale;
 
 		// letzte bekannte Position des Taxis laden
 		if (isPlayerInMap) {
@@ -123,7 +124,7 @@ public class PlayerController : MonoBehaviour {
 				rigidbody2D.AddForce (new Vector2 (speedBoost, 0));
 				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 				rigidbody2D.angularVelocity = 0;
-				levelStats.Fuel = levelStats.Fuel - 0.02F;
+				fuelConsumption(); 
 			}
 
 			//Steuerung links
@@ -131,8 +132,7 @@ public class PlayerController : MonoBehaviour {
 				rigidbody2D.AddForce (new Vector2 (-speedBoost, 0));
 				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 				rigidbody2D.angularVelocity = 0;
-				levelStats.Fuel = levelStats.Fuel - 0.02F;
-				//PlayerPrefs.SetFloat ("Fuel", PlayerPrefs.GetFloat ("Fuel") - 0.02F);
+				fuelConsumption(); 
 			}
 
 			//Steuerung oben
@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour {
 				rigidbody2D.AddForce (new Vector2 (0, speedBoost));
 				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 				rigidbody2D.angularVelocity = 0;
-				levelStats.Fuel = levelStats.Fuel - 0.02F;
+				fuelConsumption(); 
 			}
 
 			//Steuerung unten
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour {
 				rigidbody2D.AddForce (new Vector2 (0, -speedBoost));
 				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 				rigidbody2D.angularVelocity = 0;
-				levelStats.Fuel = levelStats.Fuel - 0.02F;
+				fuelConsumption();
 			}
 		} else {
 			// Zurück in die Map.
@@ -173,5 +173,12 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			rigidbody2D.position = currentPosition;
 		}
+	}
+
+	/**
+	 * Verbrauch des Sprits bei Betätigung der Steuerung.
+	 */
+	private void fuelConsumption() {
+		TaxiManager.instance.Fuel = TaxiManager.instance.Fuel - 0.02F;
 	}
 }

@@ -49,7 +49,7 @@ public class GUI : MonoBehaviour {
 	void Update () {
 
 		//Damage
-			currentDmgProzent = Mathf.Round (levelStats.Damage / (levelStats.Stability / 100));
+			currentDmgProzent = Mathf.Round (TaxiManager.instance.Damage / (TaxiManager.instance.Stability / 100));
 			//text
 		textDmg.text =  (currentDmgProzent) + " %";
 		textDmgShadow.text = (currentDmgProzent) + " %";
@@ -58,16 +58,16 @@ public class GUI : MonoBehaviour {
 
 
 		//Tank
-		currentFuel = Mathf.Round(levelStats.Fuel);
+		currentFuel = Mathf.Round(TaxiManager.instance.Fuel);
 			//text
-		textFuel.text = (currentFuel) + " / " +  levelStats.FuelVolume +  " l";
-		textFuelShadow.text = (currentFuel) + " / " +  levelStats.FuelVolume +  " l";
+		textFuel.text = (currentFuel) + " / " +  TaxiManager.instance.FuelAmount +  " l";
+		textFuelShadow.text = (currentFuel) + " / " +  TaxiManager.instance.FuelAmount +  " l";
 			//grafik
-		fuelFuellung.transform.localScale = new Vector3(fuelGrafikFull/levelStats.FuelVolume * currentFuel, fuelFuellung.transform.localScale.y);
+		fuelFuellung.transform.localScale = new Vector3(fuelGrafikFull/TaxiManager.instance.FuelAmount * currentFuel, fuelFuellung.transform.localScale.y);
 
 		//Budget
-		textBudget.text = levelStats.Budget + " / " + levelStats.Achievement + " $";
-		textBudgetShadow.text = levelStats.Budget + " / " + levelStats.Achievement + " $";
+		textBudget.text = TaxiManager.instance.Budget + " / " + TaxiManager.instance.Achievement + " $";
+		textBudgetShadow.text = TaxiManager.instance.Budget + " / " + TaxiManager.instance.Achievement + " $";
 
 
 	}

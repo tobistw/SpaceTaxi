@@ -128,7 +128,7 @@ public class Orb : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		if (collision.relativeVelocity.magnitude > 5) {
-			PlayerPrefs.SetFloat ("Damage", (PlayerPrefs.GetFloat ("Damage") - collision.relativeVelocity.magnitude));
+			TaxiManager.instance.Damage = TaxiManager.instance.Damage - collision.relativeVelocity.magnitude;
 		}
 
 		//Debug.Log (PlayerPrefs.GetFloat ("Damage"));

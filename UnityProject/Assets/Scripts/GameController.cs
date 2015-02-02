@@ -33,10 +33,17 @@ public class GameController : MonoBehaviour {
 	private LevelStats levelStats;
 
 	private static bool isGameRunning;
-	
+
+	// Die Taxiwerte für die Map.
+	public float speedBoost, maxSpeed, gravity;
 
 	void Start() {
 
+		gravity = 0;
+
+		TaxiManager.instance.gravity = gravity;
+		TaxiManager.instance.speedBoost = speedBoost;
+		TaxiManager.instance.gravity = gravity;
 
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");

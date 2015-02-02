@@ -41,30 +41,30 @@ public class GUIMothership : MonoBehaviour {
 	}
 
 	public void ClickAuftanken(){
-		currentBudget = levelStats.Budget;
-		currentFuel = levelStats.Fuel;
-		fuelDifference = levelStats.FuelVolume - currentFuel;
+		currentBudget = TaxiManager.instance.Budget;
+		currentFuel = TaxiManager.instance.Fuel;
+		fuelDifference = TaxiManager.instance.FuelAmount - currentFuel;
 		if ((fuelDifference * fuelPrice) <= currentBudget) {
-			levelStats.Budget = (int) Mathf.Round (currentBudget - (fuelDifference * fuelPrice));
-			levelStats.Fuel = levelStats.FuelVolume;
+			TaxiManager.instance.Budget = (int) Mathf.Round (currentBudget - (fuelDifference * fuelPrice));
+			TaxiManager.instance.Fuel = TaxiManager.instance.FuelAmount;
 		} else {
 			float moeglicheliter = currentBudget/fuelPrice;
-			levelStats.Budget = (int) Mathf.Round (currentBudget - (moeglicheliter * fuelPrice));
-			levelStats.Fuel = currentFuel + moeglicheliter;
+			TaxiManager.instance.Budget = (int) Mathf.Round (currentBudget - (moeglicheliter * fuelPrice));
+			TaxiManager.instance.Fuel = currentFuel + moeglicheliter;
 		}
 	}
 
 	public void ClickReparieren(){
-		currentBudget = levelStats.Budget;
-		currentDmg = levelStats.Damage;
-		dmgDifference = levelStats.Stability - currentDmg;
+		currentBudget = TaxiManager.instance.Budget;
+		currentDmg = TaxiManager.instance.Damage;
+		dmgDifference = TaxiManager.instance.Stability - currentDmg;
 		if ((dmgDifference * dmgPrice) <= currentBudget) {
-			levelStats.Budget = (int) Mathf.Round (currentBudget - (dmgDifference * dmgPrice));
-			levelStats.Damage = levelStats.Stability;
+			TaxiManager.instance.Budget = (int) Mathf.Round (currentBudget - (dmgDifference * dmgPrice));
+			TaxiManager.instance.Damage = TaxiManager.instance.Stability;
 		} else {
 			float moeglicheDMGpoints = currentBudget/dmgPrice;
-			levelStats.Budget = (int) Mathf.Round (currentBudget - (moeglicheDMGpoints * dmgPrice));
-			levelStats.Damage = currentDmg + moeglicheDMGpoints;
+			TaxiManager.instance.Budget = (int) Mathf.Round (currentBudget - (moeglicheDMGpoints * dmgPrice));
+			TaxiManager.instance.Damage = currentDmg + moeglicheDMGpoints;
 		}
 	}
 

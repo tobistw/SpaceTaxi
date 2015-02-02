@@ -27,6 +27,9 @@ public class LevelController : MonoBehaviour {
 	// Der Orb Manager
 	public OrbManager orbManager;
 
+	// Die Taxiwerte für das Level.
+	public float speedBoost, maxSpeed, gravity;
+
 	// Use this for initialization
 	void Start () {
 
@@ -35,6 +38,9 @@ public class LevelController : MonoBehaviour {
 		passengerPrefabs = new ArrayList ();
 		spawnPointList = new ArrayList ();
 
+		TaxiManager.instance.gravity = gravity;
+		TaxiManager.instance.speedBoost = speedBoost;
+		TaxiManager.instance.gravity = gravity;
 		
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
