@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour {
 	 * */
 	void initActiveOrbs() {
 
-		int currentBudget = levelStats.Budget;
+		int currentBudget = TaxiManager.instance.Budget;
 		// Wurde bereits das Budget für ein neues Level erreicht.
 		if (currentBudget > nextLevelBudget) {
 						// neue Level hinzufügen
