@@ -8,6 +8,9 @@ TextureImporter:
     21300006: zielplaneten_braun
     21300008: zielplaneten_gruen
     21300010: zielplaneten_lila
+    21300012: zielplaneten_ausgegraut
+    21300014: rahmen
+    21300016: pfeil
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -106,6 +109,36 @@ TextureImporter:
         y: 144
         width: 366
         height: 398
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zielplaneten_ausgegraut
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 696
+        width: 366
+        height: 398
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: rahmen
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 187
+        width: 358
+        height: 337
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pfeil
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 1316
+        width: 168
+        height: 87
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

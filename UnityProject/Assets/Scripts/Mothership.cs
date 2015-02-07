@@ -26,11 +26,15 @@ public class Mothership : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		levelStats.IsMothershipActive = true;
+		if (other.name == "taxi") {
+			levelStats.IsMothershipActive = true;
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		levelStats.IsMothershipActive = false;
+		if (other.name == "taxi") {
+			levelStats.IsMothershipActive = false;
+		}
 	}
 
 	

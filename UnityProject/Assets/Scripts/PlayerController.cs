@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour {
 	// fuer die Prüfung, ob sich der Spieler in der Map befindet
 	private static bool isPlayerInMap;
 
+	//Auspuff
+	public GameObject auspuff;
+
 	// Use this for initialization
 	void Start () {
 
@@ -125,30 +128,37 @@ public class PlayerController : MonoBehaviour {
 				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 				rigidbody2D.angularVelocity = 0;
 				fuelConsumption(); 
+				auspuff.renderer.enabled = true;
 			}
 
 			//Steuerung links
-			if (horizontal < 0) {
+			else if (horizontal < 0) {
 				rigidbody2D.AddForce (new Vector2 (-speedBoost, 0));
 				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 				rigidbody2D.angularVelocity = 0;
 				fuelConsumption(); 
+				auspuff.renderer.enabled = true;
 			}
 
 			//Steuerung oben
-			if (vertical > 0) {
+			else if (vertical > 0) {
 				rigidbody2D.AddForce (new Vector2 (0, speedBoost));
 				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 				rigidbody2D.angularVelocity = 0;
 				fuelConsumption(); 
+				auspuff.renderer.enabled = true;
 			}
 
 			//Steuerung unten
-			if (vertical < 0) {
+			else if (vertical < 0) {
 				rigidbody2D.AddForce (new Vector2 (0, -speedBoost));
 				//Die Geschwindigkeit mit der sich das Taxi, im Falle einer Drehung, dreht
 				rigidbody2D.angularVelocity = 0;
 				fuelConsumption();
+				auspuff.renderer.enabled = true;
+			}
+			else {
+				auspuff.renderer.enabled = false;
 			}
 		} else {
 			// Zurück in die Map.

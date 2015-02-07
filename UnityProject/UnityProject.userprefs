@@ -1,19 +1,25 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Umweltschrott.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UmweltschrottSpawn.cs">
     <Files>
       <File FileName="../../New Unity Project 1/Assets/Scripts/Spawner.cs" Line="9" Column="1" />
-      <File FileName="Assets/Scripts/UmweltschrottSpawn.cs" Line="10" Column="33" />
+      <File FileName="Assets/Scripts/UmweltschrottSpawn.cs" Line="7" Column="40" />
       <File FileName="Assets/Scripts/Atmosphere.cs" Line="78" Column="1" />
       <File FileName="Assets/Scripts/Mothership.cs" Line="40" Column="1" />
       <File FileName="Assets/Scripts/TaxiManager.cs" Line="121" Column="1" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="185" Column="1" />
-      <File FileName="Assets/Scripts/Orb.cs" Line="140" Column="4" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="160" Column="8" />
+      <File FileName="Assets/Scripts/Orb.cs" Line="94" Column="62" />
       <File FileName="Assets/Scripts/Umweltschrott.cs" Line="17" Column="28" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True" />
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Scripts" expanded="True">
+              <Node name="UmweltschrottSpawn.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

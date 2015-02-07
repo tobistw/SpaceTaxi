@@ -16,7 +16,6 @@ public class Umweltschrott : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D collision) {
 		if (collision.collider.name == "taxi") {
 			if (collision.relativeVelocity.magnitude > 5) {
-
 				TaxiManager.instance.Damage = TaxiManager.instance.Damage - collision.relativeVelocity.magnitude;
 			}
 		}
