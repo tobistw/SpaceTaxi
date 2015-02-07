@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\PassengerManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\SortPaticleSystem.cs" />
+     <Compile Include="Assets\Scripts\SpriteManager.cs" />
      <Compile Include="Assets\Scripts\TaxiAnimator.cs" />
      <Compile Include="Assets\Scripts\TaxiManager.cs" />
      <Compile Include="Assets\Scripts\camera.cs" />

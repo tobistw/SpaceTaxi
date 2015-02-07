@@ -53,13 +53,13 @@ public class Passenger : MonoBehaviour {
 		}
 
 		// Test der Ziellevel
-		for (int i = 0; i < possibleLevel.Length; i++) {
-			if (possibleLevel[i] != null) {
-				Debug.Log(possibleLevel[i].AtmoName);
-			} else {
-				Debug.Log("null");
-			}
-		}
+//		for (int i = 0; i < possibleLevel.Length; i++) {
+//			if (possibleLevel[i] != null) {
+//				Debug.Log(possibleLevel[i].AtmoName);
+//			} else {
+//				Debug.Log("null");
+//			}
+//		}
 
 		// zufällige Auswahl des Zielplaneten.
 		targetLevel = possibleLevel[Random.Range(0, possibleLevel.Length - 1)];

@@ -43,23 +43,16 @@ public class PassengerManager : MonoBehaviour {
 				Destroy(this.gameObject);
 		}
 	}
-
-	void Start() {
-		spriteRenderer = guestSlot.GetComponent<SpriteRenderer> ();
-	}
 	
 
 	public void setTaxiGuest(string name, Level level, int money, int bonus, float timer) {
-		taxiGuests.Add (new Guest (name, level, money, bonus, timer));
+		if (taxiGuests.Count < TaxiManager.instance.PassengerCount) {
+			Guest currentGuest = new Guest (name, level, money, bonus, timer);
+			taxiGuests.Add (currentGuest);
 
-
-		spriteRenderer = GameObject.Find ("guest_slot1").GetComponent<SpriteRenderer>();
-
-		if (sprite != null) {
-			Debug.Log("Sprite: " + sprite.name);
-		} else {
-			Debug.Log("null");
+			SpriteManager.instance.setRendererForDestination(level.AtmoName, taxiGuests.LastIndexOf(currentGuest));
 		}
+
 
 	}
 
@@ -82,7 +75,7 @@ public class PassengerManager : MonoBehaviour {
 			this.timer = timer;
 		}
 
-		string Name {
+		public string Name {
 			get {
 				return this.name;
 			}
@@ -91,7 +84,7 @@ public class PassengerManager : MonoBehaviour {
 			}
 		}
 
-		Level Level {
+		 public Level Level {
 			get {
 				return this.level;
 			}
@@ -100,7 +93,7 @@ public class PassengerManager : MonoBehaviour {
 			}
 		}
 
-		int Money {
+		public int Money {
 			get {
 				return this.money;
 			}
@@ -109,7 +102,7 @@ public class PassengerManager : MonoBehaviour {
 			}
 		}
 
-		int Bonus {
+		public int Bonus {
 			get {
 				return this.bonus;
 			}
@@ -118,7 +111,7 @@ public class PassengerManager : MonoBehaviour {
 			}
 		}
 
-		float Timer {
+		public float Timer {
 			get {
 				return this.timer;
 			}

@@ -29,7 +29,8 @@ public class TaxiManager : MonoBehaviour {
 	
 	public float speedBoost, maxSpeed, gravity;
 	
-	public int passengerCount, budget;
+	public int passengerCount = 5;
+	public int budget;
 	
 	private float stability;
 	private float fuelAmount;
