@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Orb : MonoBehaviour {
 
@@ -23,6 +24,9 @@ public class Orb : MonoBehaviour {
 	// Der Orb Manager
 	public OrbManager orbManager;
 
+	private Text textPassengerCount;
+	public Canvas canvasPassenger;
+
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +41,9 @@ public class Orb : MonoBehaviour {
 		}
 
 		renderAtmosphere ();
+		textPassengerCount = canvasPassenger.GetComponentInChildren<Text> ();
+
+		textPassengerCount.text = (passengers > 0) ? "" + passengers : "";
 	}
 	
 	// Update is called once per frame
@@ -104,6 +111,7 @@ public class Orb : MonoBehaviour {
 			Debug.Log("Planet: " + atmoScript.name + " Anzahl Passagiere: " + passengers);
 
 			OrbManager.instance.setPassengersOnOrb(levelIndex, passengers);
+
 		}
 	}
 	/**

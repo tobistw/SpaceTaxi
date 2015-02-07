@@ -19,6 +19,9 @@ public class GUI : MonoBehaviour {
 	private Text textDmg;
 	private Text textDmgShadow;
 
+	//private Text[] textPassengerCount;
+	//public Canvas canvasPassenger;
+
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +45,9 @@ public class GUI : MonoBehaviour {
 		textFuelShadow = GameObject.Find("fuel_shadow").GetComponent <Text> ();
 		textDmg = GameObject.Find("dmg").GetComponent <Text> ();
 		textDmgShadow = GameObject.Find("dmg_shadow").GetComponent <Text> ();
+
+		//textPassengerCount = canvasPassenger.GetComponentsInChildren<Text>();
+		//setGUIPassengerCount ();
 
 	}
 	//text = GetComponent <Text> ();
@@ -71,5 +77,6 @@ public class GUI : MonoBehaviour {
 
 
 	}
+	
 
 }
