@@ -33,7 +33,7 @@ public class TaxiManager : MonoBehaviour {
 	
 	private float stability;
 	private float fuelAmount;
-	
+
 	void Awake() {
 		
 		if (_instance == null) {

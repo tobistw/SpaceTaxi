@@ -23,6 +23,12 @@ public class PassengerManager : MonoBehaviour {
 	// Verwaltet die Taxi Gäste
 	private ArrayList taxiGuests;
 
+	public GameObject guestSlot;
+	
+	public Sprite sprite;
+
+	private SpriteRenderer spriteRenderer;
+
 	void Awake() {
 		
 		if (_instance == null) {
@@ -37,10 +43,24 @@ public class PassengerManager : MonoBehaviour {
 				Destroy(this.gameObject);
 		}
 	}
+
+	void Start() {
+		spriteRenderer = guestSlot.GetComponent<SpriteRenderer> ();
+	}
 	
 
 	public void setTaxiGuest(string name, Level level, int money, int bonus, float timer) {
 		taxiGuests.Add (new Guest (name, level, money, bonus, timer));
+
+
+		spriteRenderer = GameObject.Find ("guest_slot1").GetComponent<SpriteRenderer>();
+
+		if (sprite != null) {
+			Debug.Log("Sprite: " + sprite.name);
+		} else {
+			Debug.Log("null");
+		}
+
 	}
 
 	private class Guest {

@@ -13,6 +13,9 @@ public class Passenger : MonoBehaviour {
 
 	private ArrayList levelList;
 
+	public Canvas taxiHud;
+	
+
 
 	// Use this for initialization
 	void Start () {
@@ -63,6 +66,8 @@ public class Passenger : MonoBehaviour {
 		Debug.Log ("Passagier: " + this.name + "; Zielplanet: " + targetLevel.AtmoName);
 
 		Debug.Log ("Money: " + money + "; Bonus: " + bonus + "; Timer: " + timer);
+
+
 
 	}
 

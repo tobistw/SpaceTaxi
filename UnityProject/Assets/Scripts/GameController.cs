@@ -36,6 +36,7 @@ public class GameController : MonoBehaviour {
 
 	// Die Taxiwerte für die Map.
 	public float speedBoost, maxSpeed, gravity;
+	
 
 	void Start() {
 
