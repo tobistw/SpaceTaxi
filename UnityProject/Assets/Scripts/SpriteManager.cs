@@ -69,6 +69,28 @@ public class SpriteManager : MonoBehaviour {
 		}
 	}
 
+	public void setDefaultRendererForDestination(string destinationOrb) {
+
+		initGameObjectsRenderer ();
+
+		if (destinationOrb == null) {
+			for (int i = 0; i < rGuestSlots.Length; i++) {
+				rGuestSlots[i].sprite = defaultGuest;
+			}
+			for (int i = 0; i < rGuestSlots.Length; i++) {
+				rOrbSlots[i].sprite = defaultOrb;
+			}
+		} else {
+			for (int i = 0; i < rOrbSlots.Length; i++) {
+				if (rOrbSlots[i].sprite.name.Equals(destinationOrb)) {
+					rGuestSlots[i].sprite = defaultGuest;
+					rOrbSlots[i].sprite = defaultOrb;
+					break;
+				}
+			}
+		}
+	}
+
 
 	private void initGameObjectsRenderer() {
 
@@ -78,18 +100,10 @@ public class SpriteManager : MonoBehaviour {
 		rGuestSlots[3] = GameObject.Find ("guest_slot4").GetComponent<SpriteRenderer>();
 		rGuestSlots[4] = GameObject.Find ("guest_slot5").GetComponent<SpriteRenderer>();
 
-//		for (int i = 0; i < rGuestSlots.Length; i++) {
-//			rGuestSlots[i].sprite = defaultGuest;
-//		}
-
 		rOrbSlots[0] = GameObject.Find ("dst_planet1").GetComponent<SpriteRenderer>();
 		rOrbSlots[1] = GameObject.Find ("dst_planet2").GetComponent<SpriteRenderer>();
 		rOrbSlots[2] = GameObject.Find ("dst_planet3").GetComponent<SpriteRenderer>();
 		rOrbSlots[3] = GameObject.Find ("dst_planet4").GetComponent<SpriteRenderer>();
 		rOrbSlots[4] = GameObject.Find ("dst_planet5").GetComponent<SpriteRenderer>();
-
-//		for (int i = 0; i < rGuestSlots.Length; i++) {
-//			rOrbSlots[i].sprite = defaultOrb;
-//		}
 	}
 }
