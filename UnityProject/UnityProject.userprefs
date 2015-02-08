@@ -1,41 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SpriteManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PassengerManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\SpriteManager.cs" Line="78" Column="47" />
-      <File FileName="Assets\Scripts\PassengerManager.cs" Line="48" Column="89" />
-      <File FileName="Assets\Scripts\GUI.cs" Line="81" Column="2" />
-      <File FileName="Assets\Scripts\PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\LevelController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameController.cs" Line="164" Column="1" />
-      <File FileName="Assets\Scripts\OrbManager.cs" Line="50" Column="3" />
-      <File FileName="Assets\Scripts\Passenger.cs" Line="56" Column="7" />
-      <File FileName="Assets\Scripts\TaxiManager.cs" Line="32" Column="32" />
-=======
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UmweltschrottSpawn.cs">
-    <Files>
-      <File FileName="../../New Unity Project 1/Assets/Scripts/Spawner.cs" Line="9" Column="1" />
-      <File FileName="Assets/Scripts/UmweltschrottSpawn.cs" Line="7" Column="40" />
-      <File FileName="Assets/Scripts/Atmosphere.cs" Line="78" Column="1" />
-      <File FileName="Assets/Scripts/Mothership.cs" Line="40" Column="1" />
-      <File FileName="Assets/Scripts/TaxiManager.cs" Line="121" Column="1" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="160" Column="8" />
-      <File FileName="Assets/Scripts/Orb.cs" Line="94" Column="62" />
-      <File FileName="Assets/Scripts/Umweltschrott.cs" Line="17" Column="28" />
->>>>>>> prototyp_v01
+      <File FileName="Assets\Scripts\PassengerManager.cs" Line="54" Column="34" />
+      <File FileName="Assets\Scripts\GUI.cs" Line="48" Column="3" />
+      <File FileName="Assets\Scripts\SpriteManager.cs" Line="81" Column="29" />
+      <File FileName="Assets\Scripts\TaxiManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TaxiStop.cs" Line="15" Column="66" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Scripts" expanded="True">
-              <Node name="UmweltschrottSpawn.cs" selected="True" />
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

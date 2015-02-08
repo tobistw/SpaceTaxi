@@ -20,8 +20,10 @@ public class SpriteManager : MonoBehaviour {
 		}
 	}
 
+	public Sprite defaultGuest, defaultOrb;
+
 	public Sprite[] spriteOrbs = new Sprite[6];
-	public Sprite[] spriteGuests = new Sprite[6];
+	public Sprite[] spriteGuests = new Sprite[3];
 
 	private SpriteRenderer[] rGuestSlots = new SpriteRenderer[5];
 
@@ -44,41 +46,50 @@ public class SpriteManager : MonoBehaviour {
 	}
 
 	void Start() {
-		rGuestSlots[0] = GameObject.Find ("guest_slot1").GetComponent<SpriteRenderer>();
-		rGuestSlots[1] = GameObject.Find ("guest_slot2").GetComponent<SpriteRenderer>();
-		rGuestSlots[2] = GameObject.Find ("guest_slot3").GetComponent<SpriteRenderer>();
-		rGuestSlots[3] = GameObject.Find ("guest_slot4").GetComponent<SpriteRenderer>();
-		rGuestSlots[4] = GameObject.Find ("guest_slot5").GetComponent<SpriteRenderer>();
 
-		rOrbSlots[0] = GameObject.Find ("dst_planet1").GetComponent<SpriteRenderer>();
-		rOrbSlots[1] = GameObject.Find ("dst_planet2").GetComponent<SpriteRenderer>();
-		rOrbSlots[2] = GameObject.Find ("dst_planet3").GetComponent<SpriteRenderer>();
-		rOrbSlots[3] = GameObject.Find ("dst_planet4").GetComponent<SpriteRenderer>();
-		rOrbSlots[4] = GameObject.Find ("dst_planet5").GetComponent<SpriteRenderer>();
+		initGameObjectsRenderer ();
 	}
 
-	public void setRendererForDestination(string destinationOrb, int slot) {
-//		for (int i = 0; i < rGuestSlots.Length && rOrbSlots.Length; i++) {
-//
-//		}
-		rGuestSlots[0] = GameObject.Find ("guest_slot1").GetComponent<SpriteRenderer>();
-		rGuestSlots[1] = GameObject.Find ("guest_slot2").GetComponent<SpriteRenderer>();
-		rGuestSlots[2] = GameObject.Find ("guest_slot3").GetComponent<SpriteRenderer>();
-		rGuestSlots[3] = GameObject.Find ("guest_slot4").GetComponent<SpriteRenderer>();
-		rGuestSlots[4] = GameObject.Find ("guest_slot5").GetComponent<SpriteRenderer>();
-		
-		rOrbSlots[0] = GameObject.Find ("dst_planet1").GetComponent<SpriteRenderer>();
-		rOrbSlots[1] = GameObject.Find ("dst_planet2").GetComponent<SpriteRenderer>();
-		rOrbSlots[2] = GameObject.Find ("dst_planet3").GetComponent<SpriteRenderer>();
-		rOrbSlots[3] = GameObject.Find ("dst_planet4").GetComponent<SpriteRenderer>();
-		rOrbSlots[4] = GameObject.Find ("dst_planet5").GetComponent<SpriteRenderer>();
+	public void setRendererForDestination(string destinationOrb, string passengerName, int slot) {
+
+		initGameObjectsRenderer ();
 
 		for (int i = 0; i < spriteOrbs.Length; i++) {
 			if (spriteOrbs[i].name.Equals(destinationOrb)) {
-				Debug.Log("RendererOrbName: " + rOrbSlots[slot].name);
-				Debug.Log("Spritename: " + spriteOrbs[i].name);
 				rOrbSlots[slot].sprite = spriteOrbs[i];
+				break;
 			}
 		}
+
+		for (int i = 0; i < spriteGuests.Length; i++) {
+			if (spriteGuests[i].name.Equals(passengerName)) {
+				rGuestSlots[slot].sprite = spriteGuests[i];
+				break;
+			}
+		}
+	}
+
+
+	private void initGameObjectsRenderer() {
+
+		rGuestSlots[0] = GameObject.Find ("guest_slot1").GetComponent<SpriteRenderer>();
+		rGuestSlots[1] = GameObject.Find ("guest_slot2").GetComponent<SpriteRenderer>();
+		rGuestSlots[2] = GameObject.Find ("guest_slot3").GetComponent<SpriteRenderer>();
+		rGuestSlots[3] = GameObject.Find ("guest_slot4").GetComponent<SpriteRenderer>();
+		rGuestSlots[4] = GameObject.Find ("guest_slot5").GetComponent<SpriteRenderer>();
+
+//		for (int i = 0; i < rGuestSlots.Length; i++) {
+//			rGuestSlots[i].sprite = defaultGuest;
+//		}
+
+		rOrbSlots[0] = GameObject.Find ("dst_planet1").GetComponent<SpriteRenderer>();
+		rOrbSlots[1] = GameObject.Find ("dst_planet2").GetComponent<SpriteRenderer>();
+		rOrbSlots[2] = GameObject.Find ("dst_planet3").GetComponent<SpriteRenderer>();
+		rOrbSlots[3] = GameObject.Find ("dst_planet4").GetComponent<SpriteRenderer>();
+		rOrbSlots[4] = GameObject.Find ("dst_planet5").GetComponent<SpriteRenderer>();
+
+//		for (int i = 0; i < rGuestSlots.Length; i++) {
+//			rOrbSlots[i].sprite = defaultOrb;
+//		}
 	}
 }

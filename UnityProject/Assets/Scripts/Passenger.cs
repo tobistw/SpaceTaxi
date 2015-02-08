@@ -13,8 +13,6 @@ public class Passenger : MonoBehaviour {
 
 	private ArrayList levelList;
 
-	public Canvas taxiHud;
-	
 
 
 	// Use this for initialization
@@ -52,22 +50,9 @@ public class Passenger : MonoBehaviour {
 			}
 		}
 
-		// Test der Ziellevel
-//		for (int i = 0; i < possibleLevel.Length; i++) {
-//			if (possibleLevel[i] != null) {
-//				Debug.Log(possibleLevel[i].AtmoName);
-//			} else {
-//				Debug.Log("null");
-//			}
-//		}
 
 		// zufällige Auswahl des Zielplaneten.
 		targetLevel = possibleLevel[Random.Range(0, possibleLevel.Length - 1)];
-		Debug.Log ("Passagier: " + this.name + "; Zielplanet: " + targetLevel.AtmoName);
-
-		Debug.Log ("Money: " + money + "; Bonus: " + bonus + "; Timer: " + timer);
-
-
 
 	}
 
@@ -79,6 +64,6 @@ public class Passenger : MonoBehaviour {
 		PassengerManager.instance.setTaxiGuest (this.name, targetLevel, money, bonus, timer);
 
 		Destroy (gameObject, 2f);
-		yield return new WaitForSeconds (3f);
+		yield return null;
 	}
 }

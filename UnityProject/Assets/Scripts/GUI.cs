@@ -46,8 +46,7 @@ public class GUI : MonoBehaviour {
 		textDmg = GameObject.Find("dmg").GetComponent <Text> ();
 		textDmgShadow = GameObject.Find("dmg_shadow").GetComponent <Text> ();
 
-		//textPassengerCount = canvasPassenger.GetComponentsInChildren<Text>();
-		//setGUIPassengerCount ();
+		PassengerManager.instance.refreshTaxiGuestList ();
 
 	}
 	//text = GetComponent <Text> ();

@@ -44,16 +44,53 @@ public class PassengerManager : MonoBehaviour {
 		}
 	}
 	
-
+	/**
+	 * Der zugestiegende Fahrgast wird in die Liste aufgenommen und Ziellevelname, Passagiertyp
+	 * werden dem SpriteManager übegeben.
+	 */
 	public void setTaxiGuest(string name, Level level, int money, int bonus, float timer) {
 		if (taxiGuests.Count < TaxiManager.instance.PassengerCount) {
 			Guest currentGuest = new Guest (name, level, money, bonus, timer);
 			taxiGuests.Add (currentGuest);
+			SpriteManager.instance.setRendererForDestination(level.AtmoName, name, taxiGuests.LastIndexOf(currentGuest));
+		}
+	}
+	
 
-			SpriteManager.instance.setRendererForDestination(level.AtmoName, taxiGuests.LastIndexOf(currentGuest));
+	public void checkLeavingTaxiGuest(int destinationLevel) {
+
+		Guest[] guests = new Guest[taxiGuests.Count];
+		Guest currentGuest;
+
+		for (int i = 0; i < guests.Length; i++) {
+			guests[i] = (Guest) taxiGuests[i];
 		}
 
+		taxiGuests.Clear ();
 
+		for (int i = 0; i < guests.Length; i++) {
+			currentGuest = (Guest) guests[i];
+			if (!(currentGuest.Level.LevelIndex == destinationLevel)) {
+				taxiGuests.Add(currentGuest);
+			} else {
+				//TaxiManager das Budget gutschreiben.
+				TaxiManager.instance.Budget += currentGuest.Money + currentGuest.Bonus;
+			}
+		}
+
+		// SpriteManager update mitteilen.
+		refreshTaxiGuestList ();
+	}
+
+	/**
+	 * Wird benötigt, um die Anzeige für die Fahrgäste bei Levelwechsel anzuzeigen.
+	 */
+	public void refreshTaxiGuestList() {
+		if (taxiGuests.Count > 0) {
+			foreach (Guest guest in taxiGuests) {
+				SpriteManager.instance.setRendererForDestination(guest.Level.AtmoName, guest.Name, taxiGuests.LastIndexOf(guest));
+			}
+		}
 	}
 
 	private class Guest {

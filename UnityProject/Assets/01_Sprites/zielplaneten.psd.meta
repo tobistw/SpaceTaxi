@@ -2,12 +2,12 @@ fileFormatVersion: 2
 guid: 651d1b4349a2c4857a1d8e107a40a39b
 TextureImporter:
   fileIDToRecycleName:
-    21300000: zielplaneten_rot
-    21300002: zielplaneten_cyan
-    21300004: zielplaneten_gelb
-    21300006: zielplaneten_braun
-    21300008: zielplaneten_gruen
-    21300010: zielplaneten_lila
+    21300000: red
+    21300002: cyan
+    21300004: yellow
+    21300006: brown
+    21300008: green
+    21300010: lila
     21300012: zielplaneten_ausgegraut
     21300014: rahmen
     21300016: pfeil
@@ -52,7 +52,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: zielplaneten_rot
+    - name: red
       rect:
         serializedVersion: 2
         x: 51
@@ -62,7 +62,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: zielplaneten_cyan
+    - name: cyan
       rect:
         serializedVersion: 2
         x: 528
@@ -72,7 +72,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: zielplaneten_gelb
+    - name: yellow
       rect:
         serializedVersion: 2
         x: 73
@@ -82,7 +82,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: zielplaneten_braun
+    - name: brown
       rect:
         serializedVersion: 2
         x: 552
@@ -92,7 +92,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: zielplaneten_gruen
+    - name: green
       rect:
         serializedVersion: 2
         x: 56
@@ -102,7 +102,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: zielplaneten_lila
+    - name: lila
       rect:
         serializedVersion: 2
         x: 535
