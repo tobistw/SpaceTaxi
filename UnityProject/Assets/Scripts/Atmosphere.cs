@@ -40,28 +40,29 @@ public class Atmosphere : MonoBehaviour {
 
 
 	void OnTriggerEnter2D (Collider2D other) {
+		if (other.name == "taxi") {
+			taxi = GameObject.FindGameObjectWithTag ("Player").GetComponent<Rigidbody2D> ();
 
-		taxi = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+			//brauch man, damit das Taxi etwas versetzt wieder auftaucht, sonst lädt sich das lvl wieder
+			float xVelo = taxi.velocity.x;
+			float yVelo = taxi.velocity.y;
 
-		//brauch man, damit das Taxi etwas versetzt wieder auftaucht, sonst lädt sich das lvl wieder
-		float xVelo = taxi.velocity.x;
-		float yVelo = taxi.velocity.y;
+			if (xVelo > 0) {
+					xVelo = 5;
+			} else if (xVelo < 0) {
+					xVelo = -5;
+			} 
+			if (yVelo > 0) {
+					yVelo = 5;
+			} else if (yVelo < 0) {
+					yVelo = -5;
+			} 
 
-		if(xVelo > 0){
-			xVelo = 5;
-		} else if (xVelo < 0){
-			xVelo = -5;
-		} 
-		if(yVelo > 0){
-			yVelo = 5;
-		} else if (yVelo < 0){
-			yVelo = -5;
-		} 
+			levelStats.CurrentPosition = new Vector2 (taxi.transform.position.x - xVelo, taxi.transform.position.y - yVelo);
 
-		levelStats.CurrentPosition = new Vector2(taxi.transform.position.x - xVelo, taxi.transform.position.y - yVelo);
-	
-		// Das Level wird geladen.
-		Application.LoadLevel(levelIndex);
+			// Das Level wird geladen.
+			Application.LoadLevel (levelIndex);
+		}
 
 	}
 
