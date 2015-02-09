@@ -1,19 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TaxiManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameController.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameController.cs" Line="1" Column="19" />
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Umweltschrott.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UmweltschrottSpawn.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUI.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GUIMothership.cs" Line="14" Column="31" />
-      <File FileName="Assets/Scripts/MainMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Mothership.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/LevelController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/LevelStats.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TaxiManager.cs" Line="69" Column="3" />
-      <File FileName="Assets/Scripts/Atmosphere.cs" Line="61" Column="43" />
+      <File FileName="Assets\Scripts\Atmosphere.cs" Line="57" Column="27" />
+      <File FileName="Assets\Scripts\TaxiManager.cs" Line="65" Column="29" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="30" Column="2" />
+      <File FileName="Assets\Scripts\LevelStats.cs" Line="26" Column="31" />
+      <File FileName="Assets\Scripts\LevelController.cs" Line="30" Column="33" />
+      <File FileName="Assets\Scripts\GameController.cs" Line="91" Column="45" />
+      <File FileName="Assets\Scripts\OrbManager.cs" Line="64" Column="36" />
+      <File FileName="Assets\Scripts\Orb.cs" Line="16" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
