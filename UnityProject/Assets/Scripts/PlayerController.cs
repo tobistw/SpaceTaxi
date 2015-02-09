@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour {
 
 		currentPosition = levelStats.CurrentPosition;
 		if (currentPosition.x == 0 && currentPosition.y == 0) {
-			rigidbody2D.position = new Vector2 (186.0F, 112.0F);		
+			rigidbody2D.position = new Vector2 (236.0F, 87.8F);		
 		} else {
 			rigidbody2D.position = currentPosition;
 		}

@@ -17,6 +17,8 @@ public class GUIMothership : MonoBehaviour {
 	private bool pause;
 	private Text textDmg;
 
+	private Rigidbody2D taxi;
+
 	// Use this for initialization
 	void Start () {
 		pause = false;
@@ -85,6 +87,30 @@ public class GUIMothership : MonoBehaviour {
 	}
 
 	public void ClickMenu(){
+		taxi = GameObject.FindGameObjectWithTag ("Player").GetComponent<Rigidbody2D> ();
+		
+		//brauch man, damit das Taxi etwas versetzt wieder auftaucht, sonst lädt sich das lvl wieder
+		float xVelo = taxi.velocity.x;
+		float yVelo = taxi.velocity.y;
+		
+		if (xVelo > 0) {
+			xVelo = 5;
+		} else if (xVelo < 0) {
+			xVelo = -5;
+		} 
+		if (yVelo > 0) {
+			yVelo = 5;
+		} else if (yVelo < 0) {
+			yVelo = -5;
+		} 
+		
+		levelStats.CurrentPosition = new Vector2 (taxi.transform.position.x - xVelo, taxi.transform.position.y - yVelo);
+
+		levelStats.GameIsRunning = true;
+
+
+
+		//HIER AUF 0 ÄNDERN!
 		Application.LoadLevel (Application.levelCount - 1);
 	}
 
