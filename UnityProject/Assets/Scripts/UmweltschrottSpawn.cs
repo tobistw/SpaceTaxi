@@ -22,6 +22,7 @@ public class UmweltschrottSpawn : MonoBehaviour
 		Rigidbody2D enemieInstance;
 		enemieInstance = Instantiate (enemies [enemyIndex], transform.position, transform.rotation) as Rigidbody2D;
 		enemieInstance.AddForce(new Vector2(Random.Range(spawndirectionX - 4F,spawndirectionX + 4F), Random.Range(spawndirectionY - 4F, spawndirectionY + 4F)) * Random.Range(80, 160));
+		enemieInstance.AddTorque (50.0F);
 
 	}
 }
