@@ -60,10 +60,9 @@ public class Passenger : MonoBehaviour {
 	 * Wenn das Taxi gelandet ist, kann der Passagier zusteigen.
 	 */ 
 	private IEnumerator enterTaxi() {
+		yield return new WaitForSeconds (2f);
 		// speichere Ziellevel und Passagiertyp mit Attributen im Passagiermanager.
 		PassengerManager.instance.setTaxiGuest (this.name, targetLevel, money, bonus, timer);
-
-		Destroy (gameObject, 2f);
-		yield return null;
+		Destroy (gameObject);
 	}
 }

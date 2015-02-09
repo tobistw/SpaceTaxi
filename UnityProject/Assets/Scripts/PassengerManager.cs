@@ -73,8 +73,10 @@ public class PassengerManager : MonoBehaviour {
 			if (!(currentGuest.Level.LevelIndex == destinationLevel)) {
 				taxiGuests.Add(currentGuest);
 			} else {
+				Debug.Log(currentGuest.Name + ": Fahrgeld: " + currentGuest.Money + " Bonus: " + currentGuest.Bonus);
 				//TaxiManager das Budget gutschreiben.
 				TaxiManager.instance.Budget += currentGuest.Money + currentGuest.Bonus;
+				SpriteManager.instance.setDefaultRendererForDestination(null);
 			}
 		}
 
@@ -90,6 +92,8 @@ public class PassengerManager : MonoBehaviour {
 			foreach (Guest guest in taxiGuests) {
 				SpriteManager.instance.setRendererForDestination(guest.Level.AtmoName, guest.Name, taxiGuests.LastIndexOf(guest));
 			}
+		} else {
+			SpriteManager.instance.setDefaultRendererForDestination(null);
 		}
 	}
 
