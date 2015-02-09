@@ -15,7 +15,7 @@ public class LevelStats : MonoBehaviour {
 
 	public float speedBoost, maxSpeed;
 
-	private int passengerCount, budget, achievement;
+	private int passengerCount, budget, achievement, aGameIsRunning;
 
 	private float stability;
 	private float fuelVolume;
@@ -65,6 +65,7 @@ public class LevelStats : MonoBehaviour {
 		budget = PlayerPrefs.GetInt ("Budget");
 		achievement = PlayerPrefs.GetInt ("Achievement");
 
+
 		if (damage == 0) {
 			PlayerPrefs.SetFloat("Damage", stability);		
 		}
@@ -75,6 +76,11 @@ public class LevelStats : MonoBehaviour {
 		if (achievement == 0) {
 			PlayerPrefs.SetInt("Achievement", 140);	
 		}
+		aGameIsRunning = PlayerPrefs.GetInt ("GameIsRunning");
+		if(aGameIsRunning == null){
+			PlayerPrefs.SetInt("GameIsRunning", 0);
+		}
+
 
 	}
 	
@@ -104,6 +110,8 @@ public class LevelStats : MonoBehaviour {
 	 * Getter und Setter
 	 * */
 	
+
+
 
 	public string ActiveOrbName {
 		get {
@@ -223,6 +231,25 @@ public class LevelStats : MonoBehaviour {
 		set {
 			fuelVolume = value;
 		}
+	}
+
+	public bool GameIsRunning {
+		get {
+
+			aGameIsRunning = PlayerPrefs.GetInt ("GameIsRunning");
+
+			return (aGameIsRunning == 1);
+		}
+		set {
+
+			if(value){
+				aGameIsRunning = 1;
+			} else {
+				aGameIsRunning = 0;
+			}
+			PlayerPrefs.SetInt("GameIsRunning", aGameIsRunning);
+		}
+		//Debug.Log("läuft ein Spiel?: " +  levelStats.GameIsRunning);
 	}
 
 }

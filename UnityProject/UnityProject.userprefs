@@ -1,6 +1,11 @@
 ﻿<Properties>
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+<<<<<<< HEAD
 <<<<<<< .merge_file_a06516
+=======
+<<<<<<< HEAD
+>>>>>>> prototyp_v01
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PassengerManager.cs">
     <Files>
       <File FileName="Assets\Scripts\PassengerManager.cs" Line="76" Column="75" />
@@ -21,7 +26,23 @@
       <File FileName="Assets/Scripts/GUI.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GUIMothership.cs" Line="74" Column="26" />
       <File FileName="Assets/Scripts/MainMenu.cs" Line="1" Column="1" />
+<<<<<<< HEAD
 >>>>>>> .merge_file_a08188
+=======
+>>>>>>> Temp_Andrea
+=======
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainMenu.cs">
+    <Files>
+      <File FileName="Assets/Scripts/GameController.cs" Line="154" Column="5" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Umweltschrott.cs" Line="13" Column="3" />
+      <File FileName="Assets/Scripts/UmweltschrottSpawn.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUI.cs" Line="19" Column="23" />
+      <File FileName="Assets/Scripts/GUIMothership.cs" Line="35" Column="39" />
+      <File FileName="Assets/Scripts/MainMenu.cs" Line="20" Column="1" />
+>>>>>>> Temp_Andrea
+>>>>>>> prototyp_v01
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
