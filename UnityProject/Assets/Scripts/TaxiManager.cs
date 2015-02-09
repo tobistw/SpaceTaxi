@@ -5,15 +5,19 @@ public class TaxiManager : MonoBehaviour {
 
 	//Here is a private reference only this class can access
 	private static TaxiManager _instance;
-	
+
+	private  LevelStats levelStats;
+
 	//This is the public reference that other classes will use
 	public static TaxiManager instance {
 		get {
+
 			//If _instance hasn't been set yet, we grab it from the scene!
 			//This will only happen the first time this reference is used.
 			if (_instance == null) {
 				_instance = GameObject.FindObjectOfType<TaxiManager>();
 				//Tell unity not to destroy this object when loading a new scene!
+
 				DontDestroyOnLoad(_instance.gameObject);
 			}
 			return _instance;
@@ -30,7 +34,11 @@ public class TaxiManager : MonoBehaviour {
 	public int achievement;
 	
 	public float speedBoost, maxSpeed, gravity;
-	
+
+	public int highscore;
+	public bool newHighscore;
+	public bool isGameOver;
+
 	public int passengerCount = 5;
 	public int budget = 100;
 	public int nextLevelBudget = 150;
@@ -39,13 +47,20 @@ public class TaxiManager : MonoBehaviour {
 	private float stability;
 	private float fuelAmount;
 
+	private GameController gameController;
+
+
 	public float defaultStability = 1000.0F;
 	public float defaultFuel = 60.0F;
 
 	private Vector2 currentTaxiPosition;
 
+
+
+
 	void Awake() {
-		
+	
+
 		if (_instance == null) {
 			//If I am the first instance, make me the Singleton
 			_instance = this;
@@ -56,7 +71,37 @@ public class TaxiManager : MonoBehaviour {
 			if(this != _instance)
 				Destroy(this.gameObject);
 		}
+		
 	}
+
+
+	/*void Awake() {
+		////////
+		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+		if (gameControllerObject != null) {				
+			levelStats = gameControllerObject.GetComponent<LevelStats> ();
+		} else {
+			Debug.Log("Cant find Game Controller Object");
+		}
+		
+		if(levelStats.NewGameStarted){
+		///////// 
+			if (_instance == null) {
+				//If I am the first instance, make me the Singleton
+				_instance = this;
+				DontDestroyOnLoad(this);
+			} else {
+				//If a Singleton already exists and you find
+				//another reference in scene, destroy it!
+				if(this != _instance)
+					Destroy(this.gameObject);
+			}
+		/////
+			levelStats.NewGameStarted = false;
+		}
+		///////
+		
+	}*/
 
 	void Start() {
 		stability = defaultStability;
@@ -65,10 +110,44 @@ public class TaxiManager : MonoBehaviour {
 		isNewLevelReached = false;
 	}
 
+	/*public void Reset(){
+
+
+		isGameOver = false;
+		stability = defaultStability;
+		fuelAmount = defaultFuel;
+		currentTaxiPosition = new Vector2 (236.2F, 88.0F);
+		isNewLevelReached = false;
+		budget = 100;
+		nextLevelBudget = 150;
+	}*/
+
 	void Update(){
+
+
+
+
 		if (fuel < 0 || damage < 0) {
 			Debug.Log ("GAME OVER");
-			StartCoroutine(setGameOver());
+			//StartCoroutine(setGameOver());
+			GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+			if (gameControllerObject != null) {				
+				levelStats = gameControllerObject.GetComponent<LevelStats> ();
+			} else {
+				Debug.Log("Cant find Game Controller Object");
+			}
+
+			fuel = 0.1F;
+			damage = 1;
+			GameObject gameObjectGameOver = GameObject.FindGameObjectWithTag ("gameOver");
+			canvasGameOver = gameObjectGameOver.GetComponent<Canvas> ();
+			canvasGameOver.enabled = true;
+			Time.timeScale = 0.0F;
+			//Highscore ausrechnen
+			isGameOver = true;
+			levelStats.GameIsRunning = false;
+
+
 		} 
 
 		if (budget >= nextLevelBudget) {
@@ -77,6 +156,16 @@ public class TaxiManager : MonoBehaviour {
 			isNewLevelReached = true;
 		}
 	}
+
+	/*void setHighscore(){
+		newHighscore = false;
+		if (levelStats.Highscore == null || levelStats.Highscore < budget) {
+			levelStats.Highscore = budget;
+			newHighscore = true;
+		}
+		highscore = levelStats.Highscore;
+	}*/
+
 
 	IEnumerator setGameOver() {
 		yield return new WaitForSeconds (1f);

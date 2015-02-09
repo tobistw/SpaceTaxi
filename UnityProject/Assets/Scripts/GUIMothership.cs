@@ -109,7 +109,7 @@ public class GUIMothership : MonoBehaviour {
 			yVelo = -5;
 		} 
 		
-		levelStats.CurrentPosition = new Vector2 (taxi.transform.position.x - xVelo, taxi.transform.position.y - yVelo);
+		TaxiManager.instance.CurrentTaxiPosition = new Vector2 (taxi.transform.position.x - xVelo, taxi.transform.position.y - yVelo);
 
 		levelStats.GameIsRunning = true;
 
