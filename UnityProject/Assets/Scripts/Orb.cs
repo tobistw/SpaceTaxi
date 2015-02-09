@@ -96,11 +96,12 @@ public class Orb : MonoBehaviour {
 	 * bei höheren Level entsprechend zu.
 	 */
 	void createPassengerPopulation() {
+		int levelIndex;
 		atmoScript = atmosphereObject.GetComponent<Atmosphere>();
 
-		if (atmoScript != null) {
+		if (atmoScript != null && !PassengerManager.instance.isPassengerStartLevel(atmoScript.LevelIndex)) {
 		
-			int levelIndex = atmoScript.LevelIndex;
+			levelIndex = atmoScript.LevelIndex;
 			switch(levelIndex) {
 			case 1:
 				passengers = randomPassengerGenerator(1, levelIndex + 1);
@@ -123,6 +124,10 @@ public class Orb : MonoBehaviour {
 
 			OrbManager.instance.setPassengersOnOrb(levelIndex, passengers);
 
+		} else if (atmoScript != null) {
+			levelIndex = atmoScript.LevelIndex;
+			passengers = 0;
+			OrbManager.instance.setPassengersOnOrb(levelIndex, passengers);
 		}
 	}
 	/**

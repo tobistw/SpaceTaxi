@@ -48,9 +48,9 @@ public class PassengerManager : MonoBehaviour {
 	 * Der zugestiegende Fahrgast wird in die Liste aufgenommen und Ziellevelname, Passagiertyp
 	 * werden dem SpriteManager übegeben.
 	 */
-	public void setTaxiGuest(string name, Level level, int money, int bonus, float timer) {
+	public void setTaxiGuest(string name, int start, Level level, int money, int bonus, float timer) {
 		if (taxiGuests.Count < TaxiManager.instance.PassengerCount) {
-			Guest currentGuest = new Guest (name, level, money, bonus, timer);
+			Guest currentGuest = new Guest (name, start, level, money, bonus, timer);
 			taxiGuests.Add (currentGuest);
 			SpriteManager.instance.setRendererForDestination(level.AtmoName, name, taxiGuests.LastIndexOf(currentGuest));
 		}
@@ -97,9 +97,25 @@ public class PassengerManager : MonoBehaviour {
 		}
 	}
 
+	public bool isPassengerStartLevel(int compareLevel) {
+		bool isStartLevel = false;
+
+		if (taxiGuests != null && taxiGuests.Count > 0) {
+			foreach (Guest guest in taxiGuests) {
+				if (guest.Startlevel == compareLevel) {
+					isStartLevel = true;
+					return isStartLevel;
+				}
+			}
+		}
+		return isStartLevel;
+	}
+
 	private class Guest {
 
 		string name;
+
+		int startlevel;
 
 		Level level;
 
@@ -107,9 +123,10 @@ public class PassengerManager : MonoBehaviour {
 
 		float timer;
 
-		public Guest (string name, Level level, int money, int bonus, float timer)
+		public Guest (string name,int startlevel, Level level, int money, int bonus, float timer)
 		{
 			this.name = name;
+			this.startlevel = startlevel;
 			this.level = level;
 			this.money = money;
 			this.bonus = bonus;
@@ -122,6 +139,15 @@ public class PassengerManager : MonoBehaviour {
 			}
 			set {
 				name = value;
+			}
+		}
+
+		public int Startlevel {
+			get {
+				return this.startlevel;
+			}
+			set {
+				startlevel = value;
 			}
 		}
 

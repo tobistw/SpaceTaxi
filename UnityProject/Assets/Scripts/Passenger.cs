@@ -62,7 +62,7 @@ public class Passenger : MonoBehaviour {
 	private IEnumerator enterTaxi() {
 		yield return new WaitForSeconds (2f);
 		// speichere Ziellevel und Passagiertyp mit Attributen im Passagiermanager.
-		PassengerManager.instance.setTaxiGuest (this.name, targetLevel, money, bonus, timer);
+		PassengerManager.instance.setTaxiGuest (this.name, currentLevel, targetLevel, money, bonus, timer);
 		Destroy (gameObject);
 	}
 }

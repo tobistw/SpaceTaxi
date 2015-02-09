@@ -29,9 +29,6 @@ public class GameController : MonoBehaviour {
 
 	private Atmosphere atmoScript;
 
-	// es werden die Level Stati verwaltet.
-	private LevelStats levelStats;
-
 	private static bool isGameRunning;
 
 	// Die Taxiwerte für die Map.
@@ -45,16 +42,6 @@ public class GameController : MonoBehaviour {
 		TaxiManager.instance.gravity = gravity;
 		TaxiManager.instance.speedBoost = speedBoost;
 		TaxiManager.instance.gravity = gravity;
-
-		// Initalisierung der Levelstats
-		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		
-		if (gameControllerObject != null) {
-			
-			levelStats = gameControllerObject.GetComponent<LevelStats> ();
-		} else {
-			Debug.Log("Cant find Game Controller Object");
-		}
 
 		initActiveOrbs ();
 
@@ -106,12 +93,6 @@ public class GameController : MonoBehaviour {
 
 	}
 
-	/**
-	 * legt die Anzahl der Passagiere auf den aktiven Planeten fest.
-	 * */
-	void initPassengersOnOrbs() {
-		
-	}
 
 	// Wird nur einmal nach dem Start des Spiels ausgeführt.
 	void firstGameRunning () {
