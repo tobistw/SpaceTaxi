@@ -34,7 +34,7 @@ public class LevelController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		MusicManager.instance.SoundHeyTaxi ();
 		level = Application.loadedLevel;
 
 		passengerPrefabs = new ArrayList ();

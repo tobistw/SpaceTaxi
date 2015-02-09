@@ -41,6 +41,12 @@ public class MainMenu : MonoBehaviour {
 		//Playerprefs bis auf highscore zurücksetzten 
 
 		levelStats.GameIsRunning = true;
+<<<<<<< HEAD
+		Debug.Log("läuft ein Spiel?: " +  levelStats.GameIsRunning);
+		
+		Destroy (TaxiManager.instance.gameObject);
+		Application.Quit ();
+=======
 		Application.Quit ();
 
 
@@ -50,6 +56,7 @@ public class MainMenu : MonoBehaviour {
 			Destroy (PassengerManager.instance.gameObject);
 		}*/
 
+>>>>>>> prototyp_v01
 		Application.LoadLevel (startLevelIndex);
 
 
