@@ -41,6 +41,9 @@ public class MainMenu : MonoBehaviour {
 
 		levelStats.GameIsRunning = true;
 		Debug.Log("läuft ein Spiel?: " +  levelStats.GameIsRunning);
+		
+		Destroy (TaxiManager.instance.gameObject);
+		Application.Quit ();
 		Application.LoadLevel (startLevelIndex);
 
 

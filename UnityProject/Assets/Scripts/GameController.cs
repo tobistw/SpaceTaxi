@@ -38,7 +38,8 @@ public class GameController : MonoBehaviour {
 	
 
 	void Start() {
-
+		orbInactiveList = new ArrayList ();
+		orbActiveList = new ArrayList();
 		gravity = 0;
 
 		TaxiManager.instance.gravity = gravity;
@@ -60,11 +61,11 @@ public class GameController : MonoBehaviour {
 		int currentBudget = TaxiManager.instance.Budget;
 		// Wurde bereits das Budget für ein neues Level erreicht.
 		if (TaxiManager.instance.IsNewLevelReached) {
+			TaxiManager.instance.IsNewLevelReached = false;
 						// neue Level hinzufügen
-			numberOfActiveOrbs++;
-			OrbManager.instance.NumberOfActiveOrbs = numberOfActiveOrbs;
-			Debug.Log("Neues Level, ingesamt: " + numberOfActiveOrbs);
+			Debug.Log("Neues Level, ingesamt: " + OrbManager.instance.NumberOfActiveOrbs);
 			// Level Stats aktualisieren!!
+			setNextActiveOrb();
 		} else {
 
 
@@ -101,10 +102,6 @@ public class GameController : MonoBehaviour {
 	// Wird nur einmal nach dem Start des Spiels ausgeführt.
 	void firstGameRunning () {
 		if (!isGameRunning) {
-			
-
-			orbInactiveList = new ArrayList ();
-			orbActiveList = new ArrayList();
 
 			numberOfActiveOrbs = defaultNumberOfActiveOrbs;
 			// In den OrbManager schreiben.
@@ -134,8 +131,35 @@ public class GameController : MonoBehaviour {
 
 	}
 
-	void OnCollisionEnter(Collision collision) {
+	void setNextActiveOrb() {
+		ArrayList activeOrbNames = OrbManager.instance.getActiveOrbs ();
+		orbObjects = GameObject.FindGameObjectsWithTag("Orb");
 		
+		// Inaktive Planeten werden vorinitialisiert...
+		if (orbObjects != null) {
+			
+			for(int i = 0; i < orbObjects.Length; i++) {
+				if (activeOrbNames.Contains(orbObjects[i].name)) {
+					orbActiveList.Add(orbObjects[i]);
+				} else {
+					orbInactiveList.Add(orbObjects[i]);
+				}
+			}
+			if (orbInactiveList.Count > 0) {
+				Debug.Log("Neues Level");
+				orbActiveList.Add(orbInactiveList[0]);
+				GameObject goOrb = (GameObject) orbActiveList[orbActiveList.Count - 1];
+				goOrb.GetComponent<Orb>().isActive = true;
+				OrbManager.instance.setLevelIndex(goOrb.name, 
+				                                  goOrb.GetComponentInChildren<Atmosphere>().name,
+				                                  orbActiveList.Count + 1);
+			}
+		}
+	}
+
+
+	void OnCollisionEnter(Collision collision) {
+
 		//Debug.Log ("dmg: " + collision.relativeVelocity.magnitude);
 		//if (collision.relativeVelocity.magnitude > 2)
 		//	audio.Play();

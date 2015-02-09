@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\LevelStats.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Mothership.cs" />
+     <Compile Include="Assets\Scripts\MusicManager.cs" />
      <Compile Include="Assets\Scripts\Orb.cs" />
      <Compile Include="Assets\Scripts\OrbManager.cs" />
      <Compile Include="Assets\Scripts\Passenger.cs" />

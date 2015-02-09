@@ -33,7 +33,6 @@ public class TaxiManager : MonoBehaviour {
 	
 	public int passengerCount = 5;
 	public int budget = 100;
-	public int nextLevelBudget = 150;
 	private bool isNewLevelReached;
 	
 	private float stability;
@@ -71,8 +70,8 @@ public class TaxiManager : MonoBehaviour {
 			StartCoroutine(setGameOver());
 		} 
 
-		if (budget >= nextLevelBudget) {
-			nextLevelBudget += nextLevelBudget;
+		if (budget >= achievement && !isNewLevelReached) {
+			achievement += achievement;
 			// Aufruf für nächstes Level.
 			isNewLevelReached = true;
 		}
