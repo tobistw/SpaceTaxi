@@ -58,8 +58,7 @@ public class Atmosphere : MonoBehaviour {
 					yVelo = -5;
 			} 
 
-			TaxiManager.instance.CurrentTaxiPosition = 
-				new Vector2 (taxi.transform.position.x - xVelo, taxi.transform.position.y - yVelo);
+			TaxiManager.instance.CurrentTaxiPosition = new Vector2 (taxi.transform.position.x - xVelo, taxi.transform.position.y - yVelo);
 
 			// Das Level wird geladen.
 			Application.LoadLevel (levelIndex);
