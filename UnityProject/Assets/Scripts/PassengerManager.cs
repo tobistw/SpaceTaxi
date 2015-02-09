@@ -5,10 +5,12 @@ public class PassengerManager : MonoBehaviour {
 
 	//Here is a private reference only this class can access
 	private static PassengerManager _instance;
+	private  LevelStats levelStats;
 	
 	//This is the public reference that other classes will use
 	public static PassengerManager instance {
 		get {
+
 			//If _instance hasn't been set yet, we grab it from the scene!
 			//This will only happen the first time this reference is used.
 			if (_instance == null) {
@@ -23,6 +25,9 @@ public class PassengerManager : MonoBehaviour {
 	// Verwaltet die Taxi Gäste
 	private ArrayList taxiGuests;
 
+	private GameController gameController;
+
+
 	public GameObject guestSlot;
 	
 	public Sprite sprite;
@@ -30,7 +35,7 @@ public class PassengerManager : MonoBehaviour {
 	private SpriteRenderer spriteRenderer;
 
 	void Awake() {
-		
+
 		if (_instance == null) {
 			taxiGuests = new ArrayList ();
 			//If I am the first instance, make me the Singleton

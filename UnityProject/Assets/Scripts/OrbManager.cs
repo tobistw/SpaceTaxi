@@ -5,10 +5,15 @@ public class OrbManager : MonoBehaviour
 {
 	//Here is a private reference only this class can access
 	private static OrbManager _instance;
+	private  LevelStats levelStats;
+
 
 	//This is the public reference that other classes will use
 	public static OrbManager instance {
 		get {
+
+
+
 			//If _instance hasn't been set yet, we grab it from the scene!
 			//This will only happen the first time this reference is used.
 			if (_instance == null) {
@@ -25,7 +30,11 @@ public class OrbManager : MonoBehaviour
 
 	// Direkter Zugriff auf die Anzahl aktiver Planeten.
 	private int numberOfActiveOrbs;
-	
+
+	private GameController gameController;
+
+
+
 	//Level Indexe mit Passagieranzahl werden für die zugehörigen Planeten verwaltet.
 	private Hashtable levelIndexPassengerTable;
 

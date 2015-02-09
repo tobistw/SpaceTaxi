@@ -15,7 +15,7 @@ public class LevelStats : MonoBehaviour {
 
 	public float speedBoost, maxSpeed;
 
-	private int passengerCount, budget, achievement, aGameIsRunning;
+	private int aGameIsRunning, highscore;
 
 	private float stability;
 	private float fuelVolume;
@@ -30,7 +30,11 @@ public class LevelStats : MonoBehaviour {
 	private static Vector2 currentTaxiPosition;
 
 	public bool isMothershipActive;
-	
+
+
+	private int newGameStart;
+	private int newGameStartPlayer;
+	private int newGameStartOrb;
 
 
 
@@ -42,16 +46,16 @@ public class LevelStats : MonoBehaviour {
 
 
 	void Update(){
-		if (Input.GetKeyDown (KeyCode.A)) {
+		/*if (Input.GetKeyDown (KeyCode.A)) {
 			PlayerPrefs.SetInt ("Budget", 100);
 
-		}
+		}*/
 	
 	}
 	void OnApplicationQuit() {
 		// Falls das Spiel beendet wird, müssen (vorerst) alle PlayerPrefs gelöscht werden, sonst
 		// werden weitere Planeten aktiviert.
-		PlayerPrefs.DeleteAll ();
+		//PlayerPrefs.DeleteAll ();
 	}
 
 
@@ -59,7 +63,7 @@ public class LevelStats : MonoBehaviour {
 	 * Holt aus den PlayerPref alle zwischengespeicherten Werte
 	 * */
 	void initPlayerPreferences() {
-		passengerCount = PlayerPrefs.GetInt ("Passengers");
+		/*passengerCount = PlayerPrefs.GetInt ("Passengers");
 		damage = PlayerPrefs.GetFloat ("Damage");
 		fuel = PlayerPrefs.GetFloat ("Fuel");
 		budget = PlayerPrefs.GetInt ("Budget");
@@ -75,11 +79,14 @@ public class LevelStats : MonoBehaviour {
 		//nur für aktuellen test
 		if (achievement == 0) {
 			PlayerPrefs.SetInt("Achievement", 140);	
-		}
+		}*/
 		aGameIsRunning = PlayerPrefs.GetInt ("GameIsRunning");
 		if(aGameIsRunning == null){
 			PlayerPrefs.SetInt("GameIsRunning", 0);
 		}
+
+
+
 
 
 	}
@@ -90,7 +97,7 @@ public class LevelStats : MonoBehaviour {
 	 * Wird alles in den Player Prefs verwaltet und über die GameObject Namen zugänglich gemacht.
 	 * */
 
-	public void setLevelIndexInPrefs(string name, int level) {
+	/*public void setLevelIndexInPrefs(string name, int level) {
 		PlayerPrefs.SetInt (name, level);
 	}
 
@@ -104,7 +111,7 @@ public class LevelStats : MonoBehaviour {
 
 	public int getPassengersOnOrb(string levelIndexString) {
 		return PlayerPrefs.GetInt (levelIndexString);
-	}
+	}*/
 
 	/**
 	 * Getter und Setter
@@ -113,7 +120,7 @@ public class LevelStats : MonoBehaviour {
 
 
 
-	public string ActiveOrbName {
+	/*public string ActiveOrbName {
 		get {
 			return activeOrbName;
 		}
@@ -182,7 +189,7 @@ public class LevelStats : MonoBehaviour {
 			PlayerPrefs.SetInt("Achievement", achievement);
 		}
 	}
-
+*/
 	public float ExitLevelHeight {
 		get {
 			return exitLevelHeight;
@@ -193,6 +200,18 @@ public class LevelStats : MonoBehaviour {
 		}
 	}
 
+	public int Highscore {
+		get {
+			return PlayerPrefs.GetInt ("Highscore");
+		}
+		
+		set {
+			PlayerPrefs.SetInt("Highscore", value);
+		}
+	}
+
+
+	/*
 	public Vector2 CurrentPosition {
 		get {
 			return currentTaxiPosition;
@@ -203,6 +222,7 @@ public class LevelStats : MonoBehaviour {
 		}
 	}
 
+	*/
 	public bool IsMothershipActive {
 		get {
 			return isMothershipActive;
@@ -213,6 +233,12 @@ public class LevelStats : MonoBehaviour {
 		}
 	}
 
+
+
+
+
+
+	/*
 	public float Stability {
 		get {
 			return stability;
@@ -232,6 +258,9 @@ public class LevelStats : MonoBehaviour {
 			fuelVolume = value;
 		}
 	}
+*/
+
+
 
 	public bool GameIsRunning {
 		get {

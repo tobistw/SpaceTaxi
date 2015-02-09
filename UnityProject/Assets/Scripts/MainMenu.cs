@@ -29,21 +29,34 @@ public class MainMenu : MonoBehaviour {
 	void Update(){
 		//Debug.Log("läuft ein Spiel?: " +  levelStats.GameIsRunning);
 		if (levelStats.GameIsRunning) {
-			fortsetzten.interactable = true;
 
+			fortsetzten.interactable = true;
 		} else {
 			fortsetzten.interactable = false;
 		}
+		Debug.Log("fortetzten darf angezeigt werden: " + levelStats.GameIsRunning);
 	}
 
 	public void ClickNewGame(){
 		//Playerprefs bis auf highscore zurücksetzten 
 
 		levelStats.GameIsRunning = true;
+<<<<<<< HEAD
 		Debug.Log("läuft ein Spiel?: " +  levelStats.GameIsRunning);
 		
 		Destroy (TaxiManager.instance.gameObject);
 		Application.Quit ();
+=======
+		Application.Quit ();
+
+
+		/*if (TaxiManager.instance.gameObject != null || OrbManager.instance.gameObject != null || PassengerManager.instance.gameObject != null) {
+			Destroy (TaxiManager.instance.gameObject);
+			Destroy (OrbManager.instance.gameObject);
+			Destroy (PassengerManager.instance.gameObject);
+		}*/
+
+>>>>>>> prototyp_v01
 		Application.LoadLevel (startLevelIndex);
 
 
