@@ -5,7 +5,8 @@ using System.Collections;
 public class GUIMothership : MonoBehaviour {
 
 	private LevelStats levelStats;
-	private Canvas canvas;
+	private Canvas canvasMothership;
+
 
 	private int currentBudget;
 	private float currentFuel;
@@ -32,7 +33,9 @@ public class GUIMothership : MonoBehaviour {
 		} else {
 			Debug.Log("Cant find Game Controller Object");
 		}
-		canvas = GetComponent<Canvas>();
+
+		canvasMothership = GameObject.FindGameObjectWithTag ("mothership") as Canvas;
+
 
 		textDmg = GameObject.Find("playPause").GetComponent <Text> ();
 	}
@@ -40,9 +43,9 @@ public class GUIMothership : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (levelStats.IsMothershipActive) {
-			canvas.enabled = true;
+			canvasMothership.enabled = true;
 		} else {
-			canvas.enabled = false;
+			canvasMothership.enabled = false;
 		}
 	}
 

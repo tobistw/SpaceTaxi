@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: d0b11b620774a4ceea85d34dec9ee488
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: hindernis_taxi
+    21300002: haus_1
+    21300004: haus_2
+    21300006: haus_3
+    21300008: lvl3_4
+    21300010: lvl3_5
+    21300012: lvl3_6
+    21300014: boden
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: hindernis_taxi
+      rect:
+        serializedVersion: 2
+        x: 4092
+        y: 4935
+        width: 540
+        height: 326
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: haus_1
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 1612
+        width: 1050
+        height: 2569
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: haus_2
+      rect:
+        serializedVersion: 2
+        x: 2465
+        y: 1850
+        width: 1851
+        height: 1910
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: haus_3
+      rect:
+        serializedVersion: 2
+        x: 4934
+        y: 1836
+        width: 1012
+        height: 2990
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lvl3_4
+      rect:
+        serializedVersion: 2
+        x: 6371
+        y: 3158
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lvl3_5
+      rect:
+        serializedVersion: 2
+        x: 4326
+        y: 1874
+        width: 30
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lvl3_6
+      rect:
+        serializedVersion: 2
+        x: 4358
+        y: 1875
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: boden
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 83
+        width: 6781
+        height: 1264
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

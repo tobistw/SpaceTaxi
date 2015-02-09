@@ -25,6 +25,8 @@ public class TaxiManager : MonoBehaviour {
 	 * */
 	public float fuel, damage;
 
+	private Canvas canvasGameOver;
+
 	public int achievement;
 	
 	public float speedBoost, maxSpeed, gravity;
@@ -34,8 +36,6 @@ public class TaxiManager : MonoBehaviour {
 	
 	private float stability;
 	private float fuelAmount;
-
-	private Vector2 currentTaxiPosition;
 
 	void Awake() {
 		
@@ -54,14 +54,16 @@ public class TaxiManager : MonoBehaviour {
 	void Start() {
 		stability = 1000.0F;
 		fuelAmount = 60.0F;
-		currentTaxiPosition = new Vector2 (236.2F, 88.0F);
+		canvasGameOver = GameObject.FindGameObjectWithTag ("gameOver") as Canvas;
 	}
 
 	void Update(){
-
 		if (fuel < 0 || damage < 0) {
 			Debug.Log ("GAME OVER");
-			Time.timeScale = 0.0F;
+			canvasGameOver.enabled = true;
+			Time.timeScale = 0.0F; 
+		} else {
+			canvasGameOver.enabled = false;
 		}
 
 	}
@@ -130,12 +132,4 @@ public class TaxiManager : MonoBehaviour {
 		}
 	}
 
-	public Vector2 CurrentTaxiPosition {
-		get {
-			return this.currentTaxiPosition;
-		}
-		set {
-			currentTaxiPosition = value;
-		}
-	} 
 }
