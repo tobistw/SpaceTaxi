@@ -46,14 +46,14 @@ public class LevelController : MonoBehaviour {
 		
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		GameObject gameObjectTaxi = GameObject.FindGameObjectWithTag ("taxiMinimap");
+		//GameObject gameObjectTaxi = GameObject.FindGameObjectWithTag ("taxiMinimap");
 		
-		if (gameControllerObject != null && gameObjectTaxi != null) {
+		if (gameControllerObject != null) {
 			
 			levelStats = gameControllerObject.GetComponent<LevelStats> ();
-			rTaxiMinimap = gameObjectTaxi.GetComponent<SpriteRenderer>();
+			//rTaxiMinimap = gameObjectTaxi.GetComponent<SpriteRenderer>();
 
-			rTaxiMinimap.enabled = false;
+			//rTaxiMinimap.enabled = false;
 		} else {
 			Debug.Log("Cant find Game Controller Object");
 		}

@@ -32,10 +32,17 @@ public class TaxiManager : MonoBehaviour {
 	public float speedBoost, maxSpeed, gravity;
 	
 	public int passengerCount = 5;
-	public int budget;
+	public int budget = 100;
+	public int nextLevelBudget = 150;
+	private bool isNewLevelReached;
 	
 	private float stability;
 	private float fuelAmount;
+
+	public float defaultStability = 1000.0F;
+	public float defaultFuel = 60.0F;
+
+	private Vector2 currentTaxiPosition;
 
 	void Awake() {
 		
@@ -52,22 +59,34 @@ public class TaxiManager : MonoBehaviour {
 	}
 
 	void Start() {
-		stability = 1000.0F;
-		fuelAmount = 60.0F;
-		canvasGameOver = GameObject.FindGameObjectWithTag ("gameOver") as Canvas;
+		stability = defaultStability;
+		fuelAmount = defaultFuel;
+		currentTaxiPosition = new Vector2 (236.2F, 88.0F);
+		isNewLevelReached = false;
 	}
 
 	void Update(){
 		if (fuel < 0 || damage < 0) {
 			Debug.Log ("GAME OVER");
-			canvasGameOver.enabled = true;
-			Time.timeScale = 0.0F; 
-		} else {
-			canvasGameOver.enabled = false;
-		}
+			StartCoroutine(setGameOver());
+		} 
 
+		if (budget >= nextLevelBudget) {
+			nextLevelBudget += nextLevelBudget;
+			// Aufruf für nächstes Level.
+			isNewLevelReached = true;
+		}
 	}
 
+	IEnumerator setGameOver() {
+		yield return new WaitForSeconds (1f);
+		fuel = 0.1F;
+		damage = 1;
+		GameObject gameObjectGameOver = GameObject.FindGameObjectWithTag ("gameOver");
+		canvasGameOver = gameObjectGameOver.GetComponent<Canvas> ();
+		canvasGameOver.enabled = true;
+		Time.timeScale = 0.0F; 
+	}
 
 	public float Fuel {
 		get {
@@ -132,4 +151,21 @@ public class TaxiManager : MonoBehaviour {
 		}
 	}
 
+	public Vector2 CurrentTaxiPosition {
+		get {
+			return this.currentTaxiPosition;
+		}
+		set {
+			currentTaxiPosition = value;
+		}
+	} 
+
+	public bool IsNewLevelReached {
+		get {
+			return this.isNewLevelReached;
+		}
+		set {
+			isNewLevelReached = value;
+		}
+	}
 }

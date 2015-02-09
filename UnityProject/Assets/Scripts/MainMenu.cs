@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour {
 	private LevelStats levelStats;
 	public Button fortsetzten;
 
+	private int startLevelIndex = 1;
+
 
 	void Start(){
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
@@ -39,13 +41,13 @@ public class MainMenu : MonoBehaviour {
 
 		levelStats.GameIsRunning = true;
 		Debug.Log("läuft ein Spiel?: " +  levelStats.GameIsRunning);
-		Application.LoadLevel (0);
+		Application.LoadLevel (startLevelIndex);
 
 
 	}
 
 	public void ClickFortsetzten(){
-		Application.LoadLevel (0);		
+		Application.LoadLevel (startLevelIndex);		
 	}
 
 

@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour {
 	// die Position müssen berücksichtigt werden, wenn das Taxi in die Map zurückkehrt.
 	private Vector2 currentPosition;
 
+	private int mapLevelIndex = 1;
 	
 	// hier müssen die Eigenschaften, abhängig vom Level geändert werden.
 	private float angularDrag;
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 
 		// Abfrage wo sich der Spieler befindet.
-		isPlayerInMap = (Application.loadedLevel == 0) ? true : false;
+		isPlayerInMap = (Application.loadedLevel == mapLevelIndex) ? true : false;
 
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
@@ -162,7 +163,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		} else {
 			// Zurück in die Map.
-			Application.LoadLevel(0);
+			Application.LoadLevel(mapLevelIndex);
 		}
 		
 		////	MAXIMALE GESCHWINDIGKEIT    ////

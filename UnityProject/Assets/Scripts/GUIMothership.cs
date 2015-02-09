@@ -17,6 +17,7 @@ public class GUIMothership : MonoBehaviour {
 	private float dmgPrice;
 	private bool pause;
 	private Text textDmg;
+	private int menuLevelIndex = 0;
 
 	private Rigidbody2D taxi;
 
@@ -34,7 +35,8 @@ public class GUIMothership : MonoBehaviour {
 			Debug.Log("Cant find Game Controller Object");
 		}
 
-		canvasMothership = GameObject.FindGameObjectWithTag ("mothership") as Canvas;
+		GameObject gameObjectMothership = GameObject.FindGameObjectWithTag ("mothership");
+		canvasMothership = (Canvas)gameObjectMothership.GetComponent<Canvas> ();
 
 
 		textDmg = GameObject.Find("playPause").GetComponent <Text> ();
@@ -114,7 +116,7 @@ public class GUIMothership : MonoBehaviour {
 
 
 		//HIER AUF 0 ÄNDERN!
-		Application.LoadLevel (Application.levelCount - 1);
+		Application.LoadLevel (menuLevelIndex);
 	}
 
 

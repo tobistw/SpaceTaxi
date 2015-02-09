@@ -15,11 +15,13 @@ public class GameController : MonoBehaviour {
 
 	public static int defaultNumberOfActiveOrbs = 2;
 
-	public static int nextLevelBudget = 100;
+	public static int nextLevelBudget = 150;
 
 	private bool isControlerAcitve;
 
 	private bool isPlayerInMap;
+
+	private bool isNewLevelReached;
 
 	private static ArrayList orbInactiveList;
 
@@ -57,8 +59,11 @@ public class GameController : MonoBehaviour {
 
 		int currentBudget = TaxiManager.instance.Budget;
 		// Wurde bereits das Budget für ein neues Level erreicht.
-		if (currentBudget > nextLevelBudget) {
+		if (TaxiManager.instance.IsNewLevelReached) {
 						// neue Level hinzufügen
+			numberOfActiveOrbs++;
+			OrbManager.instance.NumberOfActiveOrbs = numberOfActiveOrbs;
+			Debug.Log("Neues Level, ingesamt: " + numberOfActiveOrbs);
 			// Level Stats aktualisieren!!
 		} else {
 
@@ -83,14 +88,13 @@ public class GameController : MonoBehaviour {
 			// Das Level wird zugewiesen.
 			OrbManager.instance.setLevelIndex(gameObjectOrb.name, 
 			                                  gameObjectOrb.GetComponentInChildren<Atmosphere>().name,
-			                                  i + 1);
+			                                  i + 2);
 			orbActiveList.Add(gameObjectOrb);
 
 			// Aktive Planeten werden aus der Inaktiv Liste rausgeschmissen.
 			orbInactiveList.Remove(orbInactiveList[randomIndex]);
 
 			}
-
 	}
 
 
