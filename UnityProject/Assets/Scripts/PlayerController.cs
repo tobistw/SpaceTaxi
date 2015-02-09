@@ -191,4 +191,19 @@ public class PlayerController : MonoBehaviour {
 	private void fuelConsumption() {
 		TaxiManager.instance.Fuel = TaxiManager.instance.Fuel - 0.02F;
 	}
+
+	void OnCollisionEnter2D(Collision2D collision) {
+		//if (collision.collider.name == "taxi") {
+			if (collision.relativeVelocity.magnitude > 5) {
+				TaxiManager.instance.Damage = TaxiManager.instance.Damage - collision.relativeVelocity.magnitude;
+			}
+		//}
+		
+		//Debug.Log (PlayerPrefs.GetFloat ("Damage"));
+		//Debug.Log (collision.relativeVelocity.magnitude);
+		//if (collision.relativeVelocity.magnitude > 2)
+		//	audio.Play();
+		
+	}
+
 }
