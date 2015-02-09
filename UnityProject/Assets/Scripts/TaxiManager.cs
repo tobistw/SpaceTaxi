@@ -54,6 +54,15 @@ public class TaxiManager : MonoBehaviour {
 		fuelAmount = 60.0F;
 	}
 
+	void Update(){
+
+		if (fuel < 0 || damage < 0) {
+			Debug.Log ("GAME OVER");
+			Time.timeScale = 0.0F;
+		}
+
+	}
+
 
 	public float Fuel {
 		get {

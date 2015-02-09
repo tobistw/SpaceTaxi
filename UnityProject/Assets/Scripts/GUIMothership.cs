@@ -14,10 +14,12 @@ public class GUIMothership : MonoBehaviour {
 	private float dmgDifference;
 	private float fuelPrice;
 	private float dmgPrice;
+	private bool pause;
+	private Text textDmg;
 
 	// Use this for initialization
 	void Start () {
-
+		pause = false;
 		fuelPrice = 1.2F;
 		dmgPrice = 0.1F;
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
@@ -29,6 +31,8 @@ public class GUIMothership : MonoBehaviour {
 			Debug.Log("Cant find Game Controller Object");
 		}
 		canvas = GetComponent<Canvas>();
+
+		textDmg = GameObject.Find("playPause").GetComponent <Text> ();
 	}
 	
 	// Update is called once per frame
@@ -67,6 +71,25 @@ public class GUIMothership : MonoBehaviour {
 			TaxiManager.instance.Damage = currentDmg + moeglicheDMGpoints;
 		}
 	}
+
+	public void ClickPause(){
+		if(!pause){
+			Time.timeScale = 0.0F;
+			textDmg.text =  "Play";
+			pause = true;
+		} else {
+			Time.timeScale = 1.0F;
+			textDmg.text =  "Pause";
+			pause = false;
+		}
+	}
+
+	public void ClickMenu(){
+		Application.LoadLevel (Application.levelCount - 1);
+	}
+
+
+
 
 
 }

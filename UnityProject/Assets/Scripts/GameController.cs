@@ -151,7 +151,7 @@ public class GameController : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision) {
 		
-		Debug.Log ("dmg: " + collision.relativeVelocity.magnitude);
+		//Debug.Log ("dmg: " + collision.relativeVelocity.magnitude);
 		//if (collision.relativeVelocity.magnitude > 2)
 		//	audio.Play();
 		
