@@ -30,6 +30,8 @@ public class LevelController : MonoBehaviour {
 	// Die Taxiwerte für das Level.
 	public float speedBoost, maxSpeed, gravity;
 
+	private SpriteRenderer rTaxiMinimap;
+
 	// Use this for initialization
 	void Start () {
 
@@ -44,10 +46,14 @@ public class LevelController : MonoBehaviour {
 		
 		// Initalisierung der Levelstats
 		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+		GameObject gameObjectTaxi = GameObject.FindGameObjectWithTag ("taxiMinimap");
 		
-		if (gameControllerObject != null) {
+		if (gameControllerObject != null && gameObjectTaxi != null) {
 			
 			levelStats = gameControllerObject.GetComponent<LevelStats> ();
+			rTaxiMinimap = gameObjectTaxi.GetComponent<SpriteRenderer>();
+
+			rTaxiMinimap.enabled = false;
 		} else {
 			Debug.Log("Cant find Game Controller Object");
 		}

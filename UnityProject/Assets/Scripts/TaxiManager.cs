@@ -35,6 +35,8 @@ public class TaxiManager : MonoBehaviour {
 	private float stability;
 	private float fuelAmount;
 
+	private Vector2 currentTaxiPosition;
+
 	void Awake() {
 		
 		if (_instance == null) {
@@ -127,4 +129,12 @@ public class TaxiManager : MonoBehaviour {
 		}
 	}
 
+	public Vector2 CurrentTaxiPosition {
+		get {
+			return this.currentTaxiPosition;
+		}
+		set {
+			currentTaxiPosition = value;
+		}
+	} 
 }

@@ -4,7 +4,7 @@ using System.Collections;
 public class Mothership : MonoBehaviour {
 
 
-
+//	private bool isPlayerLanded;
 
 	private LevelStats levelStats;
 
@@ -26,18 +26,27 @@ public class Mothership : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.name == "taxi") {
+		if (other.gameObject.tag == "Player") {
 			levelStats.IsMothershipActive = true;
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		if (other.name == "taxi") {
+		if (other.gameObject.tag == "Player") {
 			levelStats.IsMothershipActive = false;
 		}
 	}
 
-	
-	
-	
+//	void OnCollisionEnter2D(Collision2D coll) {
+//		if (coll.gameObject.tag == "Player") {
+//			isPlayerLanded = true;
+//		}
+//	}
+
+//	void OnCollisionExit2D(Collision2D coll) {
+//		if (coll.gameObject.tag == "Player") {
+//			levelStats.IsMothershipActive = false;
+//			isPlayerLanded = false;
+//		}
+//	}
 }
