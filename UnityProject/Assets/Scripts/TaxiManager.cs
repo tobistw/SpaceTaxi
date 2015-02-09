@@ -54,6 +54,7 @@ public class TaxiManager : MonoBehaviour {
 	void Start() {
 		stability = 1000.0F;
 		fuelAmount = 60.0F;
+		currentTaxiPosition = new Vector2 (236.2F, 88.0F);
 	}
 
 	void Update(){

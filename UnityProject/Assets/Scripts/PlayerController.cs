@@ -178,11 +178,12 @@ public class PlayerController : MonoBehaviour {
 	void setPlayerPosition() {
 
 		currentPosition = TaxiManager.instance.CurrentTaxiPosition;
-		if (currentPosition.x == 0 && currentPosition.y == 0) {
-			rigidbody2D.position = new Vector2 (236.2F, 88.0F);		
-		} else {
-			rigidbody2D.position = currentPosition;
-		}
+		rigidbody2D.position = currentPosition;
+//		if (currentPosition.x == 0 && currentPosition.y == 0) {
+//			rigidbody2D.position = new Vector2 (236.2F, 88.0F);		
+//		} else {
+//			rigidbody2D.position = currentPosition;
+//		}
 	}
 
 	/**
