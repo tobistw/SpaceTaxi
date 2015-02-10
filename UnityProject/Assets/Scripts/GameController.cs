@@ -38,6 +38,13 @@ public class GameController : MonoBehaviour {
 	
 
 	void Start() {
+
+		if (TaxiManager.instance.hasNewGameStarted()) {
+			Debug.Log("new Game started");
+			resetGameController();
+			TaxiManager.instance.toggleNewGameStarted();
+		}
+
 		orbInactiveList = new ArrayList ();
 		orbActiveList = new ArrayList();
 		gravity = 0;
@@ -66,10 +73,7 @@ public class GameController : MonoBehaviour {
 			Debug.Log("Neues Level, ingesamt: " + OrbManager.instance.NumberOfActiveOrbs);
 			// Level Stats aktualisieren!!
 			setNextActiveOrb();
-		} else {
-
-
-		}
+		} 
 	}
 
 	/**
@@ -158,15 +162,11 @@ public class GameController : MonoBehaviour {
 	}
 
 
-	void OnCollisionEnter(Collision collision) {
-
-		//Debug.Log ("dmg: " + collision.relativeVelocity.magnitude);
-		//if (collision.relativeVelocity.magnitude > 2)
-		//	audio.Play();
-		
+	public void resetGameController() {
+		orbActiveList.Clear ();
+		orbInactiveList.Clear ();
+		isGameRunning = false;
 	}
-
-
 
 
 }

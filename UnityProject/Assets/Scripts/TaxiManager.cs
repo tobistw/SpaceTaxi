@@ -40,8 +40,9 @@ public class TaxiManager : MonoBehaviour {
 	public bool isGameOver;
 
 	public int passengerCount = 5;
-	public int budget = 100;
+	public int budget;
 	private bool isNewLevelReached;
+	private bool newGameStarted;
 	
 	private float stability;
 	private float fuelAmount;
@@ -51,6 +52,7 @@ public class TaxiManager : MonoBehaviour {
 
 	public float defaultStability = 1000.0F;
 	public float defaultFuel = 60.0F;
+	public int defaultAchievement = 150;
 
 	private Vector2 currentTaxiPosition;
 
@@ -126,7 +128,7 @@ public class TaxiManager : MonoBehaviour {
 
 
 
-		if (fuel < 0 || damage < 0) {
+		if (fuel < 0 || damage < 0 && levelStats.GameIsRunning) {
 			Debug.Log ("GAME OVER");
 			//StartCoroutine(setGameOver());
 			GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
@@ -174,6 +176,21 @@ public class TaxiManager : MonoBehaviour {
 		canvasGameOver = gameObjectGameOver.GetComponent<Canvas> ();
 		canvasGameOver.enabled = true;
 		Time.timeScale = 0.0F; 
+	}
+
+	public bool hasNewGameStarted() {
+		return newGameStarted;
+	}
+
+	public void toggleNewGameStarted() {
+		newGameStarted = !newGameStarted;
+	}
+
+	public void resetTaxiManager() {
+		fuel = defaultFuel;
+		damage = defaultStability;
+		achievement = defaultAchievement;
+		budget = 0;
 	}
 
 	public float Fuel {

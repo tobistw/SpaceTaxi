@@ -11,10 +11,10 @@ public class MainMenu : MonoBehaviour {
 	public Button fortsetzten;
 
 	private int startLevelIndex = 1;
-
+	private GameObject gameControllerObject;
 
 	void Start(){
-		GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+		gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
 		if (gameControllerObject != null) {
 			
 			levelStats = gameControllerObject.GetComponent<LevelStats> ();
@@ -34,24 +34,19 @@ public class MainMenu : MonoBehaviour {
 		} else {
 			fortsetzten.interactable = false;
 		}
-		Debug.Log("fortetzten darf angezeigt werden: " + levelStats.GameIsRunning);
 	}
 
 	public void ClickNewGame(){
 		//Playerprefs bis auf highscore zurücksetzten 
-
-		levelStats.GameIsRunning = true;
-		Debug.Log("läuft ein Spiel?: " +  levelStats.GameIsRunning);
-
-		/*if (TaxiManager.instance.gameObject != null || OrbManager.instance.gameObject != null || PassengerManager.instance.gameObject != null) {
-			Destroy (TaxiManager.instance.gameObject);
-			Destroy (OrbManager.instance.gameObject);
-			Destroy (PassengerManager.instance.gameObject);
-		}*/
+		TaxiManager.instance.resetTaxiManager ();
+		PassengerManager.instance.clearGuestList ();
+		OrbManager.instance.resetOrbManager ();
+		TaxiManager.instance.toggleNewGameStarted ();
 
 		Application.LoadLevel (startLevelIndex);
 
-
+		levelStats.GameIsRunning = true;
+		Debug.Log("läuft ein Spiel?: " +  levelStats.GameIsRunning);
 	}
 
 	public void ClickFortsetzten(){

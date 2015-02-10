@@ -133,6 +133,12 @@ public class OrbManager : MonoBehaviour
 		}
 		return passengers;
 	}
+
+	public void resetOrbManager() {
+		levelIndexPassengerTable.Clear ();
+		levelList.Clear();
+		activeOrbs.Clear ();
+	}
 	
 }
 

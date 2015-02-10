@@ -58,14 +58,13 @@ public class GUIGameOver : MonoBehaviour {
 
 	public void ClickNewGame(){
 		//Playerprefs bis auf highscore zurücksetzten 
-		
-		levelStats.GameIsRunning = true;
-		/*Application.Quit ();
-		Destroy (TaxiManager.instance.gameObject);
-		Destroy (OrbManager.instance.gameObject);
-		Destroy (PassengerManager.instance.gameObject);*/
-		Application.LoadLevel (startLevelIndex);
 
+		TaxiManager.instance.resetTaxiManager ();
+		PassengerManager.instance.clearGuestList ();
+		OrbManager.instance.resetOrbManager ();
+		TaxiManager.instance.toggleNewGameStarted ();
+		Application.LoadLevel (startLevelIndex);
+		levelStats.GameIsRunning = true;
 
 	} 
 }

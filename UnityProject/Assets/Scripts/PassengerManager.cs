@@ -116,6 +116,10 @@ public class PassengerManager : MonoBehaviour {
 		return isStartLevel;
 	}
 
+	public void clearGuestList() {
+		taxiGuests.Clear ();
+	}
+
 	private class Guest {
 
 		string name;
