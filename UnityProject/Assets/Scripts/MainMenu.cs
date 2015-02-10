@@ -37,11 +37,13 @@ public class MainMenu : MonoBehaviour {
 	}
 
 	public void ClickNewGame(){
-		//Playerprefs bis auf highscore zurücksetzten 
-		TaxiManager.instance.resetTaxiManager ();
-		PassengerManager.instance.clearGuestList ();
-		OrbManager.instance.resetOrbManager ();
-		TaxiManager.instance.toggleNewGameStarted ();
+		//Playerprefs bis auf highscore zurücksetzten
+		if (Application.loadedLevel == 0 && levelStats.GameIsRunning) {
+			TaxiManager.instance.resetTaxiManager ();
+			PassengerManager.instance.clearGuestList ();
+			OrbManager.instance.resetOrbManager ();
+			TaxiManager.instance.toggleNewGameStarted ();
+		}
 
 		Application.LoadLevel (startLevelIndex);
 

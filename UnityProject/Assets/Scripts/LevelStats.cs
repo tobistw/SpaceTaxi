@@ -55,7 +55,7 @@ public class LevelStats : MonoBehaviour {
 	void OnApplicationQuit() {
 		// Falls das Spiel beendet wird, müssen (vorerst) alle PlayerPrefs gelöscht werden, sonst
 		// werden weitere Planeten aktiviert.
-		//PlayerPrefs.DeleteAll ();
+		PlayerPrefs.DeleteAll ();
 	}
 
 

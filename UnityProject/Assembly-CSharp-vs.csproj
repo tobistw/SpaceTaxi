@@ -69,6 +69,8 @@
      <Compile Include="Assets\Scripts\TaxiStop.cs" />
      <Compile Include="Assets\Scripts\Umweltschrott.cs" />
      <Compile Include="Assets\Scripts\UmweltschrottSpawn.cs" />
+     <Compile Include="Assets\Scripts\Wasser.cs" />
+     <Compile Include="Assets\Scripts\Welle.cs" />
      <Compile Include="Assets\Scripts\camera.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
