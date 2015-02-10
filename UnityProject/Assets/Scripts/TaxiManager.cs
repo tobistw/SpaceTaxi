@@ -127,7 +127,7 @@ public class TaxiManager : MonoBehaviour {
 
 
 		if (fuel < 0 || damage < 0) {
-			Debug.Log ("GAME OVER");
+			//Debug.Log ("GAME OVER");
 			//StartCoroutine(setGameOver());
 			GameObject gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
 			if (gameControllerObject != null) {				

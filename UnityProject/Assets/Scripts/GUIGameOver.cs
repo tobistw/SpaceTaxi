@@ -11,6 +11,7 @@ public class GUIGameOver : MonoBehaviour {
 	private Text gameOverTextShadow;
 	private int menuLevelIndex = 0;
 	private int startLevelIndex = 1;
+	private Canvas canvasGameOver;
 
 
 	// Use this for initialization
@@ -57,15 +58,11 @@ public class GUIGameOver : MonoBehaviour {
 	}
 
 	public void ClickNewGame(){
-		//Playerprefs bis auf highscore zurücksetzten 
-		
+		GameObject gameObjectGameOver = GameObject.FindGameObjectWithTag ("gameOver");
+		canvasGameOver = gameObjectGameOver.GetComponent<Canvas> ();
+		canvasGameOver.enabled = false;
+
 		levelStats.GameIsRunning = true;
-		/*Application.Quit ();
-		Destroy (TaxiManager.instance.gameObject);
-		Destroy (OrbManager.instance.gameObject);
-		Destroy (PassengerManager.instance.gameObject);*/
 		Application.LoadLevel (startLevelIndex);
-
-
 	} 
 }
